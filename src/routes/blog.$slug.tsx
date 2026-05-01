@@ -10,7 +10,6 @@ import {
   AlertTriangle,
   Lightbulb,
   ExternalLink,
-  Quote,
   CheckCircle2,
   XCircle,
   ShieldCheck,

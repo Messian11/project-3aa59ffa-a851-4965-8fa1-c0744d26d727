@@ -17,6 +17,7 @@ import { Route as SummaSlugRouteImport } from './routes/summa.$slug'
 import { Route as SituationsSlugRouteImport } from './routes/situations.$slug'
 import { Route as MfoSlugRouteImport } from './routes/mfo.$slug'
 import { Route as GorodaSlugRouteImport } from './routes/goroda.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
@@ -58,11 +59,17 @@ const GorodaSlugRoute = GorodaSlugRouteImport.update({
   path: '/goroda/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/goroda/$slug': typeof GorodaSlugRoute
   '/mfo/$slug': typeof MfoSlugRoute
   '/situations/$slug': typeof SituationsSlugRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/goroda/$slug': typeof GorodaSlugRoute
   '/mfo/$slug': typeof MfoSlugRoute
   '/situations/$slug': typeof SituationsSlugRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/goroda/$slug': typeof GorodaSlugRoute
   '/mfo/$slug': typeof MfoSlugRoute
   '/situations/$slug': typeof SituationsSlugRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/header'
     | '/styleguide'
+    | '/blog/$slug'
     | '/goroda/$slug'
     | '/mfo/$slug'
     | '/situations/$slug'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/header'
     | '/styleguide'
+    | '/blog/$slug'
     | '/goroda/$slug'
     | '/mfo/$slug'
     | '/situations/$slug'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/header'
     | '/styleguide'
+    | '/blog/$slug'
     | '/goroda/$slug'
     | '/mfo/$slug'
     | '/situations/$slug'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HeaderRoute: typeof HeaderRoute
   StyleguideRoute: typeof StyleguideRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   GorodaSlugRoute: typeof GorodaSlugRoute
   MfoSlugRoute: typeof MfoSlugRoute
   SituationsSlugRoute: typeof SituationsSlugRoute
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GorodaSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HeaderRoute: HeaderRoute,
   StyleguideRoute: StyleguideRoute,
+  BlogSlugRoute: BlogSlugRoute,
   GorodaSlugRoute: GorodaSlugRoute,
   MfoSlugRoute: MfoSlugRoute,
   SituationsSlugRoute: SituationsSlugRoute,
