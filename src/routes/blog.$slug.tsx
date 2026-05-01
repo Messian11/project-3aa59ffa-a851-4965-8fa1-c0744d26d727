@@ -385,7 +385,6 @@ function ExtLink({ href, children }: { href: string; children: React.ReactNode }
 function Quote({ author, children }: { author: string; children: React.ReactNode }) {
   return (
     <blockquote className="my-8 rounded-2xl border-l-4 border-brand-green bg-brand-green/5 p-6">
-      <Quote className="hidden" />
       <p className="m-0 text-lg leading-[1.6] text-brand-ink md:text-xl">{children}</p>
       <footer className="mt-3 text-sm font-bold text-brand-muted">— {author}</footer>
     </blockquote>
