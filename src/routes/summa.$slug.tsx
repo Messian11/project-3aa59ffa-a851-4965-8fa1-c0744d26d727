@@ -477,16 +477,18 @@ function HowToSection() {
 }
 
 function FullCatalogSection() {
+  const amount = useAmount();
+  const fmt = FORMAT(amount);
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-              Все МФО для займа 5 000 ₽
+              Все МФО для займа {fmt}
             </h2>
             <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
-              Полный каталог из 23 организаций — отфильтровано по сумме.
+              Полный каталог организаций — отфильтровано по сумме.
             </p>
           </div>
           <Link to="/mfo" className="hidden text-sm font-bold text-brand-blue hover:underline md:inline">
