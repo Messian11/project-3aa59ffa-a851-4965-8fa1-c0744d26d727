@@ -359,7 +359,7 @@ function CalculatorSection() {
             Калькулятор займа
           </h2>
           <p className="mt-3 text-base text-brand-muted md:text-lg">
-            Сумма уже выставлена на 5 000 ₽ — можете изменить и посмотреть переплату.
+            Сумма уже выставлена на {FORMAT(ctxAmount)} — можете изменить и посмотреть переплату.
           </p>
         </div>
 
