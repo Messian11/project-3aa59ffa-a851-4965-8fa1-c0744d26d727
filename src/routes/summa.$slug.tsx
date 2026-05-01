@@ -259,18 +259,34 @@ function Stars({ rating }: { rating: number }) {
 }
 
 function TopMfoSection() {
+  const amount = useAmount();
+  const fmt = FORMAT(amount);
+  const { def: defTerm } = termRange(amount);
+
+  // Pre-compute overpay for each top MFO based on amount
+  const enriched = topMfos.map((m) => {
+    let rate = 0.0099;
+    let term = defTerm;
+    let zero = false;
+    if (m.slug === "zaymer" || m.slug === "webbankir") { rate = 0; zero = true; }
+    if (m.slug === "lime-zaim") rate = 0.01;
+    if (m.slug === "turbozaym") { rate = 0.0099; term = Math.min(14, defTerm); }
+    const overpay = zero ? 0 : Math.round(amount * rate * term);
+    return { ...m, _overpay: overpay, _total: amount + overpay, _term: term };
+  });
+
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          ТОП-5 МФО которые выдают 5 000 ₽
+          ТОП-5 МФО которые выдают {fmt}
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Отобраны по рейтингу, проценту одобрения и реальным отзывам клиентов.
         </p>
 
         <div className="mt-10 space-y-4">
-          {topMfos.map((m, i) => (
+          {enriched.map((m, i) => (
             <article
               key={m.slug}
               className="grid gap-5 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:shadow-hover md:grid-cols-[64px_72px_1fr_auto] md:items-center md:p-6"
@@ -285,7 +301,9 @@ function TopMfoSection() {
 
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl font-extrabold text-brand-ink">{m.name}</h3>
+                  <h3 className="text-xl font-extrabold text-brand-ink">
+                    <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
+                  </h3>
                   <span className="inline-flex items-center rounded-pill bg-brand-amber/15 px-2.5 py-1 text-[11px] font-bold text-[#9a6300] ring-1 ring-inset ring-brand-amber/30">
                     {m.badge}
                   </span>
@@ -295,16 +313,27 @@ function TopMfoSection() {
                     <span className="text-xs text-brand-muted">({m.reviews})</span>
                   </div>
                 </div>
-                <p className="mt-2 text-sm font-semibold text-brand-ink">{m.line}</p>
+                <p className="mt-2 text-sm font-semibold text-brand-ink">
+                  Выдаёт {fmt} на {m._term} дней{m._overpay === 0 ? " под 0% (первый займ)" : ""}
+                </p>
                 <p className="mt-1 text-sm text-brand-muted">
-                  Переплата: <b className={m.overpay === 0 ? "text-brand-green" : "text-brand-ink"}>{FORMAT(m.overpay)}</b>
-                  {" • "}К возврату: <b className="text-brand-ink">{FORMAT(m.total)}</b>
+                  Переплата: <b className={m._overpay === 0 ? "text-brand-green" : "text-brand-ink"}>{FORMAT(m._overpay)}</b>
+                  {" • "}К возврату: <b className="text-brand-ink">{FORMAT(m._total)}</b>
                 </p>
               </div>
 
-              <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить 5 000 ₽ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
+              <div className="flex flex-col gap-2 md:items-end">
+                <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                  Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </button>
+                <Link
+                  to="/mfo/$slug"
+                  params={{ slug: m.slug }}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор
+                </Link>
+              </div>
             </article>
           ))}
         </div>
@@ -314,8 +343,10 @@ function TopMfoSection() {
 }
 
 function CalculatorSection() {
-  const [amount, setAmount] = useState(AMOUNT);
-  const [term, setTerm] = useState(14);
+  const ctxAmount = useAmount();
+  const tr = termRange(ctxAmount);
+  const [amount, setAmount] = useState(ctxAmount);
+  const [term, setTerm] = useState(tr.def);
   const ratePerDay = 0.0099;
   const overpay = Math.round(amount * ratePerDay * term);
   const total = amount + overpay;
