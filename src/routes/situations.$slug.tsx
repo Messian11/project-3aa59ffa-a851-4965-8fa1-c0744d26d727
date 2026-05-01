@@ -24,22 +24,205 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/situations/$slug")({
-  head: () => ({
-    meta: [
-      { title: "Займы без отказа онлайн — 24 МФО которые точно одобрят 2026 | Zaymi Online" },
-      {
-        name: "description",
-        content:
-          "24 МФО с одобрением 90%+. Займы без отказа онлайн на карту даже с плохой кредитной историей. Решение за 5 минут, без справок и поручителей.",
-      },
-      { property: "og:title", content: "Займы без отказа — 24 МФО, которые точно одобрят" },
-      {
-        property: "og:description",
-        content: "Подборка МФО с самым высоким процентом одобрений. Деньги получат даже клиенты с плохой КИ.",
-      },
+type SituationKey =
+  | "bez-otkaza"
+  | "s-plohoy-ki"
+  | "pensioneram"
+  | "studentam"
+  | "bezrabotnym"
+  | "bez-spravok"
+  | "srochno";
+
+interface SituationConfig {
+  crumb: string;
+  eyebrow: string;
+  h1: React.ReactNode;
+  subtitle: string;
+  trust: { icon: typeof Ban; label: string; tone: "red" | "green" | "amber" | "blue" }[];
+  whyTitle: string;
+  catalogTitle: string;
+  catalogSubtitle: string;
+  refusalTitle: string;
+  seoH2: string;
+  faqTitle: string;
+  meta: { title: string; description: string };
+}
+
+const SITUATIONS: Record<string, SituationConfig> = {
+  "bez-otkaza": {
+    crumb: "Займы без отказа",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы онлайн <span className="text-[#dc2626]">без отказа</span></>,
+    subtitle: "24 МФО с самым высоким процентом одобрений. Деньги получат даже клиенты с плохой кредитной историей.",
+    trust: [
+      { icon: Ban, label: "95% одобрений", tone: "red" },
+      { icon: CheckCircle2, label: "С плохой КИ", tone: "green" },
+      { icon: Zap, label: "Решение 5 мин", tone: "amber" },
+      { icon: FileX, label: "Без справок", tone: "blue" },
     ],
-  }),
+    whyTitle: "Почему именно эти МФО одобряют без отказа?",
+    catalogTitle: "МФО с самым высоким одобрением",
+    catalogSubtitle: "Только компании с показателем одобрения 90%+ за 2025 год.",
+    refusalTitle: "Что делать, если всё-таки отказали?",
+    seoH2: "Займы без отказа — что важно знать",
+    faqTitle: "Частые вопросы про займы без отказа",
+    meta: {
+      title: "Займы без отказа онлайн — 24 МФО которые точно одобрят 2026 | Zaymi Online",
+      description: "24 МФО с одобрением 90%+. Займы без отказа онлайн на карту даже с плохой кредитной историей. Решение за 5 минут.",
+    },
+  },
+  "s-plohoy-ki": {
+    crumb: "Займы с плохой КИ",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы <span className="text-[#dc2626]">с плохой кредитной историей</span></>,
+    subtitle: "21 МФО, которые работают с заёмщиками с просрочками, отказами банков и испорченной КИ. Скоринг по текущей платёжеспособности, а не по прошлому.",
+    trust: [
+      { icon: ShieldCheck, label: "Без проверки БКИ", tone: "blue" },
+      { icon: CheckCircle2, label: "92% одобрений", tone: "green" },
+      { icon: Zap, label: "Решение 3 мин", tone: "amber" },
+      { icon: FileX, label: "Любая КИ", tone: "red" },
+    ],
+    whyTitle: "Почему эти МФО выдают займ с плохой КИ?",
+    catalogTitle: "МФО, лояльные к плохой кредитной истории",
+    catalogSubtitle: "Компании, которые не делают жёсткий запрос в БКИ при первом обращении.",
+    refusalTitle: "Что делать, если КИ совсем плохая?",
+    seoH2: "Займы с плохой КИ — как и где получить",
+    faqTitle: "Частые вопросы про займы с плохой кредитной историей",
+    meta: {
+      title: "Займы с плохой кредитной историей — 21 МФО без проверки БКИ 2026 | Zaymi Online",
+      description: "Займы онлайн с плохой КИ — 21 МФО, выдают даже после отказа банков. Без проверки БКИ, решение за 3 минуты, на карту любого банка.",
+    },
+  },
+  "pensioneram": {
+    crumb: "Займы пенсионерам",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы онлайн <span className="text-brand-blue">пенсионерам</span></>,
+    subtitle: "18 МФО, которые охотно работают с пенсионерами до 75 лет. Пенсия принимается как основной источник дохода — справки 2-НДФЛ не нужны.",
+    trust: [
+      { icon: ShieldCheck, label: "Возраст до 75", tone: "blue" },
+      { icon: CheckCircle2, label: "Пенсия = доход", tone: "green" },
+      { icon: Zap, label: "Решение 5 мин", tone: "amber" },
+      { icon: FileX, label: "Без 2-НДФЛ", tone: "red" },
+    ],
+    whyTitle: "Почему эти МФО выдают займ пенсионерам?",
+    catalogTitle: "МФО для пенсионеров",
+    catalogSubtitle: "Компании, для которых пенсия — полноценное подтверждение дохода.",
+    refusalTitle: "Что делать, если отказали пенсионеру",
+    seoH2: "Займы пенсионерам — особенности и условия",
+    faqTitle: "Частые вопросы пенсионеров о займах",
+    meta: {
+      title: "Займы пенсионерам онлайн на карту — 18 МФО до 75 лет 2026 | Zaymi Online",
+      description: "Займы пенсионерам до 75 лет на карту любого банка. 18 МФО принимают пенсию как доход. Без справок и поручителей, решение за 5 минут.",
+    },
+  },
+  "studentam": {
+    crumb: "Займы студентам",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы онлайн <span className="text-brand-green">студентам</span></>,
+    subtitle: "15 МФО, которые выдают займы студентам от 18 лет. Без официальной работы, по паспорту и студенческому билету.",
+    trust: [
+      { icon: ShieldCheck, label: "От 18 лет", tone: "blue" },
+      { icon: CheckCircle2, label: "Без работы", tone: "green" },
+      { icon: Zap, label: "Решение 5 мин", tone: "amber" },
+      { icon: FileX, label: "Только паспорт", tone: "red" },
+    ],
+    whyTitle: "Почему эти МФО выдают займ студентам?",
+    catalogTitle: "МФО для студентов",
+    catalogSubtitle: "Лояльные компании, готовые работать с молодыми заёмщиками без КИ.",
+    refusalTitle: "Что делать, если студенту отказали",
+    seoH2: "Займы студентам — что важно знать",
+    faqTitle: "Частые вопросы студентов о займах",
+    meta: {
+      title: "Займы студентам от 18 лет онлайн на карту — 15 МФО 2026 | Zaymi Online",
+      description: "Займы студентам без работы и КИ — 15 МФО, выдают по паспорту от 18 лет. На карту за 5 минут, стипендия принимается как доход.",
+    },
+  },
+  "bezrabotnym": {
+    crumb: "Займы безработным",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы онлайн <span className="text-[#dc2626]">безработным</span></>,
+    subtitle: "16 МФО, которые выдают займы без официального трудоустройства. Принимают любой источник дохода — фриланс, подработку, пособие.",
+    trust: [
+      { icon: ShieldCheck, label: "Без работы", tone: "blue" },
+      { icon: CheckCircle2, label: "90% одобрений", tone: "green" },
+      { icon: Zap, label: "Решение 5 мин", tone: "amber" },
+      { icon: FileX, label: "Без справок", tone: "red" },
+    ],
+    whyTitle: "Почему эти МФО выдают займ безработным?",
+    catalogTitle: "МФО для безработных",
+    catalogSubtitle: "Не требуют справку с работы и трудовую книжку.",
+    refusalTitle: "Что делать безработному при отказе",
+    seoH2: "Займы безработным — где взять и как получить",
+    faqTitle: "Частые вопросы безработных о займах",
+    meta: {
+      title: "Займы безработным онлайн — 16 МФО без справки с работы 2026 | Zaymi Online",
+      description: "Займы безработным на карту без справки с работы. 16 МФО, принимают любой доход. Решение за 5 минут, до 30 000 ₽.",
+    },
+  },
+  "bez-spravok": {
+    crumb: "Займы без справок",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы онлайн <span className="text-brand-blue">без справок</span></>,
+    subtitle: "26 МФО, которые выдают займы только по паспорту. Без 2-НДФЛ, копий трудовой и поручителей — полностью онлайн.",
+    trust: [
+      { icon: FileX, label: "Только паспорт", tone: "blue" },
+      { icon: CheckCircle2, label: "94% одобрений", tone: "green" },
+      { icon: Zap, label: "Решение 5 мин", tone: "amber" },
+      { icon: ShieldCheck, label: "Лицензия ЦБ РФ", tone: "red" },
+    ],
+    whyTitle: "Почему эти МФО не требуют справки?",
+    catalogTitle: "МФО, выдающие займы без справок",
+    catalogSubtitle: "Полная онлайн-проверка, никаких бумажных документов.",
+    refusalTitle: "Что делать, если отказали без справок",
+    seoH2: "Займы без справок — как это работает",
+    faqTitle: "Частые вопросы про займы без справок",
+    meta: {
+      title: "Займы без справок онлайн — 26 МФО только по паспорту 2026 | Zaymi Online",
+      description: "Займы без справок и поручителей — 26 МФО выдают только по паспорту. Без 2-НДФЛ и трудовой. Решение за 5 минут, на карту любого банка.",
+    },
+  },
+  "srochno": {
+    crumb: "Срочные займы",
+    eyebrow: "Подборка МФО",
+    h1: <>Займы онлайн <span className="text-[#b45309]">срочно за 5 минут</span></>,
+    subtitle: "19 МФО с самым быстрым решением и моментальным зачислением на карту 24/7. От заявки до денег — 5–10 минут.",
+    trust: [
+      { icon: Zap, label: "5 минут на всё", tone: "amber" },
+      { icon: CheckCircle2, label: "93% одобрений", tone: "green" },
+      { icon: ShieldCheck, label: "Карта 24/7", tone: "blue" },
+      { icon: FileX, label: "Без справок", tone: "red" },
+    ],
+    whyTitle: "Почему эти МФО выдают деньги срочно?",
+    catalogTitle: "МФО с моментальным решением",
+    catalogSubtitle: "Автоматический скоринг и зачисление в любое время суток.",
+    refusalTitle: "Что делать, если деньги нужны срочно, а отказали?",
+    seoH2: "Срочные займы — как получить деньги за 5 минут",
+    faqTitle: "Частые вопросы про срочные займы",
+    meta: {
+      title: "Срочные займы онлайн за 5 минут — 19 МФО на карту 24/7 2026 | Zaymi Online",
+      description: "Срочный займ онлайн за 5 минут — 19 МФО с моментальным зачислением на карту любого банка 24/7. Без справок, решение мгновенно.",
+    },
+  },
+};
+
+const DEFAULT_SITUATION = SITUATIONS["bez-otkaza"];
+
+function getSituation(slug: string): SituationConfig {
+  return SITUATIONS[slug] ?? DEFAULT_SITUATION;
+}
+
+export const Route = createFileRoute("/situations/$slug")({
+  head: ({ params }) => {
+    const cfg = getSituation(params.slug);
+    return {
+      meta: [
+        { title: cfg.meta.title },
+        { name: "description", content: cfg.meta.description },
+        { property: "og:title", content: cfg.meta.title },
+        { property: "og:description", content: cfg.meta.description },
+      ],
+    };
+  },
   component: SituationPage,
 });
 
