@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
 import { Route as HeaderRouteImport } from './routes/header'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MfoSlugRouteImport } from './routes/mfo.$slug'
 
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
@@ -28,35 +29,44 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MfoSlugRoute = MfoSlugRouteImport.update({
+  id: '/mfo/$slug',
+  path: '/mfo/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
+  '/mfo/$slug': typeof MfoSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
+  '/mfo/$slug': typeof MfoSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
+  '/mfo/$slug': typeof MfoSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/header' | '/styleguide'
+  fullPaths: '/' | '/header' | '/styleguide' | '/mfo/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/header' | '/styleguide'
-  id: '__root__' | '/' | '/header' | '/styleguide'
+  to: '/' | '/header' | '/styleguide' | '/mfo/$slug'
+  id: '__root__' | '/' | '/header' | '/styleguide' | '/mfo/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HeaderRoute: typeof HeaderRoute
   StyleguideRoute: typeof StyleguideRoute
+  MfoSlugRoute: typeof MfoSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mfo/$slug': {
+      id: '/mfo/$slug'
+      path: '/mfo/$slug'
+      fullPath: '/mfo/$slug'
+      preLoaderRoute: typeof MfoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HeaderRoute: HeaderRoute,
   StyleguideRoute: StyleguideRoute,
+  MfoSlugRoute: MfoSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
