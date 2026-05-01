@@ -10,7 +10,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ZAYMI_VERSION', '1.0.0');
+define('ZAYMI_VERSION', '1.0.1');
 define('ZAYMI_DIR',     get_template_directory());
 define('ZAYMI_URI',     get_template_directory_uri());
 define('ZAYMI_DEMO_DIR', ZAYMI_DIR . '/demo-data');

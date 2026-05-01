@@ -13,11 +13,19 @@ add_action('wp_enqueue_scripts', function () {
         null
     );
 
-    // Основной CSS темы (скомпилированный Tailwind v4 + дизайн-токены)
+    // Tailwind CSS — локальная копия (без CDN, чтобы не блокировали плагины безопасности)
+    wp_enqueue_style(
+        'zaymi-tailwind',
+        ZAYMI_URI . '/assets/css/tailwind.min.css',
+        ['zaymi-inter'],
+        ZAYMI_VERSION
+    );
+
+    // Основной CSS темы (дизайн-токены, кастомные классы, оверрайды)
     wp_enqueue_style(
         'zaymi-main',
         ZAYMI_URI . '/assets/css/main.css',
-        ['zaymi-inter'],
+        ['zaymi-tailwind'],
         ZAYMI_VERSION
     );
 
