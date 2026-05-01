@@ -500,12 +500,12 @@ function Row({ k, v, highlight }: { k: string; v: string; highlight?: boolean })
   );
 }
 
-function RefusalAdviceSection() {
+function RefusalAdviceSection({ title }: { title: string }) {
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Что делать, если всё-таки отказали?
+          {title}
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           5 рабочих советов, которые повышают шансы на одобрение в разы.
