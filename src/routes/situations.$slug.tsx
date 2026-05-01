@@ -387,12 +387,12 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function WhyTrustSection() {
+function WhyTrustSection({ title }: { title: string }) {
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Почему именно эти МФО одобряют без отказа?
+          {title}
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Мы отбираем компании по 4 объективным критериям, а не по рекламным обещаниям.
@@ -414,21 +414,21 @@ function WhyTrustSection() {
   );
 }
 
-function CatalogSection() {
+function CatalogSection({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-              МФО с самым высоким одобрением
+              {title}
             </h2>
             <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
-              Только компании с показателем одобрения 90%+ за 2025 год.
+              {subtitle}
             </p>
           </div>
           <Link to="/mfo" className="hidden text-sm font-bold text-brand-blue hover:underline md:inline">
-            Все 24 МФО →
+            Все МФО →
           </Link>
         </div>
 
@@ -476,6 +476,13 @@ function CatalogSection() {
               <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
                 Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+              <Link
+                to="/mfo/$slug"
+                params={{ slug: m.slug }}
+                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+              >
+                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+              </Link>
             </article>
           ))}
         </div>
