@@ -8,7 +8,7 @@ export const Route = createFileRoute("/header")({
 function HeaderShowcase() {
   return (
     <div className="min-h-screen bg-page-gradient">
-      {/* Live header at the very top of the page */}
+      {/* Live, responsive header at the very top */}
       <SiteHeader />
 
       <div className="mx-auto max-w-7xl px-5 py-10">
@@ -23,8 +23,9 @@ function HeaderShowcase() {
             Шапка сайта — десктоп и мобильная версии
           </h1>
           <p className="mt-3 max-w-2xl text-brand-muted">
-            Живая шапка закреплена сверху страницы. Ниже — превью обеих версий
-            бок о бок: десктоп с дропдаунами и мобильная с боковым меню.
+            Живая шапка закреплена сверху страницы и адаптивна. Ниже — два
+            принудительных превью: десктоп с дропдаунами и мобильная с боковым
+            меню, видимые одновременно.
           </p>
         </div>
 
@@ -48,12 +49,11 @@ function HeaderShowcase() {
                   zaymi.online
                 </span>
               </div>
-              <div className="bg-white">
-                <SiteHeader variant="desktop" />
-              </div>
+              <SiteHeader variant="desktop" />
               <div className="h-64 bg-hero-gradient p-6">
                 <p className="text-sm font-semibold text-brand-muted">
-                  ↑ наведите на «Подборки», «По сумме», «По городам» — откроются дропдауны
+                  ↑ наведите на «Подборки», «По сумме», «По городам» — дропдауны
+                  открываются плавно
                 </p>
               </div>
             </div>
@@ -80,15 +80,7 @@ function HeaderShowcase() {
               <div className="h-[520px] bg-hero-gradient p-5">
                 <p className="text-sm font-semibold text-brand-muted">
                   Нажмите бургер слева — откроется полноэкранное меню.
-                  Нажмите лупу справа — выпадает строка поиска.
-                </p>
-              </div>
-            </div>
-          </div>
-              <div className="h-[520px] bg-hero-gradient p-5">
-                <p className="text-sm font-semibold text-brand-muted">
-                  Нажмите бургер слева — откроется полноэкранное меню.
-                  Нажмите лупу справа — выпадает строка поиска.
+                  Нажмите лупу справа — выпадет строка поиска.
                 </p>
               </div>
             </div>
