@@ -1,0 +1,79 @@
+/* Zaymi Online — Trust & Compliance v2.2 */
+
+/* ---- Reviews ---- */
+.zaymi-reviews{margin:30px 0;padding:24px;background:var(--zaymi-card,#fff);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.zaymi-reviews__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;border-bottom:1px solid #eef2f7;padding-bottom:14px}
+.zaymi-reviews__rating{display:flex;align-items:center;gap:10px}
+.zaymi-reviews__rating-num{font-size:32px;font-weight:700;color:#1a73e8}
+.zaymi-reviews__stars{color:#ffb400;font-size:18px;letter-spacing:2px;position:relative;display:inline-block}
+.zaymi-reviews__stars[data-rating]:before{content:attr(data-rating);position:absolute;left:0;top:0;color:transparent}
+.zaymi-reviews__count{color:#697586;font-size:14px}
+.zaymi-reviews__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px}
+.zaymi-reviews__item{padding:16px;background:#f8fafc;border-radius:10px}
+.zaymi-reviews__meta{display:flex;gap:12px;align-items:center;font-size:14px;color:#475569;margin-bottom:8px;flex-wrap:wrap}
+.zaymi-reviews__meta strong{color:#0f172a}
+.zaymi-reviews__item p{margin:6px 0;color:#1f2937;line-height:1.55}
+.zaymi-reviews__item time{color:#94a3b8;font-size:12px}
+.zaymi-reviews__empty{color:#94a3b8;text-align:center;padding:30px}
+
+/* ---- Review form ---- */
+.zaymi-review-form{margin:24px 0;padding:24px;background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.zaymi-review-form h3{margin:0 0 16px;font-size:20px}
+.zaymi-review-form__row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.zaymi-review-form input[type=text],.zaymi-review-form textarea{width:100%;padding:11px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit}
+.zaymi-review-form textarea{min-height:100px;resize:vertical}
+.zaymi-review-form button{margin-top:12px;padding:12px 28px;background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;font-size:15px}
+.zaymi-hp{position:absolute!important;left:-9999px!important}
+.zaymi-review-form__rating{direction:rtl;display:inline-flex;margin:8px 0}
+.zaymi-review-form__rating input{display:none}
+.zaymi-review-form__rating label{font-size:28px;color:#cbd5e1;cursor:pointer;padding:0 2px;transition:color .15s}
+.zaymi-review-form__rating input:checked ~ label,
+.zaymi-review-form__rating label:hover,
+.zaymi-review-form__rating label:hover ~ label{color:#ffb400}
+.zaymi-review-form__msg{margin-top:10px;font-size:14px}
+.zaymi-review-form__msg.ok{color:#10b981}
+.zaymi-review-form__msg.err{color:#ef4444}
+
+/* ---- Calculator ---- */
+.zaymi-calc{padding:28px;background:linear-gradient(135deg,#f0f7ff,#fff);border-radius:18px;box-shadow:0 4px 20px rgba(26,115,232,.08);margin:24px 0}
+.zaymi-calc__title{margin:0 0 18px;font-size:22px;color:#0f172a}
+.zaymi-calc__row{margin-bottom:18px}
+.zaymi-calc__row label{display:block;margin-bottom:8px;font-weight:600;color:#475569}
+.zaymi-calc__row output{color:#1a73e8;font-size:18px;font-weight:700}
+.zaymi-calc input[type=range]{width:100%;-webkit-appearance:none;height:6px;background:#e2e8f0;border-radius:3px;outline:none}
+.zaymi-calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#1a73e8;border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(26,115,232,.4)}
+.zaymi-calc__result{display:flex;gap:24px;padding:16px;background:#fff;border-radius:12px;margin-top:16px;flex-wrap:wrap}
+.zaymi-calc__result span{color:#697586;font-size:14px;display:block}
+.zaymi-calc__result strong{font-size:24px;color:#0f172a}
+.zaymi-calc__cta{display:inline-block;margin-top:14px;padding:13px 28px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;text-decoration:none;border-radius:10px;font-weight:600}
+
+/* ---- Compare ---- */
+.zaymi-compare{overflow-x:auto;margin:24px 0}
+.zaymi-compare table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.zaymi-compare th,.zaymi-compare td{padding:14px;text-align:left;border-bottom:1px solid #eef2f7;vertical-align:middle}
+.zaymi-compare thead th{background:#f8fafc;font-weight:700;color:#0f172a}
+.zaymi-compare__best{background:#ecfdf5;font-weight:700;color:#059669}
+.zaymi-compare__hint{padding:30px;text-align:center;color:#697586;background:#f8fafc;border-radius:12px}
+.zaymi-btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer;border:none}
+.zaymi-btn--primary{background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff}
+
+/* ---- FAQ ---- */
+.zaymi-faq{margin:30px 0}
+.zaymi-faq h3{margin:0 0 16px;font-size:22px}
+.zaymi-faq__item{background:#fff;border:1px solid #eef2f7;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.zaymi-faq__item summary{padding:16px 20px;cursor:pointer;font-weight:600;color:#0f172a;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.zaymi-faq__item summary::-webkit-details-marker{display:none}
+.zaymi-faq__item summary:after{content:"+";font-size:22px;color:#1a73e8;transition:transform .2s}
+.zaymi-faq__item[open] summary:after{transform:rotate(45deg)}
+.zaymi-faq__a{padding:0 20px 18px;color:#475569;line-height:1.6}
+
+/* ---- Cookie ---- */
+.zaymi-cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;background:#0f172a;color:#fff;border-radius:14px;padding:18px 22px;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.zaymi-cookie__inner{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+.zaymi-cookie p{margin:0;font-size:14px;flex:1;min-width:240px}
+.zaymi-cookie a{color:#60a5fa}
+
+@media (max-width:640px){
+    .zaymi-review-form__row{grid-template-columns:1fr}
+    .zaymi-calc__result{flex-direction:column;gap:12px}
+}

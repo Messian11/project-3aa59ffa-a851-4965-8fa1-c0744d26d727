@@ -1,10 +1,22 @@
-# Zaymi Online — WordPress тема (v2.0 — Conversion + SEO)
+# Zaymi Online — WordPress тема (v2.2 — Trust & Compliance)
 
-Полноценная тема для портала по подбору МФО с автозасевом контента, конверсионными виджетами, программатик-SEO и интеграциями с CRM.
+Полноценная тема для портала по подбору МФО с автозасевом контента, конверсионными виджетами, программатик-SEO, отзывами, калькулятором, юр. соответствием 152-ФЗ и интеграциями с CRM.
 
 ---
 
-## Что нового в v2.0
+## Что нового в v2.2 — Trust & Compliance
+
+### Блок 3 — Доверие и соответствие (`/inc/reviews.php`, `calculator.php`, `compliance.php`)
+- ✅ **Отзывы по МФО** с модерацией — шорткоды `[zaymi_reviews mfo_id="1"]` и `[zaymi_review_form]`, REST `/wp-json/zaymi/v1/review`, антифлуд (1 отзыв с IP в час), таблица `wp_zaymi_reviews`, админка «Заявки → ⭐ Отзывы»
+- ✅ **AggregateRating + Review Schema.org** — звёзды в выдаче Google/Яндекс
+- ✅ **Калькулятор займа** — `[zaymi_calculator]`, слайдеры суммы и срока, расчёт переплаты в реальном времени
+- ✅ **Сравнение МФО** — `[zaymi_compare ids="1,2,3"]` или через `?compare=`, подсветка лучших значений
+- ✅ **FAQ-аккордеон** — `[zaymi_faq mfo_id="1"]` (берёт из ACF поле `faq`)
+- ✅ **Cookie-banner** РКН + согласие 152-ФЗ с логированием в `wp_zaymi_consents` (IP, UA, URL, время)
+- ✅ **Гео по IP** через ip-api.com (кэш 30 дней) — `[zaymi_geo_city]` или `window.ZAYMI_CITY`, либо `<span data-zaymi-city></span>`
+- ✅ **Антифрод** — лимит 5 заявок с IP в час (фильтр `zaymi_lead_pre_insert`)
+
+## Что было в v2.0
 
 ### Блок 1 — Конверсия (`/inc/leads.php`, `cloaking.php`, `conversion.php`)
 - ✅ **Сквозная заявка** — шорткод `[zaymi_lead_form]`, REST API `/wp-json/zaymi/v1/lead`, таблица `wp_zaymi_leads`
