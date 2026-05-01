@@ -1,0 +1,161 @@
+[
+  {
+    "slug": "zaymer",
+    "title": "Займер",
+    "tagline": "Первый займ под 0%",
+    "logo": "zaymer-logo.png",
+    "rating": 4.7,
+    "reviews_count": 12845,
+    "amount_min": 2000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 95,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://www.zaymer.ru/?utm_source=zaymi-online",
+    "license": "651303045003",
+    "pros": [
+      "Первый займ под 0%",
+      "Решение за 5 минут",
+      "Деньги на карту любого банка",
+      "Не требуется справка о доходах",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Лимит 30 000 ₽ для новых клиентов"
+    ],
+    "fit_for": [
+      { "icon": "user",            "title": "Работающим", "description": "С официальным или неофициальным доходом" },
+      { "icon": "graduation-cap",  "title": "Студентам",  "description": "От 18 лет с банковской картой" },
+      { "icon": "briefcase",       "title": "Самозанятым","description": "Не требуется подтверждение дохода" }
+    ],
+    "steps": [
+      { "title": "Заполните анкету",   "description": "Укажите паспортные данные и номер карты — занимает 3 минуты" },
+      { "title": "Получите решение",   "description": "Автоматическая проверка — ответ за 5 минут" },
+      { "title": "Деньги на карту",     "description": "Перевод мгновенно после одобрения" }
+    ],
+    "documents": ["passport", "card"],
+    "rates": [
+      { "amount": 5000,  "term": 7,  "rate": 0,    "overpayment": 0,    "total": 5000 },
+      { "amount": 10000, "term": 14, "rate": 0,    "overpayment": 0,    "total": 10000 },
+      { "amount": 30000, "term": 30, "rate": 0.99, "overpayment": 8910, "total": 38910 }
+    ],
+    "faq": [
+      { "question": "Кому выдают займы в Займере?", "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой." },
+      { "question": "Можно ли получить второй займ под 0%?", "answer": "Нет, акция распространяется только на первый займ для новых клиентов." }
+    ],
+    "taxonomies": {
+      "situation": ["bez-otkaza", "srochno", "bez-spravok"],
+      "summa":     ["zaim-5000", "zaim-10000", "zaim-30000"],
+      "city":      ["moskva", "spb", "kazan", "novosibirsk", "ekaterinburg"]
+    }
+  },
+  {
+    "slug": "webbankir",
+    "title": "Webbankir",
+    "tagline": "До 100 000 ₽ на длинный срок",
+    "logo": "webbankir-logo.png",
+    "rating": 4.5,
+    "reviews_count": 9230,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 0,
+    "rate_max": 0.8,
+    "approval_rate": 88,
+    "age_min": 20,
+    "age_max": 75,
+    "partner_url": "https://web-bankir.ru/?utm_source=zaymi-online",
+    "license": "2110177000037",
+    "pros": [
+      "Сумма до 100 000 ₽",
+      "Срок до 168 дней (полугодие)",
+      "Первый займ под 0% до 30 000 ₽",
+      "Можно увеличивать кредитный лимит"
+    ],
+    "cons": [
+      "Возраст от 20 лет",
+      "Требуется верификация по СНИЛС"
+    ],
+    "fit_for": [
+      { "icon": "wallet",   "title": "Большая сумма", "description": "До 100 000 ₽ для постоянных клиентов" },
+      { "icon": "calendar", "title": "Длинный срок",   "description": "До 6 месяцев с возможностью досрочного погашения" }
+    ],
+    "steps": [
+      { "title": "Регистрация",      "description": "Заполните анкету — 5 минут" },
+      { "title": "Верификация",      "description": "Подтвердите личность через СНИЛС" },
+      { "title": "Получение денег",   "description": "Перевод на карту, кошелёк или наличными" }
+    ],
+    "documents": ["passport", "snils", "card"],
+    "rates": [
+      { "amount": 10000, "term": 30,  "rate": 0,    "overpayment": 0,     "total": 10000 },
+      { "amount": 50000, "term": 90,  "rate": 0.7,  "overpayment": 31500, "total": 81500 },
+      { "amount": 100000,"term": 168, "rate": 0.8,  "overpayment": 134400,"total": 234400 }
+    ],
+    "faq": [
+      { "question": "Какой максимальный срок займа?", "answer": "До 168 дней (полугодие) с возможностью продления." }
+    ],
+    "taxonomies": {
+      "situation": ["s-plohoy-ki", "pensioneram"],
+      "summa":     ["zaim-50000", "zaim-100000"],
+      "city":      ["moskva", "spb"]
+    }
+  },
+  {
+    "slug": "ekapusta",
+    "title": "еКапуста",
+    "tagline": "Деньги за 7 минут на карту",
+    "logo": "ekapusta-logo.png",
+    "rating": 4.6,
+    "reviews_count": 15400,
+    "amount_min": 100,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 21,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 92,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://ekapusta.com/?utm_source=zaymi-online",
+    "license": "651303322004222",
+    "pros": [
+      "Минимальная сумма от 100 ₽",
+      "Первый займ до 30 000 ₽ под 0%",
+      "Решение за 7 минут",
+      "Можно получить наличными в Контакт"
+    ],
+    "cons": [
+      "Срок до 21 дня",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      { "icon": "zap",  "title": "Срочно",       "description": "Деньги на карту за 7 минут" },
+      { "icon": "user", "title": "Студентам",    "description": "От 18 лет, без справок" }
+    ],
+    "steps": [
+      { "title": "Анкета",     "description": "Заполните паспортные данные" },
+      { "title": "Одобрение",  "description": "Автоматическое решение за 7 минут" },
+      { "title": "Деньги",     "description": "На карту, кошелёк или наличными" }
+    ],
+    "documents": ["passport", "card"],
+    "rates": [
+      { "amount": 1000,  "term": 7,  "rate": 0,    "overpayment": 0,    "total": 1000 },
+      { "amount": 10000, "term": 14, "rate": 0,    "overpayment": 0,    "total": 10000 },
+      { "amount": 30000, "term": 21, "rate": 0.99, "overpayment": 6237, "total": 36237 }
+    ],
+    "faq": [
+      { "question": "Можно ли получить наличными?", "answer": "Да, через систему Контакт в любом отделении." }
+    ],
+    "taxonomies": {
+      "situation": ["srochno", "studentam", "bez-spravok"],
+      "summa":     ["zaim-1000", "zaim-3000", "zaim-10000", "zaim-30000"],
+      "city":      ["moskva", "spb", "kazan", "novosibirsk", "ekaterinburg"]
+    }
+  }
+]
