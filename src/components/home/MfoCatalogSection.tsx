@@ -30,6 +30,7 @@ interface MFO {
 const mfos: MFO[] = [
   {
     name: "Займер",
+    slug: "zaymer",
     rating: 4.8,
     reviews: 238,
     badges: [
@@ -45,6 +46,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Webbankir",
+    slug: "webbankir",
     rating: 4.7,
     reviews: 412,
     badges: [{ label: "Первый займ 0%", tone: "amber" }],
@@ -57,6 +59,7 @@ const mfos: MFO[] = [
   },
   {
     name: "МигКредит",
+    slug: "migcredit",
     rating: 4.6,
     reviews: 187,
     badges: [{ label: "На карту 24/7", tone: "green" }],
@@ -69,6 +72,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Лайм-Займ",
+    slug: "lime-zaim",
     rating: 4.5,
     reviews: 156,
     badges: [{ label: "Без отказа", tone: "green" }],
@@ -81,6 +85,7 @@ const mfos: MFO[] = [
   },
   {
     name: "EzaemOnline",
+    slug: "ezaem",
     rating: 4.4,
     reviews: 98,
     badges: [
@@ -96,6 +101,7 @@ const mfos: MFO[] = [
   },
   {
     name: "VIVA Деньги",
+    slug: "viva",
     rating: 4.3,
     reviews: 312,
     badges: [{ label: "С плохой КИ", tone: "green" }],
@@ -108,6 +114,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Турбозайм",
+    slug: "turbozaym",
     rating: 4.5,
     reviews: 224,
     badges: [{ label: "Срочно за 5 мин", tone: "amber" }],
@@ -120,6 +127,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Кредит Плюс",
+    slug: "credit-plus",
     rating: 4.2,
     reviews: 145,
     badges: [{ label: "На карту", tone: "green" }],
