@@ -10,6 +10,7 @@ import {
   SlidersHorizontal,
   CheckCircle2,
   ChevronLeft,
+  FileText,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/home/SiteFooter";
