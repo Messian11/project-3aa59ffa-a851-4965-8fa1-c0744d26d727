@@ -49,7 +49,7 @@ function HeaderShowcase() {
                 </span>
               </div>
               <div className="bg-white">
-                <SiteHeader />
+                <SiteHeader variant="desktop" />
               </div>
               <div className="h-64 bg-hero-gradient p-6">
                 <p className="text-sm font-semibold text-brand-muted">
@@ -76,12 +76,15 @@ function HeaderShowcase() {
               <div className="flex h-6 items-center justify-center bg-brand-dark">
                 <span className="h-1 w-16 rounded-full bg-white/30" />
               </div>
-              {/* Force the mobile breakpoint inside this preview */}
-              <div className="md:[&_*]:!hidden-none">
-                <div className="[&_.md\:flex]:!hidden [&_.md\:hidden]:!flex">
-                  <SiteHeader />
-                </div>
+              <SiteHeader variant="mobile" />
+              <div className="h-[520px] bg-hero-gradient p-5">
+                <p className="text-sm font-semibold text-brand-muted">
+                  Нажмите бургер слева — откроется полноэкранное меню.
+                  Нажмите лупу справа — выпадает строка поиска.
+                </p>
               </div>
+            </div>
+          </div>
               <div className="h-[520px] bg-hero-gradient p-5">
                 <p className="text-sm font-semibold text-brand-muted">
                   Нажмите бургер слева — откроется полноэкранное меню.
