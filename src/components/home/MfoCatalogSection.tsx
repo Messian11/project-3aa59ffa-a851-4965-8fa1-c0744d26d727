@@ -219,7 +219,9 @@ export function MfoCatalogSection() {
               </div>
 
               <h3 className="mt-4 text-[22px] font-extrabold leading-tight text-brand-ink">
-                {m.name}
+                <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">
+                  {m.name}
+                </Link>
               </h3>
 
               <div className="mt-3 flex flex-wrap gap-1.5">
@@ -248,6 +250,13 @@ export function MfoCatalogSection() {
               <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
                 Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+              <Link
+                to="/mfo/$slug"
+                params={{ slug: m.slug }}
+                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+              >
+                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+              </Link>
               <p className="mt-2.5 text-center text-[11px] font-medium text-brand-muted">
                 Заявка за 5 минут • Без справок
               </p>
