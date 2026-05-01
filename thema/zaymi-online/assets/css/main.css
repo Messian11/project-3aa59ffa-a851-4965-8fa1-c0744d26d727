@@ -8,8 +8,7 @@
  * раскомментируйте блок ниже и подключите через CDN в functions.php.
  */
 
-/* ===== Tailwind utilities CDN (мгновенно работает) ===== */
-@import url('https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css');
+/* Tailwind подключается отдельно в inc/enqueue.php — локально из /assets/css/tailwind.min.css */
 
 /* ===== Дизайн-токены ===== */
 :root {
