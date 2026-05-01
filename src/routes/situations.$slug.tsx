@@ -568,12 +568,12 @@ function RelatedSituationsSection() {
   );
 }
 
-function SeoTextSection() {
+function SeoTextSection({ title }: { title: string }) {
   return (
     <section className="px-6 py-20">
       <article className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Займы без отказа — что важно знать
+          {title}
         </h2>
         <p className="mt-5 text-base leading-relaxed text-brand-muted md:text-lg">
           Понятие «займ без отказа» в строгом юридическом смысле не существует — закон запрещает МФО гарантировать 100% одобрение. Но на практике есть компании, чей процент положительных решений приближается к этому показателю. В нашей подборке — 24 такие организации с одобрением от 90% и выше.
