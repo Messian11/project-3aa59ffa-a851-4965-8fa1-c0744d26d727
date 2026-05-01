@@ -68,8 +68,20 @@
         res.hidden=false; res.className='zlf-result err';
         res.textContent='Ошибка сети, попробуйте позже';
       }).finally(function(){
-        btn.disabled=false; btn.textContent='Отправить заявку';
-      });
+          btn.disabled=false; btn.textContent='Отправить заявку';
+        });
+      }
+
+      // reCAPTCHA v3 — получаем токен, затем шлём
+      if (window.grecaptcha && window.ZAYMI_RECAPTCHA_SITE) {
+        grecaptcha.ready(function(){
+          grecaptcha.execute(window.ZAYMI_RECAPTCHA_SITE, {action:'lead'})
+            .then(function(t){ payload.recaptcha_token = t; send(); })
+            .catch(function(){ send(); });
+        });
+      } else {
+        send();
+      }
     });
   });
 
