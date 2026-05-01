@@ -126,96 +126,106 @@ const faqs = [
 
 /* ───────────── Page ───────────── */
 
+const AmountContext = createContext<number>(5000);
+const useAmount = () => useContext(AmountContext);
+
 function AmountPage() {
+  const { slug } = Route.useParams();
+  const amount = parseAmount(slug);
+  const fmt = FORMAT(amount);
+  const { min: tMin, max: tMax } = termRange(amount);
+
   return (
-    <div className="min-h-screen scroll-smooth bg-white">
-      <SiteHeader />
+    <AmountContext.Provider value={amount}>
+      <div className="min-h-screen scroll-smooth bg-white">
+        <SiteHeader />
 
-      {/* 1. Breadcrumbs */}
-      <nav className="border-b border-brand-line/60 bg-white px-6 py-3" aria-label="Хлебные крошки">
-        <ol className="mx-auto flex max-w-7xl items-center gap-1.5 text-xs font-medium text-brand-muted">
-          <li><Link to="/" className="hover:text-brand-blue">Главная</Link></li>
-          <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
-          <li><Link to="/mfo" className="hover:text-brand-blue">Займы по сумме</Link></li>
-          <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
-          <li className="font-semibold text-brand-ink">Займ 5 000 ₽</li>
-        </ol>
-      </nav>
+        {/* 1. Breadcrumbs */}
+        <nav className="border-b border-brand-line/60 bg-white px-6 py-3" aria-label="Хлебные крошки">
+          <ol className="mx-auto flex max-w-7xl items-center gap-1.5 text-xs font-medium text-brand-muted">
+            <li><Link to="/" className="hover:text-brand-blue">Главная</Link></li>
+            <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
+            <li><Link to="/mfo" className="hover:text-brand-blue">Займы по сумме</Link></li>
+            <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
+            <li className="font-semibold text-brand-ink">Займ {fmt}</li>
+          </ol>
+        </nav>
 
-      {/* 2. Hero */}
-      <section
-        className="px-6 py-16 md:py-20"
-        style={{
-          background:
-            "radial-gradient(circle at 90% 10%, rgba(16,185,129,0.10), transparent 40%), radial-gradient(circle at 5% 90%, rgba(37,99,235,0.10), transparent 45%), linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
-        }}
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-green">Займ по сумме</div>
-          <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-brand-ink md:text-5xl">
-            Займ 5 000 рублей онлайн на карту
-          </h1>
-          <p className="mt-4 max-w-2xl text-base text-brand-muted md:text-lg">
-            23 МФО которые выдают именно 5 000 ₽. Сравните ставки и сроки. Получите деньги за 5 минут.
-          </p>
+        {/* 2. Hero */}
+        <section
+          className="px-6 py-16 md:py-20"
+          style={{
+            background:
+              "radial-gradient(circle at 90% 10%, rgba(16,185,129,0.10), transparent 40%), radial-gradient(circle at 5% 90%, rgba(37,99,235,0.10), transparent 45%), linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+          }}
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-green">Займ по сумме</div>
+            <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-brand-ink md:text-5xl">
+              Займ {fmt} онлайн на карту
+            </h1>
+            <p className="mt-4 max-w-2xl text-base text-brand-muted md:text-lg">
+              Подборка МФО, которые выдают сумму {fmt}. Сравните ставки и сроки. Получите деньги за 5 минут.
+            </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Quick icon={Wallet} label="Сумма" value="5 000 ₽" />
-            <Quick icon={Calendar} label="Сроки" value="от 7 до 30 дней" />
-            <Quick icon={Percent} label="Ставка" value="от 0%" highlight />
-            <Quick icon={CheckCircle2} label="Одобрение" value="95%" />
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Quick icon={Wallet} label="Сумма" value={fmt} />
+              <Quick icon={Calendar} label="Сроки" value={`от ${tMin} до ${tMax} дней`} />
+              <Quick icon={Percent} label="Ставка" value="от 0%" highlight />
+              <Quick icon={CheckCircle2} label="Одобрение" value="до 95%" />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 3. Related amounts */}
-      <section className="px-6 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center">
-          <span className="text-sm font-bold text-brand-muted">Другие популярные суммы:</span>
-          <div className="flex flex-wrap gap-2">
-            {otherAmounts.map((a) => (
-              <Link
-                key={a}
-                to="/summa/$slug"
-                params={{ slug: `zaim-${a}` }}
-                className="rounded-pill border border-brand-line bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-card transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
-              >
-                {FORMAT(a)}
-              </Link>
-            ))}
+        {/* 3. Related amounts */}
+        <section className="px-6 py-10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center">
+            <span className="text-sm font-bold text-brand-muted">Другие популярные суммы:</span>
+            <div className="flex flex-wrap gap-2">
+              {otherAmounts.filter((a) => a !== amount).map((a) => (
+                <Link
+                  key={a}
+                  to="/summa/$slug"
+                  params={{ slug: `zaim-${a}` }}
+                  className="rounded-pill border border-brand-line bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-card transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
+                >
+                  {FORMAT(a)}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 4. Top 5 */}
-      <TopMfoSection />
+        {/* 4. Top 5 */}
+        <TopMfoSection />
 
-      {/* 5. Calculator */}
-      <CalculatorSection />
+        {/* 5. Calculator */}
+        <CalculatorSection />
 
-      {/* 6. Use cases */}
-      <UseCasesSection />
+        {/* 6. Use cases */}
+        <UseCasesSection />
 
-      {/* 7. How to get */}
-      <HowToSection />
+        {/* 7. How to get */}
+        <HowToSection />
 
-      {/* 8. Full catalog */}
-      <FullCatalogSection />
+        {/* 8. Full catalog */}
+        <FullCatalogSection />
 
-      {/* 9. Calc examples */}
-      <CalcExamplesSection />
+        {/* 9. Calc examples */}
+        <CalcExamplesSection />
 
-      {/* 10. SEO text */}
-      <SeoTextSection />
+        {/* 10. SEO text */}
+        <SeoTextSection />
 
-      {/* 11. FAQ */}
-      <FaqSection />
+        {/* 11. FAQ */}
+        <FaqSection />
 
-      {/* 12. Related hub */}
-      <RelatedHub />
+        {/* 12. Related hub */}
+        <RelatedHub />
 
-      <SiteFooter />
-    </div>
+        <SiteFooter />
+      </div>
+    </AmountContext.Provider>
   );
 }
 
