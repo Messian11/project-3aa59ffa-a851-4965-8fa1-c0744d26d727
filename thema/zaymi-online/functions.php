@@ -48,6 +48,7 @@ require_once ZAYMI_DIR . '/inc/reviews.php';        // отзывы + рейти
 require_once ZAYMI_DIR . '/inc/calculator.php';     // калькулятор, сравнение, FAQ
 require_once ZAYMI_DIR . '/inc/compliance.php';     // cookie-banner, согласие 152-ФЗ, гео по IP
 require_once ZAYMI_DIR . '/inc/pages-legal.php';    // авто-страницы, robots.txt, reCAPTCHA
+require_once ZAYMI_DIR . '/inc/bootstrap.php';      // 🚀 финальный авто-настройщик после активации
 
 /* SEO + Trust стили/скрипты */
 add_action('wp_enqueue_scripts', function () {
