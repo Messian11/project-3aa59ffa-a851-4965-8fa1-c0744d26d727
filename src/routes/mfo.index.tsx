@@ -10,6 +10,7 @@ import {
   SlidersHorizontal,
   CheckCircle2,
   ChevronLeft,
+  FileText,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/home/SiteFooter";
@@ -430,6 +431,13 @@ function GridResults() {
           <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
             Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
           </button>
+          <Link
+            to="/mfo/$slug"
+            params={{ slug: m.slug }}
+            className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+          >
+            <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+          </Link>
         </article>
       ))}
     </div>
@@ -478,6 +486,13 @@ function ListResults() {
               <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
                 Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+              <Link
+                to="/mfo/$slug"
+                params={{ slug: m.slug }}
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+              >
+                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор
+              </Link>
             </div>
           </div>
         </article>

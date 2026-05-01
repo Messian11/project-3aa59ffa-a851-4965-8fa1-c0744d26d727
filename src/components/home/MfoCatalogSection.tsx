@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowRight, Star } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Star, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const filters = [
@@ -14,6 +15,7 @@ const filters = [
 
 interface MFO {
   name: string;
+  slug: string;
   rating: number;
   reviews: number;
   badges: { label: string; tone: "amber" | "green" }[];
@@ -28,6 +30,7 @@ interface MFO {
 const mfos: MFO[] = [
   {
     name: "Займер",
+    slug: "zaymer",
     rating: 4.8,
     reviews: 238,
     badges: [
@@ -43,6 +46,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Webbankir",
+    slug: "webbankir",
     rating: 4.7,
     reviews: 412,
     badges: [{ label: "Первый займ 0%", tone: "amber" }],
@@ -55,6 +59,7 @@ const mfos: MFO[] = [
   },
   {
     name: "МигКредит",
+    slug: "migcredit",
     rating: 4.6,
     reviews: 187,
     badges: [{ label: "На карту 24/7", tone: "green" }],
@@ -67,6 +72,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Лайм-Займ",
+    slug: "lime-zaim",
     rating: 4.5,
     reviews: 156,
     badges: [{ label: "Без отказа", tone: "green" }],
@@ -79,6 +85,7 @@ const mfos: MFO[] = [
   },
   {
     name: "EzaemOnline",
+    slug: "ezaem",
     rating: 4.4,
     reviews: 98,
     badges: [
@@ -94,6 +101,7 @@ const mfos: MFO[] = [
   },
   {
     name: "VIVA Деньги",
+    slug: "viva",
     rating: 4.3,
     reviews: 312,
     badges: [{ label: "С плохой КИ", tone: "green" }],
@@ -106,6 +114,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Турбозайм",
+    slug: "turbozaym",
     rating: 4.5,
     reviews: 224,
     badges: [{ label: "Срочно за 5 мин", tone: "amber" }],
@@ -118,6 +127,7 @@ const mfos: MFO[] = [
   },
   {
     name: "Кредит Плюс",
+    slug: "credit-plus",
     rating: 4.2,
     reviews: 145,
     badges: [{ label: "На карту", tone: "green" }],
@@ -209,7 +219,9 @@ export function MfoCatalogSection() {
               </div>
 
               <h3 className="mt-4 text-[22px] font-extrabold leading-tight text-brand-ink">
-                {m.name}
+                <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">
+                  {m.name}
+                </Link>
               </h3>
 
               <div className="mt-3 flex flex-wrap gap-1.5">
@@ -238,6 +250,13 @@ export function MfoCatalogSection() {
               <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
                 Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+              <Link
+                to="/mfo/$slug"
+                params={{ slug: m.slug }}
+                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+              >
+                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+              </Link>
               <p className="mt-2.5 text-center text-[11px] font-medium text-brand-muted">
                 Заявка за 5 минут • Без справок
               </p>

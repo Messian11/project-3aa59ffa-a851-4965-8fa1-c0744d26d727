@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import {
   ArrowRight,
   ChevronRight,
@@ -25,29 +25,54 @@ import { SiteFooter } from "@/components/home/SiteFooter";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
+const FORMAT = (n: number) => n.toLocaleString("ru-RU") + " ₽";
+
+const ALL_AMOUNTS = [1000, 3000, 5000, 7000, 10000, 15000, 20000, 30000, 50000, 100000];
+
+function parseAmount(slug: string): number {
+  const m = slug.match(/(\d+)/);
+  const n = m ? parseInt(m[1], 10) : 5000;
+  if (!Number.isFinite(n) || n < 1000) return 5000;
+  if (n > 1_000_000) return 5000;
+  return n;
+}
+
+function termRange(amount: number): { min: number; max: number; def: number } {
+  if (amount <= 5000) return { min: 7, max: 30, def: 14 };
+  if (amount <= 15000) return { min: 7, max: 60, def: 21 };
+  if (amount <= 30000) return { min: 14, max: 90, def: 30 };
+  if (amount <= 50000) return { min: 30, max: 180, def: 60 };
+  return { min: 30, max: 365, def: 90 };
+}
+
+function termLabel(amount: number): string {
+  const { min, max } = termRange(amount);
+  return `от ${min} до ${max} дней`;
+}
+
 export const Route = createFileRoute("/summa/$slug")({
-  head: () => ({
-    meta: [
-      { title: "Займ 5000 рублей онлайн — где получить с плохой КИ 2026 | Zaymi Online" },
-      {
-        name: "description",
-        content:
-          "Займ 5 000 ₽ онлайн на карту за 5 минут. 23 МФО с лицензией ЦБ РФ. Первый займ под 0%, одобрение 95%, без справок и поручителей.",
-      },
-      { property: "og:title", content: "Займ 5 000 ₽ онлайн на карту — ТОП-23 МФО 2026" },
-      {
-        property: "og:description",
-        content: "Сравните 23 МФО, которые выдают именно 5 000 ₽. Ставки от 0%, деньги за 5 минут.",
-      },
-    ],
-  }),
+  head: ({ params }) => {
+    const amount = parseAmount(params.slug);
+    const f = FORMAT(amount);
+    return {
+      meta: [
+        { title: `Займ ${f} онлайн на карту — ТОП МФО 2026 | Zaymi Online` },
+        {
+          name: "description",
+          content: `Займ ${f} онлайн на карту за 5 минут. Проверенные МФО с лицензией ЦБ РФ. Первый займ под 0%, одобрение до 95%, без справок и поручителей.`,
+        },
+        { property: "og:title", content: `Займ ${f} онлайн — лучшие МФО 2026` },
+        {
+          property: "og:description",
+          content: `Сравните МФО, которые выдают ${f}. Ставки от 0%, деньги за 5 минут.`,
+        },
+      ],
+    };
+  },
   component: AmountPage,
 });
 
-const AMOUNT = 5000;
-const FORMAT = (n: number) => n.toLocaleString("ru-RU") + " ₽";
-
-const otherAmounts = [1000, 3000, 4000, 6000, 7000, 10000, 15000];
+const otherAmounts = ALL_AMOUNTS;
 
 const topMfos = [
   { name: "Займер", slug: "zaymer", letter: "З", bg: "from-brand-blue to-brand-green", rating: 4.8, reviews: 2384, line: "Выдаёт 5 000 ₽ на 30 дней под 0% (первый займ)", overpay: 0, total: 5000, badge: "Первый займ 0%" },
@@ -101,96 +126,106 @@ const faqs = [
 
 /* ───────────── Page ───────────── */
 
+const AmountContext = createContext<number>(5000);
+const useAmount = () => useContext(AmountContext);
+
 function AmountPage() {
+  const { slug } = Route.useParams();
+  const amount = parseAmount(slug);
+  const fmt = FORMAT(amount);
+  const { min: tMin, max: tMax } = termRange(amount);
+
   return (
-    <div className="min-h-screen scroll-smooth bg-white">
-      <SiteHeader />
+    <AmountContext.Provider value={amount}>
+      <div className="min-h-screen scroll-smooth bg-white">
+        <SiteHeader />
 
-      {/* 1. Breadcrumbs */}
-      <nav className="border-b border-brand-line/60 bg-white px-6 py-3" aria-label="Хлебные крошки">
-        <ol className="mx-auto flex max-w-7xl items-center gap-1.5 text-xs font-medium text-brand-muted">
-          <li><Link to="/" className="hover:text-brand-blue">Главная</Link></li>
-          <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
-          <li><Link to="/mfo" className="hover:text-brand-blue">Займы по сумме</Link></li>
-          <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
-          <li className="font-semibold text-brand-ink">Займ 5 000 ₽</li>
-        </ol>
-      </nav>
+        {/* 1. Breadcrumbs */}
+        <nav className="border-b border-brand-line/60 bg-white px-6 py-3" aria-label="Хлебные крошки">
+          <ol className="mx-auto flex max-w-7xl items-center gap-1.5 text-xs font-medium text-brand-muted">
+            <li><Link to="/" className="hover:text-brand-blue">Главная</Link></li>
+            <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
+            <li><Link to="/mfo" className="hover:text-brand-blue">Займы по сумме</Link></li>
+            <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
+            <li className="font-semibold text-brand-ink">Займ {fmt}</li>
+          </ol>
+        </nav>
 
-      {/* 2. Hero */}
-      <section
-        className="px-6 py-16 md:py-20"
-        style={{
-          background:
-            "radial-gradient(circle at 90% 10%, rgba(16,185,129,0.10), transparent 40%), radial-gradient(circle at 5% 90%, rgba(37,99,235,0.10), transparent 45%), linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
-        }}
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-green">Займ по сумме</div>
-          <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-brand-ink md:text-5xl">
-            Займ 5 000 рублей онлайн на карту
-          </h1>
-          <p className="mt-4 max-w-2xl text-base text-brand-muted md:text-lg">
-            23 МФО которые выдают именно 5 000 ₽. Сравните ставки и сроки. Получите деньги за 5 минут.
-          </p>
+        {/* 2. Hero */}
+        <section
+          className="px-6 py-16 md:py-20"
+          style={{
+            background:
+              "radial-gradient(circle at 90% 10%, rgba(16,185,129,0.10), transparent 40%), radial-gradient(circle at 5% 90%, rgba(37,99,235,0.10), transparent 45%), linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+          }}
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-green">Займ по сумме</div>
+            <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-brand-ink md:text-5xl">
+              Займ {fmt} онлайн на карту
+            </h1>
+            <p className="mt-4 max-w-2xl text-base text-brand-muted md:text-lg">
+              Подборка МФО, которые выдают сумму {fmt}. Сравните ставки и сроки. Получите деньги за 5 минут.
+            </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Quick icon={Wallet} label="Сумма" value="5 000 ₽" />
-            <Quick icon={Calendar} label="Сроки" value="от 7 до 30 дней" />
-            <Quick icon={Percent} label="Ставка" value="от 0%" highlight />
-            <Quick icon={CheckCircle2} label="Одобрение" value="95%" />
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Quick icon={Wallet} label="Сумма" value={fmt} />
+              <Quick icon={Calendar} label="Сроки" value={`от ${tMin} до ${tMax} дней`} />
+              <Quick icon={Percent} label="Ставка" value="от 0%" highlight />
+              <Quick icon={CheckCircle2} label="Одобрение" value="до 95%" />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 3. Related amounts */}
-      <section className="px-6 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center">
-          <span className="text-sm font-bold text-brand-muted">Другие популярные суммы:</span>
-          <div className="flex flex-wrap gap-2">
-            {otherAmounts.map((a) => (
-              <Link
-                key={a}
-                to="/summa/$slug"
-                params={{ slug: `zaim-${a}` }}
-                className="rounded-pill border border-brand-line bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-card transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
-              >
-                {FORMAT(a)}
-              </Link>
-            ))}
+        {/* 3. Related amounts */}
+        <section className="px-6 py-10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center">
+            <span className="text-sm font-bold text-brand-muted">Другие популярные суммы:</span>
+            <div className="flex flex-wrap gap-2">
+              {otherAmounts.filter((a) => a !== amount).map((a) => (
+                <Link
+                  key={a}
+                  to="/summa/$slug"
+                  params={{ slug: `zaim-${a}` }}
+                  className="rounded-pill border border-brand-line bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-card transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
+                >
+                  {FORMAT(a)}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 4. Top 5 */}
-      <TopMfoSection />
+        {/* 4. Top 5 */}
+        <TopMfoSection />
 
-      {/* 5. Calculator */}
-      <CalculatorSection />
+        {/* 5. Calculator */}
+        <CalculatorSection />
 
-      {/* 6. Use cases */}
-      <UseCasesSection />
+        {/* 6. Use cases */}
+        <UseCasesSection />
 
-      {/* 7. How to get */}
-      <HowToSection />
+        {/* 7. How to get */}
+        <HowToSection />
 
-      {/* 8. Full catalog */}
-      <FullCatalogSection />
+        {/* 8. Full catalog */}
+        <FullCatalogSection />
 
-      {/* 9. Calc examples */}
-      <CalcExamplesSection />
+        {/* 9. Calc examples */}
+        <CalcExamplesSection />
 
-      {/* 10. SEO text */}
-      <SeoTextSection />
+        {/* 10. SEO text */}
+        <SeoTextSection />
 
-      {/* 11. FAQ */}
-      <FaqSection />
+        {/* 11. FAQ */}
+        <FaqSection />
 
-      {/* 12. Related hub */}
-      <RelatedHub />
+        {/* 12. Related hub */}
+        <RelatedHub />
 
-      <SiteFooter />
-    </div>
+        <SiteFooter />
+      </div>
+    </AmountContext.Provider>
   );
 }
 
@@ -224,18 +259,34 @@ function Stars({ rating }: { rating: number }) {
 }
 
 function TopMfoSection() {
+  const amount = useAmount();
+  const fmt = FORMAT(amount);
+  const { def: defTerm } = termRange(amount);
+
+  // Pre-compute overpay for each top MFO based on amount
+  const enriched = topMfos.map((m) => {
+    let rate = 0.0099;
+    let term = defTerm;
+    let zero = false;
+    if (m.slug === "zaymer" || m.slug === "webbankir") { rate = 0; zero = true; }
+    if (m.slug === "lime-zaim") rate = 0.01;
+    if (m.slug === "turbozaym") { rate = 0.0099; term = Math.min(14, defTerm); }
+    const overpay = zero ? 0 : Math.round(amount * rate * term);
+    return { ...m, _overpay: overpay, _total: amount + overpay, _term: term };
+  });
+
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          ТОП-5 МФО которые выдают 5 000 ₽
+          ТОП-5 МФО которые выдают {fmt}
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Отобраны по рейтингу, проценту одобрения и реальным отзывам клиентов.
         </p>
 
         <div className="mt-10 space-y-4">
-          {topMfos.map((m, i) => (
+          {enriched.map((m, i) => (
             <article
               key={m.slug}
               className="grid gap-5 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:shadow-hover md:grid-cols-[64px_72px_1fr_auto] md:items-center md:p-6"
@@ -250,7 +301,9 @@ function TopMfoSection() {
 
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl font-extrabold text-brand-ink">{m.name}</h3>
+                  <h3 className="text-xl font-extrabold text-brand-ink">
+                    <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
+                  </h3>
                   <span className="inline-flex items-center rounded-pill bg-brand-amber/15 px-2.5 py-1 text-[11px] font-bold text-[#9a6300] ring-1 ring-inset ring-brand-amber/30">
                     {m.badge}
                   </span>
@@ -260,16 +313,27 @@ function TopMfoSection() {
                     <span className="text-xs text-brand-muted">({m.reviews})</span>
                   </div>
                 </div>
-                <p className="mt-2 text-sm font-semibold text-brand-ink">{m.line}</p>
+                <p className="mt-2 text-sm font-semibold text-brand-ink">
+                  Выдаёт {fmt} на {m._term} дней{m._overpay === 0 ? " под 0% (первый займ)" : ""}
+                </p>
                 <p className="mt-1 text-sm text-brand-muted">
-                  Переплата: <b className={m.overpay === 0 ? "text-brand-green" : "text-brand-ink"}>{FORMAT(m.overpay)}</b>
-                  {" • "}К возврату: <b className="text-brand-ink">{FORMAT(m.total)}</b>
+                  Переплата: <b className={m._overpay === 0 ? "text-brand-green" : "text-brand-ink"}>{FORMAT(m._overpay)}</b>
+                  {" • "}К возврату: <b className="text-brand-ink">{FORMAT(m._total)}</b>
                 </p>
               </div>
 
-              <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить 5 000 ₽ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
+              <div className="flex flex-col gap-2 md:items-end">
+                <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                  Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </button>
+                <Link
+                  to="/mfo/$slug"
+                  params={{ slug: m.slug }}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор
+                </Link>
+              </div>
             </article>
           ))}
         </div>
@@ -279,8 +343,10 @@ function TopMfoSection() {
 }
 
 function CalculatorSection() {
-  const [amount, setAmount] = useState(AMOUNT);
-  const [term, setTerm] = useState(14);
+  const ctxAmount = useAmount();
+  const tr = termRange(ctxAmount);
+  const [amount, setAmount] = useState(ctxAmount);
+  const [term, setTerm] = useState(tr.def);
   const ratePerDay = 0.0099;
   const overpay = Math.round(amount * ratePerDay * term);
   const total = amount + overpay;
@@ -293,7 +359,7 @@ function CalculatorSection() {
             Калькулятор займа
           </h2>
           <p className="mt-3 text-base text-brand-muted md:text-lg">
-            Сумма уже выставлена на 5 000 ₽ — можете изменить и посмотреть переплату.
+            Сумма уже выставлена на {FORMAT(ctxAmount)} — можете изменить и посмотреть переплату.
           </p>
         </div>
 
@@ -411,16 +477,18 @@ function HowToSection() {
 }
 
 function FullCatalogSection() {
+  const amount = useAmount();
+  const fmt = FORMAT(amount);
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-              Все МФО для займа 5 000 ₽
+              Все МФО для займа {fmt}
             </h2>
             <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
-              Полный каталог из 23 организаций — отфильтровано по сумме.
+              Полный каталог организаций — отфильтровано по сумме.
             </p>
           </div>
           <Link to="/mfo" className="hidden text-sm font-bold text-brand-blue hover:underline md:inline">
@@ -463,15 +531,22 @@ function FullCatalogSection() {
               </div>
 
               <dl className="mt-4 space-y-2 rounded-xl bg-brand-soft p-3 text-sm">
-                <Row k="Сумма" v="5 000 ₽" />
+                <Row k="Сумма" v={fmt} />
                 <Row k="Срок" v={m.term} />
                 <Row k="Ставка" v={m.rate} highlight />
                 <Row k="Одобрение" v={m.approval} />
               </dl>
 
               <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить 5 000 ₽ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+              <Link
+                to="/mfo/$slug"
+                params={{ slug: m.slug }}
+                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+              >
+                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+              </Link>
             </article>
           ))}
         </div>
