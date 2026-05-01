@@ -84,6 +84,27 @@ function zaymi_leads_rest_create(WP_REST_Request $req) {
     }
     set_transient($rl_key, $count + 1, 60);
 
+    // reCAPTCHA v3 (если в настройках задан секретный ключ)
+    if (function_exists('get_field')) {
+        $rc_secret = get_field('recaptcha_secret', 'option');
+        if ($rc_secret) {
+            $token = (string)($p['recaptcha_token'] ?? '');
+            $resp  = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', [
+                'timeout' => 4,
+                'body'    => ['secret' => $rc_secret, 'response' => $token, 'remoteip' => $ip],
+            ]);
+            $ok = false; $score = 0;
+            if (!is_wp_error($resp)) {
+                $j = json_decode(wp_remote_retrieve_body($resp), true);
+                $ok = !empty($j['success']);
+                $score = (float)($j['score'] ?? 0);
+            }
+            if (!$ok || $score < 0.5) {
+                return new WP_REST_Response(['ok' => false, 'error' => 'captcha_failed'], 400);
+            }
+        }
+    }
+
     $phone = preg_replace('/[^0-9+]/', '', (string)($p['phone'] ?? ''));
     if (strlen($phone) < 10) {
         return new WP_REST_Response(['ok' => false, 'error' => 'invalid_phone'], 400);
