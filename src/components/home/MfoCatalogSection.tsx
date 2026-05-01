@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowRight, Star } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Star, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const filters = [
