@@ -531,15 +531,22 @@ function FullCatalogSection() {
               </div>
 
               <dl className="mt-4 space-y-2 rounded-xl bg-brand-soft p-3 text-sm">
-                <Row k="Сумма" v="5 000 ₽" />
+                <Row k="Сумма" v={fmt} />
                 <Row k="Срок" v={m.term} />
                 <Row k="Ставка" v={m.rate} highlight />
                 <Row k="Одобрение" v={m.approval} />
               </dl>
 
               <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить 5 000 ₽ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+              <Link
+                to="/mfo/$slug"
+                params={{ slug: m.slug }}
+                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+              >
+                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+              </Link>
             </article>
           ))}
         </div>
