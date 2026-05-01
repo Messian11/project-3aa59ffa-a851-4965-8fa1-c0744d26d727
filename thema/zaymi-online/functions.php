@@ -43,9 +43,16 @@ require_once ZAYMI_DIR . '/inc/turbo.php';          // /turbo.xml для Янд�
 require_once ZAYMI_DIR . '/inc/og-image.php';       // OG/Twitter теги + динамическая картинка
 require_once ZAYMI_DIR . '/inc/dashboard.php';      // 📊 Админ-дашборд с Chart.js
 
-/* SEO стили */
+/* ----- Trust & Compliance (Блок 3, v2.2) ----- */
+require_once ZAYMI_DIR . '/inc/reviews.php';        // отзывы + рейтинг + Schema Review
+require_once ZAYMI_DIR . '/inc/calculator.php';     // калькулятор, сравнение, FAQ
+require_once ZAYMI_DIR . '/inc/compliance.php';     // cookie-banner, согласие 152-ФЗ, гео по IP
+
+/* SEO + Trust стили/скрипты */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('zaymi-seo', ZAYMI_URI . '/assets/css/seo.css', [], ZAYMI_VERSION);
+    wp_enqueue_style('zaymi-seo',   ZAYMI_URI . '/assets/css/seo.css',   [], ZAYMI_VERSION);
+    wp_enqueue_style('zaymi-trust', ZAYMI_URI . '/assets/css/trust.css', [], ZAYMI_VERSION);
+    wp_enqueue_script('zaymi-trust', ZAYMI_URI . '/assets/js/trust.js', [], ZAYMI_VERSION, true);
 }, 20);
 
 /* Сброс rewrite-правил при активации темы (нужно для /go/, /sitemap.xml, программатик-страниц) */
