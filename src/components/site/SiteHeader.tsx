@@ -6,33 +6,33 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 type DropKey = "picks" | "amount" | "cities";
 
-const picks = [
-  "Без отказа",
-  "С плохой КИ",
-  "Пенсионерам",
-  "Студентам",
-  "Без справок",
-  "Срочно",
+const picks: { label: string; slug: string }[] = [
+  { label: "Без отказа", slug: "bez-otkaza" },
+  { label: "С плохой КИ", slug: "s-plohoy-ki" },
+  { label: "Пенсионерам", slug: "pensioneram" },
+  { label: "Студентам", slug: "studentam" },
+  { label: "Без справок", slug: "bez-spravok" },
+  { label: "Срочно", slug: "srochno" },
 ];
 
-const amounts = [
-  "1 000 ₽",
-  "3 000 ₽",
-  "5 000 ₽",
-  "10 000 ₽",
-  "15 000 ₽",
-  "20 000 ₽",
-  "30 000 ₽",
-  "50 000 ₽",
-  "100 000 ₽",
+const amounts: { label: string; slug: string }[] = [
+  { label: "1 000 ₽", slug: "zaim-1000" },
+  { label: "3 000 ₽", slug: "zaim-3000" },
+  { label: "5 000 ₽", slug: "zaim-5000" },
+  { label: "10 000 ₽", slug: "zaim-10000" },
+  { label: "15 000 ₽", slug: "zaim-15000" },
+  { label: "20 000 ₽", slug: "zaim-20000" },
+  { label: "30 000 ₽", slug: "zaim-30000" },
+  { label: "50 000 ₽", slug: "zaim-50000" },
+  { label: "100 000 ₽", slug: "zaim-100000" },
 ];
 
-const cities = [
-  "Москва",
-  "Санкт-Петербург",
-  "Казань",
-  "Новосибирск",
-  "Екатеринбург",
+const cities: { label: string; slug: string }[] = [
+  { label: "Москва", slug: "moskva" },
+  { label: "Санкт-Петербург", slug: "spb" },
+  { label: "Казань", slug: "kazan" },
+  { label: "Новосибирск", slug: "novosibirsk" },
+  { label: "Екатеринбург", slug: "ekaterinburg" },
 ];
 
 function Logo() {
@@ -48,33 +48,41 @@ function Logo() {
   );
 }
 
-interface NavLinkProps {
-  label: string;
-  active?: boolean;
-  hasDropdown?: boolean;
-  open?: boolean;
+const navLinkBase =
+  "inline-flex items-center gap-1 rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200";
+const navLinkInactive = "text-brand-ink hover:bg-brand-blue/8 hover:text-brand-blue";
+const navLinkActive = "bg-[#ecfdf5] text-[#047857]";
+
+function NavLinkItem({ to, label }: { to: string; label: string }) {
+  return (
+    <Link
+      to={to}
+      className={cn(navLinkBase, navLinkInactive)}
+      activeProps={{ className: cn(navLinkBase, navLinkActive) }}
+      activeOptions={{ exact: to === "/" }}
+    >
+      {label}
+    </Link>
+  );
 }
-function NavLink({ label, active, hasDropdown, open }: NavLinkProps) {
+
+function NavTrigger({
+  label,
+  open,
+}: {
+  label: string;
+  open: boolean;
+}) {
   return (
     <button
       type="button"
-      className={cn(
-        "inline-flex items-center gap-1 rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200",
-        active
-          ? "bg-[#ecfdf5] text-[#047857]"
-          : "text-brand-ink hover:bg-brand-blue/8 hover:text-brand-blue",
-      )}
+      className={cn(navLinkBase, navLinkInactive)}
     >
       {label}
-      {hasDropdown && (
-        <ChevronDown
-          className={cn(
-            "h-3.5 w-3.5 transition-transform duration-200",
-            open && "rotate-180",
-          )}
-          strokeWidth={2.5}
-        />
-      )}
+      <ChevronDown
+        className={cn("h-3.5 w-3.5 transition-transform duration-200", open && "rotate-180")}
+        strokeWidth={2.5}
+      />
     </button>
   );
 }
@@ -102,24 +110,6 @@ function Dropdown({ open, children, width = "w-64" }: DropdownProps) {
   );
 }
 
-function DropdownItem({
-  children,
-  icon: Icon,
-}: {
-  children: React.ReactNode;
-  icon?: typeof Sparkles;
-}) {
-  return (
-    <a
-      href="#"
-      className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-soft hover:text-brand-blue"
-    >
-      {Icon && <Icon className="h-4 w-4 text-brand-muted" strokeWidth={2.25} />}
-      {children}
-    </a>
-  );
-}
-
 interface SiteHeaderProps {
   variant?: "auto" | "desktop" | "mobile";
 }
@@ -129,7 +119,6 @@ export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
-  // Force-show / force-hide helpers that override responsive defaults
   const showMobile =
     variant === "mobile" ? "flex" : variant === "desktop" ? "hidden" : "flex md:hidden";
   const showDesktop =
@@ -140,7 +129,6 @@ export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-brand-line bg-white/85 backdrop-blur-lg shadow-sticky">
       <div className={cn("mx-auto flex max-w-7xl items-center gap-6", desktopHeight)}>
-        {/* Mobile: hamburger left */}
         <div className={showMobile}>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
@@ -160,7 +148,6 @@ export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
           </Sheet>
         </div>
 
-        {/* Logo */}
         <div
           className={cn(
             "flex flex-1 items-center",
@@ -174,74 +161,68 @@ export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
           <Logo />
         </div>
 
-        {/* Desktop nav */}
         <nav
           className={cn("flex-1 items-center justify-center gap-1", showDesktop)}
           onMouseLeave={() => setOpenDrop(null)}
         >
-          <NavLink label="Главная" active />
-          <NavLink label="Каталог МФО" />
+          <NavLinkItem to="/" label="Главная" />
+          <NavLinkItem to="/mfo" label="Каталог МФО" />
 
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDrop("picks")}
-          >
-            <NavLink label="Подборки" hasDropdown open={openDrop === "picks"} />
+          <div className="relative" onMouseEnter={() => setOpenDrop("picks")}>
+            <NavTrigger label="Подборки" open={openDrop === "picks"} />
             <Dropdown open={openDrop === "picks"} width="w-60">
               {picks.map((p) => (
-                <DropdownItem key={p} icon={Sparkles}>
-                  {p}
-                </DropdownItem>
+                <Link
+                  key={p.slug}
+                  to="/situations/$slug"
+                  params={{ slug: p.slug }}
+                  className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <Sparkles className="h-4 w-4 text-brand-muted" strokeWidth={2.25} />
+                  {p.label}
+                </Link>
               ))}
             </Dropdown>
           </div>
 
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDrop("amount")}
-          >
-            <NavLink label="По сумме" hasDropdown open={openDrop === "amount"} />
+          <div className="relative" onMouseEnter={() => setOpenDrop("amount")}>
+            <NavTrigger label="По сумме" open={openDrop === "amount"} />
             <Dropdown open={openDrop === "amount"} width="w-72">
               <div className="grid grid-cols-3 gap-1">
                 {amounts.map((a) => (
-                  <a
-                    key={a}
-                    href="#"
+                  <Link
+                    key={a.slug}
+                    to="/summa/$slug"
+                    params={{ slug: a.slug }}
                     className="rounded-md px-2 py-2 text-center text-sm font-bold text-brand-ink transition-colors hover:bg-brand-green/10 hover:text-brand-green"
                   >
-                    {a}
-                  </a>
+                    {a.label}
+                  </Link>
                 ))}
               </div>
             </Dropdown>
           </div>
 
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDrop("cities")}
-          >
-            <NavLink label="По городам" hasDropdown open={openDrop === "cities"} />
+          <div className="relative" onMouseEnter={() => setOpenDrop("cities")}>
+            <NavTrigger label="По городам" open={openDrop === "cities"} />
             <Dropdown open={openDrop === "cities"} width="w-64">
               {cities.map((c) => (
-                <DropdownItem key={c} icon={MapPin}>
-                  {c}
-                </DropdownItem>
+                <Link
+                  key={c.slug}
+                  to="/goroda/$slug"
+                  params={{ slug: c.slug }}
+                  className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <MapPin className="h-4 w-4 text-brand-muted" strokeWidth={2.25} />
+                  {c.label}
+                </Link>
               ))}
-              <div className="my-1 h-px bg-brand-line" />
-              <a
-                href="#"
-                className="flex items-center justify-between rounded-md px-3 py-2 text-sm font-bold text-brand-blue transition-colors hover:bg-brand-blue/8"
-              >
-                Все города
-                <span aria-hidden>→</span>
-              </a>
             </Dropdown>
           </div>
 
-          <NavLink label="Блог" />
+          <NavLinkItem to="/blog" label="Блог" />
         </nav>
 
-        {/* Desktop search */}
         <form
           className={cn(
             "h-11 w-[330px] items-center gap-1 rounded-pill border border-brand-line bg-white pl-4 pr-1 transition-all focus-within:border-brand-blue focus-within:shadow-card",
@@ -264,7 +245,6 @@ export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
           </button>
         </form>
 
-        {/* Mobile: search icon right */}
         <div className={showMobile}>
           <button
             aria-label="Поиск"
@@ -276,7 +256,6 @@ export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
         </div>
       </div>
 
-      {/* Mobile expandable search */}
       {mobileSearchOpen && (
         <div
           className={cn(
@@ -327,18 +306,22 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4">
-        <a
-          href="#"
-          className="flex items-center justify-between rounded-md bg-[#ecfdf5] px-4 py-3.5 text-base font-bold text-[#047857]"
+        <Link
+          to="/"
+          onClick={onClose}
+          className="flex items-center justify-between rounded-md px-4 py-3.5 text-base font-bold text-brand-ink hover:bg-brand-soft"
+          activeProps={{ className: "flex items-center justify-between rounded-md bg-[#ecfdf5] px-4 py-3.5 text-base font-bold text-[#047857]" }}
+          activeOptions={{ exact: true }}
         >
           Главная
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/mfo"
+          onClick={onClose}
           className="mt-1 flex items-center justify-between rounded-md px-4 py-3.5 text-base font-bold text-brand-ink hover:bg-brand-soft"
         >
           Каталог МФО
-        </a>
+        </Link>
 
         <MobileSection
           label="Подборки"
@@ -347,9 +330,15 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           onToggle={() => toggle("picks")}
         >
           {picks.map((p) => (
-            <a key={p} href="#" className="block rounded-md px-4 py-2.5 text-sm font-semibold text-brand-muted hover:bg-brand-soft hover:text-brand-blue">
-              {p}
-            </a>
+            <Link
+              key={p.slug}
+              to="/situations/$slug"
+              params={{ slug: p.slug }}
+              onClick={onClose}
+              className="block rounded-md px-4 py-2.5 text-sm font-semibold text-brand-muted hover:bg-brand-soft hover:text-brand-blue"
+            >
+              {p.label}
+            </Link>
           ))}
         </MobileSection>
 
@@ -361,13 +350,15 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         >
           <div className="grid grid-cols-3 gap-1.5 px-2 py-1">
             {amounts.map((a) => (
-              <a
-                key={a}
-                href="#"
+              <Link
+                key={a.slug}
+                to="/summa/$slug"
+                params={{ slug: a.slug }}
+                onClick={onClose}
                 className="rounded-md bg-brand-soft px-2 py-2 text-center text-sm font-bold text-brand-ink hover:bg-brand-green/10 hover:text-brand-green"
               >
-                {a}
-              </a>
+                {a.label}
+              </Link>
             ))}
           </div>
         </MobileSection>
@@ -379,18 +370,25 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           onToggle={() => toggle("cities")}
         >
           {cities.map((c) => (
-            <a key={c} href="#" className="block rounded-md px-4 py-2.5 text-sm font-semibold text-brand-muted hover:bg-brand-soft hover:text-brand-blue">
-              {c}
-            </a>
+            <Link
+              key={c.slug}
+              to="/goroda/$slug"
+              params={{ slug: c.slug }}
+              onClick={onClose}
+              className="block rounded-md px-4 py-2.5 text-sm font-semibold text-brand-muted hover:bg-brand-soft hover:text-brand-blue"
+            >
+              {c.label}
+            </Link>
           ))}
-          <a href="#" className="block rounded-md px-4 py-2.5 text-sm font-bold text-brand-blue">
-            Все города →
-          </a>
         </MobileSection>
 
-        <a href="#" className="mt-1 flex items-center justify-between rounded-md px-4 py-3.5 text-base font-bold text-brand-ink hover:bg-brand-soft">
+        <Link
+          to="/blog"
+          onClick={onClose}
+          className="mt-1 flex items-center justify-between rounded-md px-4 py-3.5 text-base font-bold text-brand-ink hover:bg-brand-soft"
+        >
           Блог
-        </a>
+        </Link>
       </nav>
 
       <div className="border-t border-brand-line p-4">
