@@ -25,29 +25,54 @@ import { SiteFooter } from "@/components/home/SiteFooter";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
+const FORMAT = (n: number) => n.toLocaleString("ru-RU") + " ₽";
+
+const ALL_AMOUNTS = [1000, 3000, 5000, 7000, 10000, 15000, 20000, 30000, 50000, 100000];
+
+function parseAmount(slug: string): number {
+  const m = slug.match(/(\d+)/);
+  const n = m ? parseInt(m[1], 10) : 5000;
+  if (!Number.isFinite(n) || n < 1000) return 5000;
+  if (n > 1_000_000) return 5000;
+  return n;
+}
+
+function termRange(amount: number): { min: number; max: number; def: number } {
+  if (amount <= 5000) return { min: 7, max: 30, def: 14 };
+  if (amount <= 15000) return { min: 7, max: 60, def: 21 };
+  if (amount <= 30000) return { min: 14, max: 90, def: 30 };
+  if (amount <= 50000) return { min: 30, max: 180, def: 60 };
+  return { min: 30, max: 365, def: 90 };
+}
+
+function termLabel(amount: number): string {
+  const { min, max } = termRange(amount);
+  return `от ${min} до ${max} дней`;
+}
+
 export const Route = createFileRoute("/summa/$slug")({
-  head: () => ({
-    meta: [
-      { title: "Займ 5000 рублей онлайн — где получить с плохой КИ 2026 | Zaymi Online" },
-      {
-        name: "description",
-        content:
-          "Займ 5 000 ₽ онлайн на карту за 5 минут. 23 МФО с лицензией ЦБ РФ. Первый займ под 0%, одобрение 95%, без справок и поручителей.",
-      },
-      { property: "og:title", content: "Займ 5 000 ₽ онлайн на карту — ТОП-23 МФО 2026" },
-      {
-        property: "og:description",
-        content: "Сравните 23 МФО, которые выдают именно 5 000 ₽. Ставки от 0%, деньги за 5 минут.",
-      },
-    ],
-  }),
+  head: ({ params }) => {
+    const amount = parseAmount(params.slug);
+    const f = FORMAT(amount);
+    return {
+      meta: [
+        { title: `Займ ${f} онлайн на карту — ТОП МФО 2026 | Zaymi Online` },
+        {
+          name: "description",
+          content: `Займ ${f} онлайн на карту за 5 минут. Проверенные МФО с лицензией ЦБ РФ. Первый займ под 0%, одобрение до 95%, без справок и поручителей.`,
+        },
+        { property: "og:title", content: `Займ ${f} онлайн — лучшие МФО 2026` },
+        {
+          property: "og:description",
+          content: `Сравните МФО, которые выдают ${f}. Ставки от 0%, деньги за 5 минут.`,
+        },
+      ],
+    };
+  },
   component: AmountPage,
 });
 
-const AMOUNT = 5000;
-const FORMAT = (n: number) => n.toLocaleString("ru-RU") + " ₽";
-
-const otherAmounts = [1000, 3000, 4000, 6000, 7000, 10000, 15000];
+const otherAmounts = ALL_AMOUNTS;
 
 const topMfos = [
   { name: "Займер", slug: "zaymer", letter: "З", bg: "from-brand-blue to-brand-green", rating: 4.8, reviews: 2384, line: "Выдаёт 5 000 ₽ на 30 дней под 0% (первый займ)", overpay: 0, total: 5000, badge: "Первый займ 0%" },
