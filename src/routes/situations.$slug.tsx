@@ -289,6 +289,9 @@ const situationFaqs = [
 /* ───────────── Page ───────────── */
 
 function SituationPage() {
+  const { slug } = Route.useParams();
+  const cfg = getSituation(slug);
+
   return (
     <div className="min-h-screen scroll-smooth bg-white">
       <SiteHeader />
@@ -300,7 +303,7 @@ function SituationPage() {
           <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
           <li><Link to="/mfo" className="hover:text-brand-blue">Подборки</Link></li>
           <ChevronRight className="h-3.5 w-3.5 text-brand-line" />
-          <li className="font-semibold text-brand-ink">Займы без отказа</li>
+          <li className="font-semibold text-brand-ink">{cfg.crumb}</li>
         </ol>
       </nav>
 
@@ -314,22 +317,17 @@ function SituationPage() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="inline-flex items-center gap-2 rounded-pill bg-white/90 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#b45309] shadow-card backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5" /> Подборка МФО
+            <Sparkles className="h-3.5 w-3.5" /> {cfg.eyebrow}
           </div>
           <h1 className="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-brand-ink md:text-5xl">
-            Займы онлайн <span className="text-[#dc2626]">без отказа</span>
+            {cfg.h1}
           </h1>
           <p className="mt-4 max-w-2xl text-base text-brand-ink/70 md:text-lg">
-            24 МФО с самым высоким процентом одобрений. Деньги получат даже клиенты с плохой кредитной историей.
+            {cfg.subtitle}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2 md:gap-3">
-            {[
-              { icon: Ban, label: "95% одобрений", tone: "red" },
-              { icon: CheckCircle2, label: "С плохой КИ", tone: "green" },
-              { icon: Zap, label: "Решение 5 мин", tone: "amber" },
-              { icon: FileX, label: "Без справок", tone: "blue" },
-            ].map((s) => (
+            {cfg.trust.map((s) => (
               <span
                 key={s.label}
                 className="inline-flex items-center gap-2 rounded-pill border border-white/60 bg-white/95 px-4 py-2 text-sm font-bold text-brand-ink shadow-card backdrop-blur"
@@ -352,22 +350,22 @@ function SituationPage() {
       </section>
 
       {/* 3. Why these MFO */}
-      <WhyTrustSection />
+      <WhyTrustSection title={cfg.whyTitle} />
 
       {/* 4. Catalog */}
-      <CatalogSection />
+      <CatalogSection title={cfg.catalogTitle} subtitle={cfg.catalogSubtitle} />
 
       {/* 5. What to do if refused */}
-      <RefusalAdviceSection />
+      <RefusalAdviceSection title={cfg.refusalTitle} />
 
       {/* 6. Related situations */}
       <RelatedSituationsSection />
 
       {/* SEO */}
-      <SeoTextSection />
+      <SeoTextSection title={cfg.seoH2} />
 
       {/* FAQ */}
-      <FaqSection />
+      <FaqSection title={cfg.faqTitle} />
 
       {/* Hub */}
       <RelatedHub />
