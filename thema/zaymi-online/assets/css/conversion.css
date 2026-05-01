@@ -1,0 +1,50 @@
+/* === Lead form === */
+.zaymi-lead-form{display:flex;flex-direction:column;gap:12px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.05);font-family:Inter,system-ui,sans-serif;max-width:420px}
+.zaymi-lead-form .zlf-title{margin:0 0 4px;font-size:20px;font-weight:700;color:#0f172a}
+.zaymi-lead-form label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:#475569}
+.zaymi-lead-form input[type=text],.zaymi-lead-form input[type=tel],.zaymi-lead-form input[type=email],.zaymi-lead-form input[type=number]{padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px}
+.zaymi-lead-form .zlf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.zaymi-lead-form .zlf-agree{flex-direction:row;align-items:center;gap:8px;font-size:12px}
+.zaymi-lead-form .zlf-btn{padding:14px;background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border:0;border-radius:10px;font-weight:600;font-size:16px;cursor:pointer;transition:transform .15s}
+.zaymi-lead-form .zlf-btn:hover{transform:translateY(-1px)}
+.zaymi-lead-form .zlf-result{padding:12px;border-radius:8px;font-size:14px}
+.zaymi-lead-form .zlf-result.ok{background:#dcfce7;color:#166534}
+.zaymi-lead-form .zlf-result.err{background:#fee2e2;color:#991b1b}
+
+/* === Notice widget === */
+.zaymi-notice{position:fixed;left:20px;bottom:20px;z-index:9998;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 16px 12px 12px;box-shadow:0 10px 40px rgba(0,0,0,.15);display:flex;align-items:center;gap:12px;max-width:320px;font-family:Inter,system-ui,sans-serif;transform:translateY(120%);transition:transform .4s ease}
+.zaymi-notice.show{transform:translateY(0)}
+.zaymi-notice .zn-ico{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.zaymi-notice .zn-text{font-size:13px;color:#0f172a;line-height:1.4}
+.zaymi-notice .zn-text b{display:block;color:#16a34a}
+.zaymi-notice .zn-close{position:absolute;top:4px;right:8px;background:none;border:0;font-size:18px;color:#94a3b8;cursor:pointer}
+
+/* === Exit-intent popup === */
+.zaymi-exit-overlay{position:fixed;inset:0;background:rgba(15,23,42,.7);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.zaymi-exit-overlay.show{display:flex;animation:zaymiFade .3s}
+.zaymi-exit-modal{background:#fff;border-radius:20px;padding:32px;max-width:520px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.zaymi-exit-modal h2{margin:0 0 8px;font-size:24px;font-weight:800;color:#0f172a}
+.zaymi-exit-modal p{margin:0 0 20px;color:#64748b}
+.zaymi-exit-modal .zem-list{display:flex;flex-direction:column;gap:10px}
+.zaymi-exit-modal .zem-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;color:#0f172a;transition:all .15s}
+.zaymi-exit-modal .zem-item:hover{border-color:#16a34a;background:#f0fdf4}
+.zaymi-exit-modal .zem-item img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.zaymi-exit-modal .zem-name{font-weight:700;font-size:16px}
+.zaymi-exit-modal .zem-rate{font-size:13px;color:#64748b}
+.zaymi-exit-modal .zem-cta{margin-left:auto;padding:8px 16px;background:#16a34a;color:#fff;border-radius:8px;font-size:13px;font-weight:600}
+.zaymi-exit-modal .zem-close{position:absolute;top:12px;right:16px;background:none;border:0;font-size:24px;color:#94a3b8;cursor:pointer}
+
+/* === Progress modal === */
+.zaymi-progress{position:fixed;inset:0;background:rgba(15,23,42,.85);z-index:10001;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.zaymi-progress.show{display:flex}
+.zaymi-progress-box{background:#fff;border-radius:20px;padding:40px;max-width:380px;width:90%;text-align:center}
+.zaymi-progress-box h3{margin:0 0 20px;font-size:20px;color:#0f172a}
+.zaymi-progress-bar{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;margin-bottom:16px}
+.zaymi-progress-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#16a34a,#22c55e);transition:width .3s}
+.zaymi-progress-step{font-size:14px;color:#64748b;min-height:20px}
+.zaymi-progress.done .zaymi-progress-bar i{width:100%!important;background:#16a34a}
+.zaymi-progress.done h3{color:#16a34a}
+.zaymi-progress.done h3::before{content:"✓ "}
+
+@keyframes zaymiFade{from{opacity:0}to{opacity:1}}
+@media(max-width:480px){.zaymi-exit-modal,.zaymi-progress-box{padding:20px}.zaymi-notice{left:10px;right:10px;max-width:none}}
