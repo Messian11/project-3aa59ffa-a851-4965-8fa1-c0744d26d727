@@ -41,6 +41,7 @@ require_once ZAYMI_DIR . '/inc/sitemaps.php';       // /sitemap.xml + IndexNow +
 require_once ZAYMI_DIR . '/inc/internal-links.php'; // related, LSI, автозамена МФО на ссылки
 require_once ZAYMI_DIR . '/inc/turbo.php';          // /turbo.xml для Яндекса
 require_once ZAYMI_DIR . '/inc/og-image.php';       // OG/Twitter теги + динамическая картинка
+require_once ZAYMI_DIR . '/inc/dashboard.php';      // 📊 Админ-дашборд с Chart.js
 
 /* SEO стили */
 add_action('wp_enqueue_scripts', function () {
