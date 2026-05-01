@@ -1,0 +1,5604 @@
+[
+  {
+    "slug": "zaymer",
+    "title": "Займер",
+    "tagline": "Первый займ под 0%",
+    "logo": "zaymer.png",
+    "rating": 4.7,
+    "reviews_count": 12845,
+    "amount_min": 2000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 95,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://www.zaymer.ru/?utm_source=zaymi-online",
+    "license": "651303045003",
+    "pros": [
+      "Первый займ под 0%",
+      "Решение за 5 минут",
+      "Деньги на карту любого банка",
+      "Без справки о доходах",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Лимит 30 000 ₽ для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспортные данные и номер карты — занимает 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Автоматическая проверка — ответ за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод мгновенно после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 10000
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 0.99,
+        "overpayment": 8910,
+        "total": 38910
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Займере?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Можно ли получить второй займ под 0%?",
+        "answer": "Нет, акция распространяется только на первый займ для новых клиентов."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan",
+        "novosibirsk",
+        "ekaterinburg"
+      ]
+    }
+  },
+  {
+    "slug": "webbankir",
+    "title": "Webbankir",
+    "tagline": "До 100 000 ₽ на длинный срок",
+    "logo": "webbankir.png",
+    "rating": 4.5,
+    "reviews_count": 9230,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 0,
+    "rate_max": 0.8,
+    "approval_rate": 88,
+    "age_min": 20,
+    "age_max": 75,
+    "partner_url": "https://web-bankir.ru/?utm_source=zaymi-online",
+    "license": "2110177000037",
+    "pros": [
+      "Сумма до 100 000 ₽",
+      "Срок до 168 дней",
+      "Первый займ под 0% до 30 000 ₽",
+      "Можно увеличивать кредитный лимит"
+    ],
+    "cons": [
+      "Возраст от 20 лет",
+      "Требуется верификация по СНИЛС"
+    ],
+    "fit_for": [
+      {
+        "icon": "wallet",
+        "title": "Большая сумма",
+        "description": "До 100 000 ₽ для постоянных клиентов"
+      },
+      {
+        "icon": "calendar",
+        "title": "Длинный срок",
+        "description": "До 6 месяцев с возможностью досрочного погашения"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Регистрация",
+        "description": "Заполните анкету — 5 минут"
+      },
+      {
+        "title": "Верификация",
+        "description": "Подтвердите личность через СНИЛС"
+      },
+      {
+        "title": "Получение денег",
+        "description": "Перевод на карту, кошелёк или наличными"
+      }
+    ],
+    "documents": [
+      "passport",
+      "snils",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 10000,
+        "term": 30,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 10000
+      },
+      {
+        "amount": 50000,
+        "term": 90,
+        "rate": 0.7,
+        "overpayment": 31500,
+        "total": 81500
+      },
+      {
+        "amount": 100000,
+        "term": 168,
+        "rate": 0.8,
+        "overpayment": 134400,
+        "total": 234400
+      }
+    ],
+    "faq": [
+      {
+        "question": "Какой максимальный срок займа?",
+        "answer": "До 168 дней с возможностью продления."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "moskva",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "ekapusta",
+    "title": "еКапуста",
+    "tagline": "Деньги за 7 минут на карту",
+    "logo": "ekapusta.png",
+    "rating": 4.6,
+    "reviews_count": 15400,
+    "amount_min": 100,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 21,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 92,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://ekapusta.com/?utm_source=zaymi-online",
+    "license": "651303322004222",
+    "pros": [
+      "Минимальная сумма от 100 ₽",
+      "Первый займ до 30 000 ₽ под 0%",
+      "Решение за 7 минут",
+      "Можно получить наличными в Контакт"
+    ],
+    "cons": [
+      "Срок до 21 дня",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "zap",
+        "title": "Срочно",
+        "description": "Деньги на карту за 7 минут"
+      },
+      {
+        "icon": "user",
+        "title": "Студентам",
+        "description": "От 18 лет, без справок"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "Заполните паспортные данные"
+      },
+      {
+        "title": "Одобрение",
+        "description": "Автоматическое решение за 7 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "На карту, кошелёк или наличными"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 1000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 1000
+      },
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 10000
+      },
+      {
+        "amount": 30000,
+        "term": 21,
+        "rate": 0.99,
+        "overpayment": 6237,
+        "total": 36237
+      }
+    ],
+    "faq": [
+      {
+        "question": "Можно ли получить наличными?",
+        "answer": "Да, через систему Контакт в любом отделении."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "srochno",
+        "studentam",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-1000",
+        "zaim-3000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan",
+        "novosibirsk",
+        "ekaterinburg"
+      ]
+    }
+  },
+  {
+    "slug": "lime-zaim",
+    "title": "Lime Займ",
+    "tagline": "До 100 000 ₽ постоянным клиентам",
+    "logo": "limezaim.png",
+    "rating": 4.4,
+    "reviews_count": 8120,
+    "amount_min": 2000,
+    "amount_max": 100000,
+    "term_min": 5,
+    "term_max": 168,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 89,
+    "age_min": 21,
+    "age_max": 70,
+    "partner_url": "https://lime-zaim.ru/?utm_source=zaymi-online",
+    "license": "651303045003291",
+    "pros": [
+      "Растущий лимит до 100 000 ₽",
+      "Гибкий график погашения",
+      "Скидки повторным клиентам",
+      "Удобное мобильное приложение"
+    ],
+    "cons": [
+      "Возраст от 21 года",
+      "Первый займ обычно до 15 000 ₽"
+    ],
+    "fit_for": [
+      {
+        "icon": "wallet",
+        "title": "Постоянным клиентам",
+        "description": "Лимит растёт с каждым закрытым займом"
+      },
+      {
+        "icon": "calendar",
+        "title": "На долгий срок",
+        "description": "До 24 недель с гибкими платежами"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Регистрация",
+        "description": "5 минут — паспорт и карта"
+      },
+      {
+        "title": "Решение",
+        "description": "Автоматический скоринг за 7 минут"
+      },
+      {
+        "title": "Получение",
+        "description": "Перевод на карту до 15 минут"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.99,
+        "overpayment": 347,
+        "total": 5347
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 0.99,
+        "overpayment": 4455,
+        "total": 19455
+      },
+      {
+        "amount": 50000,
+        "term": 90,
+        "rate": 0.8,
+        "overpayment": 36000,
+        "total": 86000
+      }
+    ],
+    "faq": [
+      {
+        "question": "Когда повышается лимит?",
+        "answer": "После 2-3 успешно закрытых займов лимит автоматически увеличивается."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "s-plohoy-ki"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan",
+        "novosibirsk",
+        "ekaterinburg",
+        "rostov",
+        "krasnodar"
+      ]
+    }
+  },
+  {
+    "slug": "moneyman",
+    "title": "MoneyMan",
+    "tagline": "Лидер рынка с 2011 года",
+    "logo": "moneyman.png",
+    "rating": 4.6,
+    "reviews_count": 21540,
+    "amount_min": 1500,
+    "amount_max": 80000,
+    "term_min": 5,
+    "term_max": 126,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 90,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://moneyman.ru/?utm_source=zaymi-online",
+    "license": "2110177000478",
+    "pros": [
+      "Один из крупнейших МФО",
+      "Первый займ под 0%",
+      "Без справок о доходах",
+      "Сервис работает 24/7"
+    ],
+    "cons": [
+      "Строгий скоринг",
+      "Не выдаёт повторно сразу"
+    ],
+    "fit_for": [
+      {
+        "icon": "shield-check",
+        "title": "Проверенные клиенты",
+        "description": "Высокое одобрение для людей с КИ"
+      },
+      {
+        "icon": "zap",
+        "title": "Срочно",
+        "description": "Деньги за 15 минут"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "Заполните на сайте за 5 минут"
+      },
+      {
+        "title": "Скоринг",
+        "description": "Автоматическая проверка"
+      },
+      {
+        "title": "Деньги",
+        "description": "На карту мгновенно"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 20000,
+        "term": 30,
+        "rate": 0.99,
+        "overpayment": 5940,
+        "total": 25940
+      },
+      {
+        "amount": 80000,
+        "term": 126,
+        "rate": 0.8,
+        "overpayment": 80640,
+        "total": 160640
+      }
+    ],
+    "faq": [
+      {
+        "question": "Что такое первый займ под 0%?",
+        "answer": "Новые клиенты MoneyMan не платят проценты по первому займу до 30 000 ₽ на срок до 5 дней."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-20000",
+        "zaim-50000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "dobrozaim",
+    "title": "Доброзайм",
+    "tagline": "Лояльны к плохой кредитной истории",
+    "logo": "dobrozaim.png",
+    "rating": 4.3,
+    "reviews_count": 5640,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0.5,
+    "rate_max": 0.99,
+    "approval_rate": 96,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://dobrozaim.ru/?utm_source=zaymi-online",
+    "license": "651303550009016",
+    "pros": [
+      "Самый высокий процент одобрения — 96%",
+      "Выдают при просрочках",
+      "Без отказа пенсионерам",
+      "Минимум документов"
+    ],
+    "cons": [
+      "Нет акции 0%",
+      "Невысокий лимит для первого займа"
+    ],
+    "fit_for": [
+      {
+        "icon": "alert-circle",
+        "title": "С плохой КИ",
+        "description": "Не отказывают при наличии просрочек"
+      },
+      {
+        "icon": "user",
+        "title": "Пенсионерам",
+        "description": "Возраст до 75 лет"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заявка",
+        "description": "Простая форма на сайте"
+      },
+      {
+        "title": "Одобрение",
+        "description": "За 10 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "На карту, Контакт или Юmoney"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 3000,
+        "term": 14,
+        "rate": 0.99,
+        "overpayment": 416,
+        "total": 3416
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 0.99,
+        "overpayment": 4455,
+        "total": 19455
+      }
+    ],
+    "faq": [
+      {
+        "question": "Дают ли с открытыми просрочками?",
+        "answer": "Да, но сумма для таких клиентов обычно меньше."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "pensioneram",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-15000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan",
+        "novosibirsk"
+      ]
+    }
+  },
+  {
+    "slug": "turbozaim",
+    "title": "Turbozaim",
+    "tagline": "Скорость — наш конёк",
+    "logo": "turbozaim.png",
+    "rating": 4.5,
+    "reviews_count": 11200,
+    "amount_min": 3000,
+    "amount_max": 25000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 0.99,
+    "approval_rate": 91,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://turbozaim.ru/?utm_source=zaymi-online",
+    "license": "651303550009101",
+    "pros": [
+      "Деньги за 5 минут",
+      "Первый займ под 0%",
+      "Простая анкета",
+      "Работают круглосуточно"
+    ],
+    "cons": [
+      "Лимит 25 000 ₽",
+      "Не работают с СНГ"
+    ],
+    "fit_for": [
+      {
+        "icon": "zap",
+        "title": "Срочно",
+        "description": "Деньги за 5 минут"
+      },
+      {
+        "icon": "clock",
+        "title": "24/7",
+        "description": "Заявку можно подать в любое время"
+      }
+    ],
+    "steps": [
+      {
+        "title": "3 минуты на анкету",
+        "description": "Минимум полей"
+      },
+      {
+        "title": "Решение",
+        "description": "Автоматическое за 1-2 минуты"
+      },
+      {
+        "title": "Деньги",
+        "description": "На карту за 5 минут"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 21,
+        "rate": 0.99,
+        "overpayment": 3119,
+        "total": 18119
+      },
+      {
+        "amount": 25000,
+        "term": 30,
+        "rate": 0.99,
+        "overpayment": 7425,
+        "total": 32425
+      }
+    ],
+    "faq": [
+      {
+        "question": "Реально ли получить за 5 минут?",
+        "answer": "При корректно заполненной анкете и положительном скоринге — да."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "srochno",
+        "bez-otkaza",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-15000",
+        "zaim-20000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "novosibirsk",
+        "ekaterinburg",
+        "krasnodar"
+      ]
+    }
+  },
+  {
+    "slug": "dengi-srazu",
+    "title": "Деньги Сразу",
+    "tagline": "Офисы по всей России",
+    "logo": "dengisrazu.png",
+    "rating": 4.2,
+    "reviews_count": 18230,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0.99,
+    "rate_max": 0.99,
+    "approval_rate": 87,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://dengisrazu.ru/?utm_source=zaymi-online",
+    "license": "651303045003045",
+    "pros": [
+      "Можно прийти в офис",
+      "Большая сеть отделений",
+      "Работают с СНГ",
+      "Наличные в день обращения"
+    ],
+    "cons": [
+      "Высокая ставка",
+      "Нет первого займа под 0%"
+    ],
+    "fit_for": [
+      {
+        "icon": "map-pin",
+        "title": "Через офис",
+        "description": "Если не доверяете онлайн"
+      },
+      {
+        "icon": "banknote",
+        "title": "Наличные",
+        "description": "Получите в кассе сразу"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заявка онлайн или в офисе",
+        "description": "Выбираете удобный способ"
+      },
+      {
+        "title": "Решение",
+        "description": "За 15 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "Наличные в кассе или на карту"
+      }
+    ],
+    "documents": [
+      "passport"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 15,
+        "rate": 0.99,
+        "overpayment": 743,
+        "total": 5743
+      },
+      {
+        "amount": 20000,
+        "term": 30,
+        "rate": 0.99,
+        "overpayment": 5940,
+        "total": 25940
+      }
+    ],
+    "faq": [
+      {
+        "question": "Где найти офис?",
+        "answer": "На сайте есть карта с адресами всех 800+ офисов по России."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan",
+        "novosibirsk",
+        "ekaterinburg",
+        "rostov",
+        "krasnodar",
+        "samara",
+        "ufa",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "migcredit",
+    "title": "МигКредит",
+    "tagline": "С плохой КИ",
+    "logo": "migcredit.png",
+    "rating": 4.6,
+    "reviews_count": 489,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 5,
+    "term_max": 60,
+    "rate_min": 0,
+    "rate_max": 1.37,
+    "approval_rate": 96,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/migcredit",
+    "license": "673128415155",
+    "pros": [
+      "Возможность пролонгации",
+      "Большие лимиты для постоянных",
+      "На карту любого банка",
+      "Скидка на повторный займ"
+    ],
+    "cons": [
+      "Жёсткий скоринг",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.37,
+        "overpayment": 2877,
+        "total": 17877
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.37,
+        "overpayment": 12330,
+        "total": 42330
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в МигКредит?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "bez-otkaza",
+        "studentam",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "spb",
+        "novosibirsk",
+        "ufa"
+      ]
+    }
+  },
+  {
+    "slug": "ezaem",
+    "title": "EzaemOnline",
+    "tagline": "Деньги за 5 минут",
+    "logo": "ezaem.png",
+    "rating": 4.7,
+    "reviews_count": 2695,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 7,
+    "term_max": 90,
+    "rate_min": 0,
+    "rate_max": 1.1,
+    "approval_rate": 85,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/ezaem",
+    "license": "674987658854",
+    "pros": [
+      "На карту любого банка",
+      "Большие лимиты для постоянных",
+      "Быстрое одобрение",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.1,
+        "overpayment": 2310,
+        "total": 17310
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.1,
+        "overpayment": 9900,
+        "total": 39900
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в EzaemOnline?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "rostov",
+        "chelyabinsk",
+        "ekaterinburg"
+      ]
+    }
+  },
+  {
+    "slug": "viva-dengi",
+    "title": "VIVA Деньги",
+    "tagline": "Деньги за 5 минут",
+    "logo": "viva-dengi.png",
+    "rating": 4.3,
+    "reviews_count": 1219,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 14,
+    "term_max": 60,
+    "rate_min": 0.5,
+    "rate_max": 1.49,
+    "approval_rate": 82,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/viva-dengi",
+    "license": "624202047459",
+    "pros": [
+      "Скидка на повторный займ",
+      "Возможность пролонгации",
+      "На карту любого банка",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.5,
+        "overpayment": 175,
+        "total": 5175
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.49,
+        "overpayment": 3129,
+        "total": 18129
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.49,
+        "overpayment": 13410,
+        "total": 43410
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в VIVA Деньги?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "rostov",
+        "kazan",
+        "chelyabinsk",
+        "ufa",
+        "spb",
+        "krasnodar"
+      ]
+    }
+  },
+  {
+    "slug": "turbozaym",
+    "title": "Турбозайм",
+    "tagline": "Первый займ 0%",
+    "logo": "turbozaym.png",
+    "rating": 4.7,
+    "reviews_count": 3678,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 5,
+    "term_max": 60,
+    "rate_min": 0,
+    "rate_max": 1.4,
+    "approval_rate": 87,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/turbozaym",
+    "license": "699843504888",
+    "pros": [
+      "Скидка на повторный займ",
+      "Лояльны к плохой КИ",
+      "Удобный личный кабинет",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.4,
+        "overpayment": 2940,
+        "total": 17940
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.4,
+        "overpayment": 12600,
+        "total": 42600
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Турбозайм?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "s-plohoy-ki",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "samara",
+        "krasnodar",
+        "chelyabinsk",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "credit-plus",
+    "title": "Кредит Плюс",
+    "tagline": "С плохой КИ",
+    "logo": "credit-plus.png",
+    "rating": 4.3,
+    "reviews_count": 2346,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 1.43,
+    "approval_rate": 79,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/credit-plus",
+    "license": "689200452323",
+    "pros": [
+      "Удобный личный кабинет",
+      "На карту любого банка",
+      "Без справок о доходах",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.43,
+        "overpayment": 3003,
+        "total": 18003
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.43,
+        "overpayment": 12870,
+        "total": 42870
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Кредит Плюс?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "studentam",
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "chelyabinsk",
+        "samara",
+        "ekaterinburg",
+        "ufa",
+        "moskva",
+        "rostov"
+      ]
+    }
+  },
+  {
+    "slug": "kredito24",
+    "title": "Кредито24",
+    "tagline": "На карту любого банка",
+    "logo": "kredito24.png",
+    "rating": 4.9,
+    "reviews_count": 4395,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 5,
+    "term_max": 365,
+    "rate_min": 0,
+    "rate_max": 1.43,
+    "approval_rate": 84,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/kredito24",
+    "license": "642119777069",
+    "pros": [
+      "Возможность пролонгации",
+      "Быстрое одобрение",
+      "На карту любого банка",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.43,
+        "overpayment": 3003,
+        "total": 18003
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.43,
+        "overpayment": 12870,
+        "total": 42870
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Кредито24?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "srochno",
+        "s-plohoy-ki",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "kazan",
+        "ufa",
+        "moskva",
+        "ekaterinburg",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "srochnodengi",
+    "title": "Срочноденьги",
+    "tagline": "На карту любого банка",
+    "logo": "srochnodengi.png",
+    "rating": 4.5,
+    "reviews_count": 1213,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 5,
+    "term_max": 60,
+    "rate_min": 1.0,
+    "rate_max": 1.23,
+    "approval_rate": 92,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/srochnodengi",
+    "license": "614824020111",
+    "pros": [
+      "Возможность пролонгации",
+      "Скидка на повторный займ",
+      "Быстрое одобрение",
+      "Без справок о доходах"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Лимит для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.23,
+        "overpayment": 2583,
+        "total": 17583
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.23,
+        "overpayment": 11070,
+        "total": 41070
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Срочноденьги?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "pensioneram",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "krasnodar",
+        "novosibirsk",
+        "ufa",
+        "rostov",
+        "kazan",
+        "samara",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "bystrodengi",
+    "title": "Быстроденьги",
+    "tagline": "Деньги за 5 минут",
+    "logo": "bystrodengi.png",
+    "rating": 4.3,
+    "reviews_count": 1243,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 5,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 1.43,
+    "approval_rate": 77,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/bystrodengi",
+    "license": "658664884218",
+    "pros": [
+      "Удобный личный кабинет",
+      "Большие лимиты для постоянных",
+      "Возможность пролонгации",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.43,
+        "overpayment": 3003,
+        "total": 18003
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.43,
+        "overpayment": 12870,
+        "total": 42870
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Быстроденьги?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "pensioneram",
+        "studentam",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "kazan",
+        "samara",
+        "novosibirsk",
+        "krasnodar",
+        "ufa",
+        "rostov",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "honey-money",
+    "title": "Honey Money",
+    "tagline": "С плохой КИ",
+    "logo": "honey-money.png",
+    "rating": 4.4,
+    "reviews_count": 5639,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 5,
+    "term_max": 60,
+    "rate_min": 0,
+    "rate_max": 1.26,
+    "approval_rate": 79,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/honey-money",
+    "license": "612751741827",
+    "pros": [
+      "Возможность пролонгации",
+      "Без справок о доходах",
+      "Скидка на повторный займ",
+      "Большие лимиты для постоянных"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Лимит для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.26,
+        "overpayment": 2646,
+        "total": 17646
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.26,
+        "overpayment": 11340,
+        "total": 41340
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Honey Money?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "pensioneram",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "spb",
+        "samara",
+        "chelyabinsk",
+        "moskva"
+      ]
+    }
+  },
+  {
+    "slug": "zaym-express",
+    "title": "Займ-Экспресс",
+    "tagline": "С плохой КИ",
+    "logo": "zaym-express.png",
+    "rating": 4.8,
+    "reviews_count": 2777,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 5,
+    "term_max": 168,
+    "rate_min": 0.5,
+    "rate_max": 1.46,
+    "approval_rate": 89,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/zaym-express",
+    "license": "606623677968",
+    "pros": [
+      "Удобный личный кабинет",
+      "Быстрое одобрение",
+      "Поддержка 24/7",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Лимит для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.5,
+        "overpayment": 175,
+        "total": 5175
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.46,
+        "overpayment": 3066,
+        "total": 18066
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.46,
+        "overpayment": 13140,
+        "total": 43140
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Займ-Экспресс?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "bez-spravok",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "novosibirsk",
+        "ekaterinburg",
+        "chelyabinsk",
+        "moskva"
+      ]
+    }
+  },
+  {
+    "slug": "robot-zaymer",
+    "title": "Робот Займер",
+    "tagline": "Первый займ 0%",
+    "logo": "robot-zaymer.png",
+    "rating": 4.9,
+    "reviews_count": 1392,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 5,
+    "term_max": 365,
+    "rate_min": 0,
+    "rate_max": 1.33,
+    "approval_rate": 82,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/robot-zaymer",
+    "license": "697365731675",
+    "pros": [
+      "Удобный личный кабинет",
+      "Возможность пролонгации",
+      "Без справок о доходах",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.33,
+        "overpayment": 2793,
+        "total": 17793
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.33,
+        "overpayment": 11970,
+        "total": 41970
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Робот Займер?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "bez-spravok",
+        "s-plohoy-ki"
+      ],
+      "summa": [
+        "zaim-10000",
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "chelyabinsk",
+        "moskva",
+        "spb",
+        "novosibirsk",
+        "rostov",
+        "ekaterinburg",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "greenmoney",
+    "title": "ГринМани",
+    "tagline": "На карту любого банка",
+    "logo": "greenmoney.png",
+    "rating": 4.4,
+    "reviews_count": 1268,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 7,
+    "term_max": 365,
+    "rate_min": 0.9,
+    "rate_max": 1.5,
+    "approval_rate": 77,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/greenmoney",
+    "license": "641676386627",
+    "pros": [
+      "Скидка на повторный займ",
+      "Быстрое одобрение",
+      "Удобный личный кабинет",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Высокая ставка для повторных займов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.9,
+        "overpayment": 315,
+        "total": 5315
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.5,
+        "overpayment": 3150,
+        "total": 18150
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.5,
+        "overpayment": 13500,
+        "total": 43500
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в ГринМани?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "bez-spravok",
+        "pensioneram",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "spb",
+        "novosibirsk",
+        "rostov",
+        "kazan",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "manimen",
+    "title": "МанимЭн",
+    "tagline": "Деньги за 5 минут",
+    "logo": "manimen.png",
+    "rating": 4.3,
+    "reviews_count": 1833,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 5,
+    "term_max": 90,
+    "rate_min": 0.5,
+    "rate_max": 1.3,
+    "approval_rate": 85,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/manimen",
+    "license": "686461212064",
+    "pros": [
+      "Лояльны к плохой КИ",
+      "Без справок о доходах",
+      "Удобный личный кабинет",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Жёсткий скоринг",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.5,
+        "overpayment": 175,
+        "total": 5175
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.3,
+        "overpayment": 2730,
+        "total": 17730
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.3,
+        "overpayment": 11700,
+        "total": 41700
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в МанимЭн?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "srochno",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "samara",
+        "ekaterinburg",
+        "moskva",
+        "chelyabinsk",
+        "rostov",
+        "novosibirsk",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "joymoney",
+    "title": "Joymoney",
+    "tagline": "Деньги за 5 минут",
+    "logo": "joymoney.png",
+    "rating": 4.1,
+    "reviews_count": 1312,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 14,
+    "term_max": 30,
+    "rate_min": 0.5,
+    "rate_max": 1.29,
+    "approval_rate": 79,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/joymoney",
+    "license": "676365017788",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Без справок о доходах",
+      "На карту любого банка",
+      "Скидка на повторный займ"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.5,
+        "overpayment": 175,
+        "total": 5175
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.29,
+        "overpayment": 2709,
+        "total": 17709
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.29,
+        "overpayment": 11610,
+        "total": 41610
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Joymoney?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "bez-otkaza",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-10000",
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "rostov",
+        "novosibirsk",
+        "ufa",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "smscredit",
+    "title": "Smscredit",
+    "tagline": "Без отказа онлайн",
+    "logo": "smscredit.png",
+    "rating": 4.2,
+    "reviews_count": 5522,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 14,
+    "term_max": 60,
+    "rate_min": 0.5,
+    "rate_max": 1.07,
+    "approval_rate": 78,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/smscredit",
+    "license": "690295951195",
+    "pros": [
+      "Возможность пролонгации",
+      "Большие лимиты для постоянных",
+      "Без справок о доходах",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.5,
+        "overpayment": 175,
+        "total": 5175
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.07,
+        "overpayment": 2247,
+        "total": 17247
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.07,
+        "overpayment": 9630,
+        "total": 39630
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Smscredit?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "studentam",
+        "s-plohoy-ki"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "samara",
+        "rostov",
+        "ekaterinburg",
+        "krasnodar"
+      ]
+    }
+  },
+  {
+    "slug": "cash-u",
+    "title": "Cash-U",
+    "tagline": "Первый займ 0%",
+    "logo": "cash-u.png",
+    "rating": 4.6,
+    "reviews_count": 6628,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 1.44,
+    "approval_rate": 83,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/cash-u",
+    "license": "615081447213",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Возможность пролонгации",
+      "Без справок о доходах",
+      "Быстрое одобрение"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Высокая ставка для повторных займов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.44,
+        "overpayment": 3024,
+        "total": 18024
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.44,
+        "overpayment": 12960,
+        "total": 42960
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Cash-U?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "spb",
+        "krasnodar",
+        "rostov"
+      ]
+    }
+  },
+  {
+    "slug": "vivus",
+    "title": "Vivus",
+    "tagline": "Без отказа онлайн",
+    "logo": "vivus.png",
+    "rating": 4.8,
+    "reviews_count": 3308,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 1.0,
+    "rate_max": 1.46,
+    "approval_rate": 94,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/vivus",
+    "license": "691822729791",
+    "pros": [
+      "Без справок о доходах",
+      "Лояльны к плохой КИ",
+      "Возможность пролонгации",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.46,
+        "overpayment": 3066,
+        "total": 18066
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.46,
+        "overpayment": 13140,
+        "total": 43140
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Vivus?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "srochno",
+        "bez-otkaza",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "ekaterinburg",
+        "krasnodar",
+        "rostov",
+        "novosibirsk",
+        "samara",
+        "kazan",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "credit7",
+    "title": "Кредит7",
+    "tagline": "Без отказа онлайн",
+    "logo": "credit7.png",
+    "rating": 4.3,
+    "reviews_count": 5359,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 1.0,
+    "rate_max": 1.1,
+    "approval_rate": 90,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/credit7",
+    "license": "630263257488",
+    "pros": [
+      "Поддержка 24/7",
+      "На карту любого банка",
+      "Возможность пролонгации",
+      "Большие лимиты для постоянных"
+    ],
+    "cons": [
+      "Жёсткий скоринг",
+      "Лимит для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.1,
+        "overpayment": 2310,
+        "total": 17310
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.1,
+        "overpayment": 9900,
+        "total": 39900
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Кредит7?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "bez-otkaza",
+        "pensioneram",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "rostov",
+        "spb",
+        "novosibirsk",
+        "chelyabinsk",
+        "kazan",
+        "ufa",
+        "ekaterinburg"
+      ]
+    }
+  },
+  {
+    "slug": "dobrozaym",
+    "title": "Доброзайм",
+    "tagline": "На карту любого банка",
+    "logo": "dobrozaym.png",
+    "rating": 4.7,
+    "reviews_count": 8179,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 5,
+    "term_max": 60,
+    "rate_min": 1.0,
+    "rate_max": 1.34,
+    "approval_rate": 78,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/dobrozaym",
+    "license": "663571600239",
+    "pros": [
+      "Скидка на повторный займ",
+      "Удобный личный кабинет",
+      "Большие лимиты для постоянных",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Жёсткий скоринг",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.34,
+        "overpayment": 2814,
+        "total": 17814
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.34,
+        "overpayment": 12060,
+        "total": 42060
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Доброзайм?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "srochno",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "ufa",
+        "novosibirsk",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "zaymigo",
+    "title": "Займиго",
+    "tagline": "Первый займ 0%",
+    "logo": "zaymigo.png",
+    "rating": 4.5,
+    "reviews_count": 2687,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 7,
+    "term_max": 90,
+    "rate_min": 0,
+    "rate_max": 1.42,
+    "approval_rate": 83,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/zaymigo",
+    "license": "676849965085",
+    "pros": [
+      "На карту любого банка",
+      "Без справок о доходах",
+      "Скидка на повторный займ",
+      "Большие лимиты для постоянных"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Лимит для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.42,
+        "overpayment": 2982,
+        "total": 17982
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.42,
+        "overpayment": 12780,
+        "total": 42780
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Займиго?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "s-plohoy-ki",
+        "pensioneram",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "ekaterinburg",
+        "novosibirsk",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "zaymok",
+    "title": "ZaymOk",
+    "tagline": "С плохой КИ",
+    "logo": "zaymok.png",
+    "rating": 4.3,
+    "reviews_count": 6877,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 7,
+    "term_max": 365,
+    "rate_min": 0.8,
+    "rate_max": 1.2,
+    "approval_rate": 81,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/zaymok",
+    "license": "676169673298",
+    "pros": [
+      "Возможность пролонгации",
+      "Поддержка 24/7",
+      "На карту любого банка",
+      "Без справок о доходах"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.8,
+        "overpayment": 280,
+        "total": 5280
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.2,
+        "overpayment": 2520,
+        "total": 17520
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.2,
+        "overpayment": 10800,
+        "total": 40800
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в ZaymOk?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "bez-spravok",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "krasnodar",
+        "samara",
+        "moskva",
+        "kazan",
+        "chelyabinsk",
+        "novosibirsk",
+        "ekaterinburg"
+      ]
+    }
+  },
+  {
+    "slug": "kopilka",
+    "title": "Копилка",
+    "tagline": "Первый займ 0%",
+    "logo": "kopilka.png",
+    "rating": 4.4,
+    "reviews_count": 6704,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 60,
+    "rate_min": 0.9,
+    "rate_max": 1.26,
+    "approval_rate": 87,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/kopilka",
+    "license": "644902591705",
+    "pros": [
+      "Удобный личный кабинет",
+      "Большие лимиты для постоянных",
+      "Без справок о доходах",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Высокая ставка для повторных займов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.9,
+        "overpayment": 315,
+        "total": 5315
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.26,
+        "overpayment": 2646,
+        "total": 17646
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.26,
+        "overpayment": 11340,
+        "total": 41340
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Копилка?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "bez-otkaza",
+        "srochno",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-10000",
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "kazan",
+        "samara",
+        "chelyabinsk",
+        "moskva",
+        "ufa",
+        "novosibirsk"
+      ]
+    }
+  },
+  {
+    "slug": "fastmoney",
+    "title": "ФастМани",
+    "tagline": "На карту любого банка",
+    "logo": "fastmoney.png",
+    "rating": 4.1,
+    "reviews_count": 933,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 5,
+    "term_max": 30,
+    "rate_min": 1.0,
+    "rate_max": 1.01,
+    "approval_rate": 75,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/fastmoney",
+    "license": "623059229191",
+    "pros": [
+      "На карту любого банка",
+      "Без справок о доходах",
+      "Поддержка 24/7",
+      "Быстрое одобрение"
+    ],
+    "cons": [
+      "Жёсткий скоринг",
+      "Высокая ставка для повторных займов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.01,
+        "overpayment": 2121,
+        "total": 17121
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.01,
+        "overpayment": 9090,
+        "total": 39090
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в ФастМани?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "kazan",
+        "novosibirsk",
+        "chelyabinsk",
+        "ufa",
+        "rostov",
+        "moskva",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "mikrozaim",
+    "title": "MikroZaim",
+    "tagline": "С плохой КИ",
+    "logo": "mikrozaim.png",
+    "rating": 4.6,
+    "reviews_count": 6229,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 14,
+    "term_max": 60,
+    "rate_min": 0,
+    "rate_max": 1.29,
+    "approval_rate": 95,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/mikrozaim",
+    "license": "601465576748",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Поддержка 24/7",
+      "Быстрое одобрение",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.29,
+        "overpayment": 2709,
+        "total": 17709
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.29,
+        "overpayment": 11610,
+        "total": 41610
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в MikroZaim?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "spb",
+        "moskva",
+        "rostov",
+        "ekaterinburg",
+        "novosibirsk",
+        "kazan",
+        "ufa"
+      ]
+    }
+  },
+  {
+    "slug": "platiza",
+    "title": "PlatiZa",
+    "tagline": "На карту любого банка",
+    "logo": "platiza.png",
+    "rating": 4.2,
+    "reviews_count": 2965,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 14,
+    "term_max": 90,
+    "rate_min": 0.9,
+    "rate_max": 1.4,
+    "approval_rate": 92,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/platiza",
+    "license": "692815667925",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Удобный личный кабинет",
+      "Быстрое одобрение",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Лимит для новых клиентов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.9,
+        "overpayment": 315,
+        "total": 5315
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.4,
+        "overpayment": 2940,
+        "total": 17940
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.4,
+        "overpayment": 12600,
+        "total": 42600
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в PlatiZa?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "srochno",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "novosibirsk",
+        "spb",
+        "ekaterinburg",
+        "chelyabinsk",
+        "ufa"
+      ]
+    }
+  },
+  {
+    "slug": "glavfinans",
+    "title": "Glavfinans",
+    "tagline": "С плохой КИ",
+    "logo": "glavfinans.png",
+    "rating": 4.3,
+    "reviews_count": 4312,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 7,
+    "term_max": 365,
+    "rate_min": 1.0,
+    "rate_max": 1.44,
+    "approval_rate": 92,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/glavfinans",
+    "license": "667390653983",
+    "pros": [
+      "Поддержка 24/7",
+      "Скидка на повторный займ",
+      "Большие лимиты для постоянных",
+      "Быстрое одобрение"
+    ],
+    "cons": [
+      "Высокая ставка для повторных займов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.44,
+        "overpayment": 3024,
+        "total": 18024
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.44,
+        "overpayment": 12960,
+        "total": 42960
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Glavfinans?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "s-plohoy-ki"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "novosibirsk",
+        "krasnodar",
+        "samara"
+      ]
+    }
+  },
+  {
+    "slug": "kviku",
+    "title": "Kviku",
+    "tagline": "Деньги за 5 минут",
+    "logo": "kviku.png",
+    "rating": 4.4,
+    "reviews_count": 4066,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 14,
+    "term_max": 365,
+    "rate_min": 0.5,
+    "rate_max": 1.23,
+    "approval_rate": 91,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/kviku",
+    "license": "643776816193",
+    "pros": [
+      "На карту любого банка",
+      "Без справок о доходах",
+      "Скидка на повторный займ",
+      "Большие лимиты для постоянных"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.5,
+        "overpayment": 175,
+        "total": 5175
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.23,
+        "overpayment": 2583,
+        "total": 17583
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.23,
+        "overpayment": 11070,
+        "total": 41070
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Kviku?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "bez-spravok",
+        "pensioneram"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "samara",
+        "ekaterinburg",
+        "ufa",
+        "kazan",
+        "spb"
+      ]
+    }
+  },
+  {
+    "slug": "denezhka",
+    "title": "Денежка",
+    "tagline": "Первый займ 0%",
+    "logo": "denezhka.png",
+    "rating": 4.6,
+    "reviews_count": 4716,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 5,
+    "term_max": 90,
+    "rate_min": 0,
+    "rate_max": 1.17,
+    "approval_rate": 84,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/denezhka",
+    "license": "621234703205",
+    "pros": [
+      "Поддержка 24/7",
+      "На карту любого банка",
+      "Большие лимиты для постоянных",
+      "Быстрое одобрение"
+    ],
+    "cons": [
+      "Жёсткий скоринг",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.17,
+        "overpayment": 2457,
+        "total": 17457
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.17,
+        "overpayment": 10530,
+        "total": 40530
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Денежка?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "srochno",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "ekaterinburg",
+        "moskva",
+        "ufa",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "solva",
+    "title": "Solva",
+    "tagline": "Деньги за 5 минут",
+    "logo": "solva.png",
+    "rating": 4.5,
+    "reviews_count": 5662,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 5,
+    "term_max": 90,
+    "rate_min": 0.8,
+    "rate_max": 1.05,
+    "approval_rate": 77,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/solva",
+    "license": "659117834448",
+    "pros": [
+      "Возможность пролонгации",
+      "Большие лимиты для постоянных",
+      "Скидка на повторный займ",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.8,
+        "overpayment": 280,
+        "total": 5280
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.05,
+        "overpayment": 2205,
+        "total": 17205
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.05,
+        "overpayment": 9450,
+        "total": 39450
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Solva?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "bez-otkaza",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-10000",
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "kazan",
+        "ekaterinburg",
+        "spb",
+        "samara"
+      ]
+    }
+  },
+  {
+    "slug": "creditpilot",
+    "title": "CreditPilot",
+    "tagline": "Первый займ 0%",
+    "logo": "creditpilot.png",
+    "rating": 4.6,
+    "reviews_count": 1066,
+    "amount_min": 3000,
+    "amount_max": 100000,
+    "term_min": 14,
+    "term_max": 30,
+    "rate_min": 0,
+    "rate_max": 1.31,
+    "approval_rate": 83,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/creditpilot",
+    "license": "639648888517",
+    "pros": [
+      "Лояльны к плохой КИ",
+      "Поддержка 24/7",
+      "Быстрое одобрение",
+      "Удобный личный кабинет"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.31,
+        "overpayment": 2751,
+        "total": 17751
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.31,
+        "overpayment": 11790,
+        "total": 41790
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в CreditPilot?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "s-plohoy-ki",
+        "bez-spravok",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000",
+        "zaim-100000"
+      ],
+      "city": [
+        "spb",
+        "kazan",
+        "moskva",
+        "novosibirsk",
+        "krasnodar",
+        "ekaterinburg",
+        "rostov"
+      ]
+    }
+  },
+  {
+    "slug": "prostozaim",
+    "title": "ProstoZaim",
+    "tagline": "На карту любого банка",
+    "logo": "prostozaim.png",
+    "rating": 4.6,
+    "reviews_count": 3321,
+    "amount_min": 3000,
+    "amount_max": 70000,
+    "term_min": 5,
+    "term_max": 365,
+    "rate_min": 0,
+    "rate_max": 1.32,
+    "approval_rate": 83,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/prostozaim",
+    "license": "695795342213",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Лояльны к плохой КИ",
+      "Поддержка 24/7",
+      "Скидка на повторный займ"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.32,
+        "overpayment": 2772,
+        "total": 17772
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.32,
+        "overpayment": 11880,
+        "total": 41880
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в ProstoZaim?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "ekaterinburg",
+        "chelyabinsk",
+        "samara",
+        "moskva"
+      ]
+    }
+  },
+  {
+    "slug": "express-dengi",
+    "title": "ЭкспрессДеньги",
+    "tagline": "Первый займ 0%",
+    "logo": "express-dengi.png",
+    "rating": 4.6,
+    "reviews_count": 7158,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 14,
+    "term_max": 90,
+    "rate_min": 0,
+    "rate_max": 1.04,
+    "approval_rate": 96,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/express-dengi",
+    "license": "681591259548",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Поддержка 24/7",
+      "Быстрое одобрение",
+      "Возможность пролонгации"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0,
+        "overpayment": 0,
+        "total": 5000
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.04,
+        "overpayment": 2184,
+        "total": 17184
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.04,
+        "overpayment": 9360,
+        "total": 39360
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в ЭкспрессДеньги?",
+        "answer": "Гражданам РФ от 18 до 70 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "bez-otkaza",
+        "pensioneram",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "kazan",
+        "samara",
+        "ufa"
+      ]
+    }
+  },
+  {
+    "slug": "centrofinans",
+    "title": "Centrofinans",
+    "tagline": "Деньги за 5 минут",
+    "logo": "centrofinans.png",
+    "rating": 4.4,
+    "reviews_count": 1793,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 1.0,
+    "rate_max": 1.24,
+    "approval_rate": 96,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/centrofinans",
+    "license": "672434239416",
+    "pros": [
+      "Быстрое одобрение",
+      "Поддержка 24/7",
+      "Возможность пролонгации",
+      "Скидка на повторный займ"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 1.0,
+        "overpayment": 350,
+        "total": 5350
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.24,
+        "overpayment": 2604,
+        "total": 17604
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.24,
+        "overpayment": 11160,
+        "total": 41160
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Centrofinans?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-spravok",
+        "bez-otkaza",
+        "studentam"
+      ],
+      "summa": [
+        "zaim-10000",
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "rostov",
+        "ekaterinburg",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "carmoney",
+    "title": "Carmoney",
+    "tagline": "Первый займ 0%",
+    "logo": "carmoney.png",
+    "rating": 4.7,
+    "reviews_count": 7322,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 5,
+    "term_max": 90,
+    "rate_min": 0.9,
+    "rate_max": 1.06,
+    "approval_rate": 84,
+    "age_min": 18,
+    "age_max": 75,
+    "partner_url": "https://example.com/partner/carmoney",
+    "license": "673073175408",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "На карту любого банка",
+      "Поддержка 24/7",
+      "Быстрое одобрение"
+    ],
+    "cons": [
+      "Требуется активная карта",
+      "Высокая ставка для повторных займов"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.9,
+        "overpayment": 315,
+        "total": 5315
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.06,
+        "overpayment": 2226,
+        "total": 17226
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.06,
+        "overpayment": 9540,
+        "total": 39540
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Carmoney?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "srochno",
+        "studentam",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "chelyabinsk",
+        "novosibirsk",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "creddit",
+    "title": "Креддит",
+    "tagline": "Деньги за 5 минут",
+    "logo": "creddit.png",
+    "rating": 4.8,
+    "reviews_count": 8245,
+    "amount_min": 3000,
+    "amount_max": 50000,
+    "term_min": 14,
+    "term_max": 90,
+    "rate_min": 0.8,
+    "rate_max": 1.42,
+    "approval_rate": 90,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/creddit",
+    "license": "659504248077",
+    "pros": [
+      "Удобный личный кабинет",
+      "Лояльны к плохой КИ",
+      "Большие лимиты для постоянных",
+      "Быстрое одобрение"
+    ],
+    "cons": [
+      "Только для граждан РФ",
+      "Жёсткий скоринг"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.8,
+        "overpayment": 280,
+        "total": 5280
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.42,
+        "overpayment": 2982,
+        "total": 17982
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.42,
+        "overpayment": 12780,
+        "total": 42780
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Креддит?",
+        "answer": "Гражданам РФ от 18 до 75 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "bez-spravok"
+      ],
+      "summa": [
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000",
+        "zaim-50000"
+      ],
+      "city": [
+        "krasnodar",
+        "novosibirsk",
+        "kazan",
+        "chelyabinsk"
+      ]
+    }
+  },
+  {
+    "slug": "bankiros-mfo",
+    "title": "Bankiros",
+    "tagline": "На карту любого банка",
+    "logo": "bankiros-mfo.png",
+    "rating": 4.6,
+    "reviews_count": 8102,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 365,
+    "rate_min": 0.8,
+    "rate_max": 1.17,
+    "approval_rate": 92,
+    "age_min": 18,
+    "age_max": 65,
+    "partner_url": "https://example.com/partner/bankiros-mfo",
+    "license": "696520698024",
+    "pros": [
+      "Большие лимиты для постоянных",
+      "Скидка на повторный займ",
+      "Удобный личный кабинет",
+      "Поддержка 24/7"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Требуется активная карта"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.8,
+        "overpayment": 280,
+        "total": 5280
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.17,
+        "overpayment": 2457,
+        "total": 17457
+      },
+      {
+        "amount": 30000,
+        "term": 30,
+        "rate": 1.17,
+        "overpayment": 10530,
+        "total": 40530
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в Bankiros?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "studentam",
+        "srochno",
+        "pensioneram",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-10000",
+        "zaim-15000",
+        "zaim-20000",
+        "zaim-30000"
+      ],
+      "city": [
+        "chelyabinsk",
+        "krasnodar",
+        "novosibirsk",
+        "ufa"
+      ]
+    }
+  },
+  {
+    "slug": "umnyy-zaym",
+    "title": "УмныйЗайм",
+    "tagline": "С плохой КИ",
+    "logo": "umnyy-zaym.png",
+    "rating": 4.2,
+    "reviews_count": 5519,
+    "amount_min": 1000,
+    "amount_max": 15000,
+    "term_min": 7,
+    "term_max": 30,
+    "rate_min": 0.9,
+    "rate_max": 1.45,
+    "approval_rate": 75,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/umnyy-zaym",
+    "license": "647047671307",
+    "pros": [
+      "Поддержка 24/7",
+      "Быстрое одобрение",
+      "Лояльны к плохой КИ",
+      "Скидка на повторный займ"
+    ],
+    "cons": [
+      "Лимит для новых клиентов",
+      "Только для граждан РФ"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": "С официальным или неофициальным доходом"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Студентам",
+        "description": "От 18 лет с банковской картой"
+      },
+      {
+        "icon": "briefcase",
+        "title": "Самозанятым",
+        "description": "Не требуется подтверждение дохода"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Заполните анкету",
+        "description": "Укажите паспорт и карту — 3 минуты"
+      },
+      {
+        "title": "Получите решение",
+        "description": "Скоринг за 5 минут"
+      },
+      {
+        "title": "Деньги на карту",
+        "description": "Перевод после одобрения"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 5000,
+        "term": 7,
+        "rate": 0.9,
+        "overpayment": 315,
+        "total": 5315
+      },
+      {
+        "amount": 15000,
+        "term": 14,
+        "rate": 1.45,
+        "overpayment": 3045,
+        "total": 18045
+      },
+      {
+        "amount": 15000,
+        "term": 30,
+        "rate": 1.45,
+        "overpayment": 13050,
+        "total": 43050
+      }
+    ],
+    "faq": [
+      {
+        "question": "Кому выдают займы в УмныйЗайм?",
+        "answer": "Гражданам РФ от 18 до 65 лет с паспортом и банковской картой."
+      },
+      {
+        "question": "Как быстро придут деньги?",
+        "answer": "После одобрения деньги поступают на карту за 1–15 минут."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "s-plohoy-ki",
+        "studentam",
+        "srochno",
+        "bez-otkaza"
+      ],
+      "summa": [
+        "zaim-3000",
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-15000"
+      ],
+      "city": [
+        "ekaterinburg",
+        "rostov",
+        "krasnodar",
+        "ufa",
+        "moskva",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "dengi-online",
+    "title": "Деньги Online",
+    "tagline": "На карту 24/7",
+    "logo": "dengi-online.png",
+    "rating": 4.3,
+    "reviews_count": 737,
+    "amount_min": 1000,
+    "amount_max": 50000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 0,
+    "rate_max": 1.0,
+    "approval_rate": 80,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/dengi-online",
+    "license": "676541790244",
+    "pros": [
+      "Быстрое одобрение",
+      "Без справок",
+      "На карту любого банка",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Высокая ставка повторно",
+      "Лимит для новых"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": ""
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "3 минуты"
+      },
+      {
+        "title": "Решение",
+        "description": "5 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "Мгновенно"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 1,
+        "overpayment": 1400,
+        "total": 11400
+      }
+    ],
+    "faq": [
+      {
+        "question": "Возраст?",
+        "answer": "От 18 лет."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "cashpoint",
+    "title": "Cashpoint",
+    "tagline": "На карту 24/7",
+    "logo": "cashpoint.png",
+    "rating": 4.2,
+    "reviews_count": 2507,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 0,
+    "rate_max": 1.0,
+    "approval_rate": 79,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/cashpoint",
+    "license": "656203715418",
+    "pros": [
+      "Быстрое одобрение",
+      "Без справок",
+      "На карту любого банка",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Высокая ставка повторно",
+      "Лимит для новых"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": ""
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "3 минуты"
+      },
+      {
+        "title": "Решение",
+        "description": "5 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "Мгновенно"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 1,
+        "overpayment": 1400,
+        "total": 11400
+      }
+    ],
+    "faq": [
+      {
+        "question": "Возраст?",
+        "answer": "От 18 лет."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "moneyzap",
+    "title": "MoneyZap",
+    "tagline": "На карту 24/7",
+    "logo": "moneyzap.png",
+    "rating": 4.4,
+    "reviews_count": 1105,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 0.8,
+    "rate_max": 1.0,
+    "approval_rate": 79,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/moneyzap",
+    "license": "680860714159",
+    "pros": [
+      "Быстрое одобрение",
+      "Без справок",
+      "На карту любого банка",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Высокая ставка повторно",
+      "Лимит для новых"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": ""
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "3 минуты"
+      },
+      {
+        "title": "Решение",
+        "description": "5 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "Мгновенно"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 1,
+        "overpayment": 1400,
+        "total": 11400
+      }
+    ],
+    "faq": [
+      {
+        "question": "Возраст?",
+        "answer": "От 18 лет."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "zaimnow",
+    "title": "ZaimNow",
+    "tagline": "На карту 24/7",
+    "logo": "zaimnow.png",
+    "rating": 4.2,
+    "reviews_count": 1034,
+    "amount_min": 1000,
+    "amount_max": 70000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 1.0,
+    "rate_max": 1.0,
+    "approval_rate": 79,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/zaimnow",
+    "license": "679788049615",
+    "pros": [
+      "Быстрое одобрение",
+      "Без справок",
+      "На карту любого банка",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Высокая ставка повторно",
+      "Лимит для новых"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": ""
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "3 минуты"
+      },
+      {
+        "title": "Решение",
+        "description": "5 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "Мгновенно"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 1,
+        "overpayment": 1400,
+        "total": 11400
+      }
+    ],
+    "faq": [
+      {
+        "question": "Возраст?",
+        "answer": "От 18 лет."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan"
+      ]
+    }
+  },
+  {
+    "slug": "finterra",
+    "title": "Финтерра",
+    "tagline": "На карту 24/7",
+    "logo": "finterra.png",
+    "rating": 4.4,
+    "reviews_count": 1025,
+    "amount_min": 1000,
+    "amount_max": 30000,
+    "term_min": 7,
+    "term_max": 168,
+    "rate_min": 0,
+    "rate_max": 1.0,
+    "approval_rate": 87,
+    "age_min": 18,
+    "age_max": 70,
+    "partner_url": "https://example.com/partner/finterra",
+    "license": "618980057666",
+    "pros": [
+      "Быстрое одобрение",
+      "Без справок",
+      "На карту любого банка",
+      "Лояльны к плохой КИ"
+    ],
+    "cons": [
+      "Высокая ставка повторно",
+      "Лимит для новых"
+    ],
+    "fit_for": [
+      {
+        "icon": "user",
+        "title": "Работающим",
+        "description": ""
+      }
+    ],
+    "steps": [
+      {
+        "title": "Анкета",
+        "description": "3 минуты"
+      },
+      {
+        "title": "Решение",
+        "description": "5 минут"
+      },
+      {
+        "title": "Деньги",
+        "description": "Мгновенно"
+      }
+    ],
+    "documents": [
+      "passport",
+      "card"
+    ],
+    "rates": [
+      {
+        "amount": 10000,
+        "term": 14,
+        "rate": 1,
+        "overpayment": 1400,
+        "total": 11400
+      }
+    ],
+    "faq": [
+      {
+        "question": "Возраст?",
+        "answer": "От 18 лет."
+      }
+    ],
+    "taxonomies": {
+      "situation": [
+        "bez-otkaza",
+        "srochno"
+      ],
+      "summa": [
+        "zaim-5000",
+        "zaim-10000",
+        "zaim-30000"
+      ],
+      "city": [
+        "moskva",
+        "spb",
+        "kazan"
+      ]
+    }
+  }
+]

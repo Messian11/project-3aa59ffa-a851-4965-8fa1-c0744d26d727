@@ -1,0 +1,5 @@
+/* Дополнительные оверрайды и утилиты */
+.zaymi-mobile-menu.is-open { display: block !important; }
+.prose img { border-radius: 12px; }
+.prose h2 { margin-top: 1.5em; }
+.prose h3 { margin-top: 1.25em; }
