@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/styleguide")({
   component: StyleGuide,
 });
 
