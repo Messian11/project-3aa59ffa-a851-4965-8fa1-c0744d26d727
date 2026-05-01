@@ -1,0 +1,41 @@
+/* Zaymi Online — SEO pages, breadcrumbs, related, LSI */
+.zaymi-crumbs{font-size:13px;color:#64748b;margin:16px 0}
+.zaymi-crumbs ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
+.zaymi-crumbs li:not(:last-child)::after{content:"›";margin-left:6px;color:#cbd5e1}
+.zaymi-crumbs a{color:#16a34a;text-decoration:none}
+.zaymi-crumbs a:hover{text-decoration:underline}
+
+.zaymi-seo-page{padding:20px 0 60px}
+.zaymi-seo-page h1{font-size:32px;font-weight:800;color:#0f172a;margin:8px 0 12px;line-height:1.2}
+.zaymi-seo-page .lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.5}
+.zaymi-seo-page .seo-text{margin:40px 0;padding:24px;background:#f8fafc;border-radius:12px}
+.zaymi-seo-page .seo-text h2{font-size:22px;margin-top:0}
+.zaymi-seo-page .seo-text ul, .zaymi-seo-page .seo-text ol{padding-left:20px;line-height:1.8}
+
+.zaymi-related{margin:40px 0}
+.zaymi-related h3{font-size:20px;margin-bottom:16px}
+.zr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.zr-card{display:flex;align-items:center;gap:12px;padding:12px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;text-decoration:none;color:#0f172a;transition:all .15s}
+.zr-card:hover{border-color:#16a34a;transform:translateY(-2px)}
+.zr-logo{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.zr-card span{display:block;font-size:12px;color:#64748b}
+
+.zaymi-lsi{margin:32px 0;padding:20px;background:#f1f5f9;border-radius:12px}
+.zaymi-lsi h3{font-size:16px;color:#475569;margin:0 0 10px}
+.zl-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.zl-cloud a{display:inline-block;padding:6px 12px;background:#fff;border-radius:20px;font-size:13px;color:#16a34a;text-decoration:none;border:1px solid #e2e8f0}
+.zl-cloud a:hover{background:#16a34a;color:#fff}
+
+.zaymi-internal{margin:32px 0}
+.zaymi-internal h3{font-size:16px;margin:16px 0 8px;color:#475569}
+.zi-row{display:flex;flex-wrap:wrap;gap:6px}
+.zi-row a{padding:4px 10px;background:#f1f5f9;border-radius:6px;font-size:13px;color:#0f172a;text-decoration:none}
+.zi-row a:hover{background:#16a34a;color:#fff}
+
+.zaymi-compare{width:100%;border-collapse:collapse;margin:24px 0;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.zaymi-compare th,.zaymi-compare td{padding:14px 16px;text-align:left;border-bottom:1px solid #e5e7eb}
+.zaymi-compare th{background:#f8fafc;font-weight:700;color:#0f172a}
+.zaymi-compare-cta{display:flex;gap:12px;justify-content:center;margin:24px 0}
+.zaymi-compare-cta .btn-primary{padding:14px 28px;background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border-radius:10px;text-decoration:none;font-weight:600}
+
+.zaymi-auto-link{color:#16a34a;text-decoration:underline;text-decoration-style:dotted}
