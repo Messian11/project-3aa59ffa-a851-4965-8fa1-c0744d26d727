@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
 import { Route as HeaderRouteImport } from './routes/header'
+import { Route as ComponentsRouteImport } from './routes/components'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MfoIndexRouteImport } from './routes/mfo.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -28,6 +29,11 @@ const StyleguideRoute = StyleguideRouteImport.update({
 const HeaderRoute = HeaderRouteImport.update({
   id: '/header',
   path: '/header',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsRoute = ComponentsRouteImport.update({
+  id: '/components',
+  path: '/components',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,6 +79,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/components': typeof ComponentsRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/components': typeof ComponentsRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/components': typeof ComponentsRoute
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/components'
     | '/header'
     | '/styleguide'
     | '/blog/$slug'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/components'
     | '/header'
     | '/styleguide'
     | '/blog/$slug'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/components'
     | '/header'
     | '/styleguide'
     | '/blog/$slug'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComponentsRoute: typeof ComponentsRoute
   HeaderRoute: typeof HeaderRoute
   StyleguideRoute: typeof StyleguideRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/header'
       fullPath: '/header'
       preLoaderRoute: typeof HeaderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components': {
+      id: '/components'
+      path: '/components'
+      fullPath: '/components'
+      preLoaderRoute: typeof ComponentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComponentsRoute: ComponentsRoute,
   HeaderRoute: HeaderRoute,
   StyleguideRoute: StyleguideRoute,
   BlogSlugRoute: BlogSlugRoute,
