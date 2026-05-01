@@ -120,16 +120,28 @@ function DropdownItem({
   );
 }
 
-export function SiteHeader() {
+interface SiteHeaderProps {
+  variant?: "auto" | "desktop" | "mobile";
+}
+
+export function SiteHeader({ variant = "auto" }: SiteHeaderProps) {
   const [openDrop, setOpenDrop] = useState<DropKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
+  // Force-show / force-hide helpers that override responsive defaults
+  const showMobile =
+    variant === "mobile" ? "flex" : variant === "desktop" ? "hidden" : "flex md:hidden";
+  const showDesktop =
+    variant === "desktop" ? "flex" : variant === "mobile" ? "hidden" : "hidden md:flex";
+  const desktopHeight =
+    variant === "desktop" ? "h-[72px] px-6" : variant === "mobile" ? "h-16 px-4" : "h-16 px-4 md:h-[72px] md:px-6";
+
   return (
     <header className="sticky top-0 z-40 border-b border-brand-line bg-white/85 backdrop-blur-lg shadow-sticky">
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 md:h-[72px] md:px-6">
+      <div className={cn("mx-auto flex max-w-7xl items-center gap-6", desktopHeight)}>
         {/* Mobile: hamburger left */}
-        <div className="flex md:hidden">
+        <div className={showMobile}>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
               <button
@@ -148,14 +160,23 @@ export function SiteHeader() {
           </Sheet>
         </div>
 
-        {/* Logo: left on desktop, center on mobile */}
-        <div className="flex flex-1 items-center justify-center md:flex-none md:justify-start md:w-[180px]">
+        {/* Logo */}
+        <div
+          className={cn(
+            "flex flex-1 items-center",
+            variant === "mobile"
+              ? "justify-center"
+              : variant === "desktop"
+                ? "flex-none w-[180px] justify-start"
+                : "justify-center md:flex-none md:w-[180px] md:justify-start",
+          )}
+        >
           <Logo />
         </div>
 
         {/* Desktop nav */}
         <nav
-          className="hidden flex-1 items-center justify-center gap-1 md:flex"
+          className={cn("flex-1 items-center justify-center gap-1", showDesktop)}
           onMouseLeave={() => setOpenDrop(null)}
         >
           <NavLink label="Главная" active />
@@ -222,7 +243,10 @@ export function SiteHeader() {
 
         {/* Desktop search */}
         <form
-          className="hidden md:flex h-11 w-[330px] items-center gap-1 rounded-pill border border-brand-line bg-white pl-4 pr-1 transition-all focus-within:border-brand-blue focus-within:shadow-card"
+          className={cn(
+            "h-11 w-[330px] items-center gap-1 rounded-pill border border-brand-line bg-white pl-4 pr-1 transition-all focus-within:border-brand-blue focus-within:shadow-card",
+            showDesktop,
+          )}
           onSubmit={(e) => e.preventDefault()}
         >
           <Search className="h-4 w-4 shrink-0 text-brand-muted" strokeWidth={2.25} />
@@ -241,7 +265,7 @@ export function SiteHeader() {
         </form>
 
         {/* Mobile: search icon right */}
-        <div className="flex md:hidden">
+        <div className={showMobile}>
           <button
             aria-label="Поиск"
             onClick={() => setMobileSearchOpen((v) => !v)}
@@ -254,7 +278,12 @@ export function SiteHeader() {
 
       {/* Mobile expandable search */}
       {mobileSearchOpen && (
-        <div className="border-t border-brand-line bg-white px-4 py-3 md:hidden animate-in fade-in slide-in-from-top-1 duration-200">
+        <div
+          className={cn(
+            "border-t border-brand-line bg-white px-4 py-3 animate-in fade-in slide-in-from-top-1 duration-200",
+            variant === "desktop" ? "hidden" : variant === "mobile" ? "block" : "md:hidden",
+          )}
+        >
           <form
             className="flex h-11 items-center gap-1 rounded-pill border border-brand-line bg-white pl-4 pr-1 focus-within:border-brand-blue"
             onSubmit={(e) => e.preventDefault()}
