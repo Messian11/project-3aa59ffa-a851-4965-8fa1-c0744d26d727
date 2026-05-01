@@ -13,6 +13,7 @@ import { Route as StyleguideRouteImport } from './routes/styleguide'
 import { Route as HeaderRouteImport } from './routes/header'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MfoIndexRouteImport } from './routes/mfo.index'
+import { Route as SummaSlugRouteImport } from './routes/summa.$slug'
 import { Route as MfoSlugRouteImport } from './routes/mfo.$slug'
 
 const StyleguideRoute = StyleguideRouteImport.update({
@@ -35,6 +36,11 @@ const MfoIndexRoute = MfoIndexRouteImport.update({
   path: '/mfo/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SummaSlugRoute = SummaSlugRouteImport.update({
+  id: '/summa/$slug',
+  path: '/summa/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MfoSlugRoute = MfoSlugRouteImport.update({
   id: '/mfo/$slug',
   path: '/mfo/$slug',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
   '/mfo/$slug': typeof MfoSlugRoute
+  '/summa/$slug': typeof SummaSlugRoute
   '/mfo/': typeof MfoIndexRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
   '/mfo/$slug': typeof MfoSlugRoute
+  '/summa/$slug': typeof SummaSlugRoute
   '/mfo': typeof MfoIndexRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,28 @@ export interface FileRoutesById {
   '/header': typeof HeaderRoute
   '/styleguide': typeof StyleguideRoute
   '/mfo/$slug': typeof MfoSlugRoute
+  '/summa/$slug': typeof SummaSlugRoute
   '/mfo/': typeof MfoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/header' | '/styleguide' | '/mfo/$slug' | '/mfo/'
+  fullPaths:
+    | '/'
+    | '/header'
+    | '/styleguide'
+    | '/mfo/$slug'
+    | '/summa/$slug'
+    | '/mfo/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/header' | '/styleguide' | '/mfo/$slug' | '/mfo'
-  id: '__root__' | '/' | '/header' | '/styleguide' | '/mfo/$slug' | '/mfo/'
+  to: '/' | '/header' | '/styleguide' | '/mfo/$slug' | '/summa/$slug' | '/mfo'
+  id:
+    | '__root__'
+    | '/'
+    | '/header'
+    | '/styleguide'
+    | '/mfo/$slug'
+    | '/summa/$slug'
+    | '/mfo/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +98,7 @@ export interface RootRouteChildren {
   HeaderRoute: typeof HeaderRoute
   StyleguideRoute: typeof StyleguideRoute
   MfoSlugRoute: typeof MfoSlugRoute
+  SummaSlugRoute: typeof SummaSlugRoute
   MfoIndexRoute: typeof MfoIndexRoute
 }
 
@@ -109,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MfoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/summa/$slug': {
+      id: '/summa/$slug'
+      path: '/summa/$slug'
+      fullPath: '/summa/$slug'
+      preLoaderRoute: typeof SummaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mfo/$slug': {
       id: '/mfo/$slug'
       path: '/mfo/$slug'
@@ -124,6 +154,7 @@ const rootRouteChildren: RootRouteChildren = {
   HeaderRoute: HeaderRoute,
   StyleguideRoute: StyleguideRoute,
   MfoSlugRoute: MfoSlugRoute,
+  SummaSlugRoute: SummaSlugRoute,
   MfoIndexRoute: MfoIndexRoute,
 }
 export const routeTree = rootRouteImport
