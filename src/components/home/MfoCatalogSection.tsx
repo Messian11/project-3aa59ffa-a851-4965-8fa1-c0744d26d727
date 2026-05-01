@@ -15,6 +15,7 @@ const filters = [
 
 interface MFO {
   name: string;
+  slug: string;
   rating: number;
   reviews: number;
   badges: { label: string; tone: "amber" | "green" }[];
