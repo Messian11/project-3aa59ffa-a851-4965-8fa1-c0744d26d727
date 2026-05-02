@@ -1,0 +1,362 @@
+/* =====================================================================
+ * Zaymi Online — single article styles (точная копия превью credit-bridge)
+ * ===================================================================== */
+
+:root {
+  --brand-ink:   #0f172a;
+  --brand-muted: #64748b;
+  --brand-line:  #e2e8f0;
+  --brand-soft:  #f8fafc;
+  --brand-blue:  #2563eb;
+  --brand-green: #10b981;
+  --brand-amber: #f59e0b;
+  --shadow-card: 0 4px 20px rgba(15,23,42,.06);
+  --shadow-hover:0 12px 40px rgba(15,23,42,.12);
+}
+
+/* Контейнеры */
+.zo-container-narrow { max-width: 768px;  margin: 0 auto; padding: 0 24px; }
+.zo-container-medium { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
+.zo-container-wide   { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+.zo-article { background: #fff; color: var(--brand-ink); }
+
+/* ─────────── 1. Breadcrumbs ─────────── */
+.zo-breadcrumbs {
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-line) 60%, transparent);
+  padding: 12px 24px;
+  background: #fff;
+}
+.zo-breadcrumbs ol {
+  max-width: 1280px; margin: 0 auto; padding: 0; list-style: none;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; color: var(--brand-muted);
+}
+.zo-breadcrumbs a { color: var(--brand-muted); text-decoration: none; transition: color .2s; }
+.zo-breadcrumbs a:hover { color: var(--brand-blue); }
+.zo-breadcrumbs .sep { color: var(--brand-line); }
+.zo-breadcrumbs .current { color: var(--brand-ink); font-weight: 700; }
+
+/* ─────────── 2. Article Hero ─────────── */
+.zo-art-hero { padding: 64px 0 40px; }
+@media (min-width:768px) { .zo-art-hero { padding: 80px 0 40px; } }
+.zo-art-hero .zo-container-narrow { text-align: center; }
+
+.zo-tag {
+  display: inline-flex; align-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand-blue) 10%, transparent);
+  color: var(--brand-blue);
+  padding: 6px 12px;
+  font-size: 12px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .18em;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand-blue) 20%, transparent);
+}
+
+.zo-art-title {
+  margin: 20px 0 0;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 800; line-height: 1.1; letter-spacing: -.02em;
+  color: var(--brand-ink);
+}
+.zo-art-lead {
+  margin: 20px 0 0;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.6;
+  color: var(--brand-muted);
+}
+
+.zo-art-meta {
+  margin-top: 32px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.zo-author-mini { display: flex; align-items: center; gap: 12px; }
+.zo-author-mini img {
+  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 0 0 2px var(--brand-line);
+}
+.zo-author-mini .name { font-weight: 800; color: var(--brand-ink); text-align: left; line-height: 1.2; }
+.zo-author-mini .role { font-size: 12px; font-weight: 600; color: var(--brand-muted); text-align: left; }
+.zo-art-meta .divider { display: none; width: 1px; height: 32px; background: var(--brand-line); }
+@media (min-width:640px) { .zo-art-meta .divider { display: block; } }
+.zo-art-meta .meta-item { display: inline-flex; align-items: center; gap: 6px; color: var(--brand-muted); font-weight: 600; }
+
+/* ─────────── 3. Featured image ─────────── */
+.zo-art-featured { padding: 0 24px; }
+.zo-art-featured .zo-container-wide { padding: 0; max-width: 1024px; }
+.zo-art-featured .zo-art-img,
+.zo-art-featured img {
+  width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover;
+  border-radius: 24px; box-shadow: var(--shadow-card);
+}
+.zo-art-featured figcaption {
+  margin-top: 12px; text-align: center;
+  font-style: italic; font-size: 14px; color: var(--brand-muted);
+}
+
+/* ─────────── 4. TOC + body ─────────── */
+.zo-art-body { padding: 64px 0; }
+@media (min-width:768px) { .zo-art-body { padding: 80px 0; } }
+
+.zo-art-grid {
+  display: grid; gap: 48px;
+}
+@media (min-width:1024px) {
+  .zo-art-grid { grid-template-columns: 260px 1fr; }
+}
+
+.zo-toc {
+  background: #fff; border: 1px solid var(--brand-line);
+  border-radius: 16px; box-shadow: var(--shadow-card);
+}
+@media (min-width:1024px) {
+  .zo-toc-wrap { position: sticky; top: 96px; align-self: start; }
+}
+.zo-toc details { padding: 0; }
+.zo-toc summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px;
+}
+.zo-toc summary::-webkit-details-marker { display: none; }
+.zo-toc .caption {
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em;
+  color: var(--brand-muted);
+}
+.zo-toc .chev { color: var(--brand-muted); transition: transform .2s; }
+.zo-toc details[open] .chev { transform: rotate(180deg); }
+@media (min-width:1024px) { .zo-toc summary { cursor: default; } .zo-toc .chev { display: none; } }
+
+.zo-toc ul { list-style: none; padding: 0 20px 20px; margin: 0; }
+.zo-toc li + li { margin-top: 8px; }
+.zo-toc a {
+  display: flex; gap: 8px; align-items: baseline;
+  font-size: 14px; font-weight: 600;
+  color: color-mix(in srgb, var(--brand-ink) 80%, transparent);
+  text-decoration: none; transition: color .2s;
+}
+.zo-toc a:hover { color: var(--brand-blue); }
+.zo-toc .num { font-size: 12px; font-weight: 700; color: var(--brand-muted); }
+
+/* ─────────── ТИПОГРАФИКА КОНТЕНТА (.prose-article) ─────────── */
+.prose-article { max-width: 100%; color: var(--brand-ink); font-size: 17px; line-height: 1.7; }
+.prose-article > *:first-child { margin-top: 0; }
+.prose-article p { margin: 20px 0; color: color-mix(in srgb, var(--brand-ink) 85%, transparent); }
+.prose-article h2,
+.prose-article .zo-h2 {
+  margin: 56px 0 20px; scroll-margin-top: 112px;
+  font-size: clamp(26px, 3vw, 36px); font-weight: 800; line-height: 1.2; letter-spacing: -.01em;
+  color: var(--brand-ink);
+}
+.prose-article h3 {
+  margin: 32px 0 12px;
+  font-size: 22px; font-weight: 800; color: var(--brand-ink);
+}
+.prose-article a {
+  color: var(--brand-blue); font-weight: 700;
+  text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--brand-blue) 30%, transparent);
+  text-underline-offset: 4px; transition: all .2s;
+}
+.prose-article a:hover { color: var(--brand-green); text-decoration-color: color-mix(in srgb, var(--brand-green) 40%, transparent); }
+
+.prose-article ul, .prose-article ol { margin: 20px 0; padding-left: 24px; }
+.prose-article li { margin: 8px 0; }
+.prose-article ul li::marker { color: var(--brand-green); }
+
+.prose-article blockquote {
+  margin: 32px 0; padding: 24px;
+  border-left: 4px solid var(--brand-green);
+  background: color-mix(in srgb, var(--brand-green) 5%, transparent);
+  border-radius: 16px;
+  font-size: 19px; line-height: 1.6;
+}
+.prose-article blockquote p { margin: 0; color: var(--brand-ink); }
+.prose-article blockquote footer { margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--brand-muted); }
+
+.prose-article img,
+.prose-article figure img {
+  width: 100%; height: auto; border-radius: 16px; box-shadow: var(--shadow-card); margin: 32px 0;
+}
+.prose-article figcaption { text-align: center; font-size: 14px; font-style: italic; color: var(--brand-muted); margin-top: -16px; margin-bottom: 32px; }
+
+/* Таблицы (включая нашу .zaymi-ai-mfo-table) */
+.prose-article table,
+.zaymi-ai-mfo-table table {
+  width: 100%; border-collapse: collapse;
+  margin: 32px 0; background: #fff;
+  border: 1px solid var(--brand-line); border-radius: 16px; overflow: hidden;
+  box-shadow: var(--shadow-card); font-size: 14px;
+}
+.prose-article thead,
+.zaymi-ai-mfo-table thead { background: var(--brand-ink); color: #fff; }
+.prose-article th,
+.zaymi-ai-mfo-table th {
+  padding: 14px 20px; text-align: left;
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+}
+.prose-article td,
+.zaymi-ai-mfo-table td { padding: 14px 20px; border-top: 1px solid var(--brand-line); }
+.zaymi-ai-mfo-table .btn-go {
+  display: inline-flex; align-items: center; padding: 8px 16px;
+  background: var(--brand-green); color: #fff !important; border-radius: 999px;
+  font-size: 13px; font-weight: 700; text-decoration: none !important;
+}
+.zaymi-ai-mfo-table h3 {
+  margin: 32px 0 -16px; font-size: 22px; font-weight: 800;
+}
+
+/* AI-Writer FAQ inline (детали внутри статьи) */
+.zaymi-ai-faq { margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+.zaymi-ai-faq details {
+  background: #fff; border: 1px solid var(--brand-line); border-radius: 16px;
+  box-shadow: var(--shadow-card); overflow: hidden;
+}
+.zaymi-ai-faq summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  font-size: 16px; font-weight: 800; color: var(--brand-ink);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.zaymi-ai-faq summary::-webkit-details-marker { display: none; }
+.zaymi-ai-faq summary::after {
+  content: "+"; flex-shrink: 0; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: var(--brand-soft); color: var(--brand-ink);
+  font-size: 20px; font-weight: 700; transition: all .2s;
+}
+.zaymi-ai-faq details[open] summary::after { content: "−"; background: var(--brand-green); color: #fff; }
+.zaymi-ai-faq details > div { padding: 0 20px 20px; color: var(--brand-muted); font-size: 14px; line-height: 1.6; border-top: 1px solid var(--brand-line); padding-top: 16px; }
+
+/* ─────────── 5. CTA ─────────── */
+.zo-art-cta { padding: 32px 0; }
+.zo-cta-card {
+  border-radius: 24px; padding: 32px; color: #fff;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(255,255,255,.15), transparent 50%),
+    linear-gradient(135deg, #10b981 0%, #2563eb 100%);
+  box-shadow: var(--shadow-hover);
+  display: grid; gap: 24px; align-items: center;
+}
+@media (min-width:768px) { .zo-cta-card { padding: 48px; grid-template-columns: 1fr auto; } }
+.zo-cta-card h3 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin: 0; line-height: 1.2; }
+.zo-cta-card p  { margin: 12px 0 0; font-size: 17px; color: rgba(255,255,255,.92); }
+.zo-btn-white {
+  display: inline-flex; align-items: center; gap: 8px; height: 56px; padding: 0 28px;
+  background: #fff; color: var(--brand-ink); border-radius: 999px;
+  font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: var(--shadow-card);
+  transition: all .2s;
+}
+.zo-btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+/* ─────────── 6. Author bio ─────────── */
+.zo-art-author { padding: 48px 0; }
+.zo-author-card {
+  display: grid; gap: 24px; padding: 32px;
+  background: #fff; border: 1px solid var(--brand-line); border-radius: 24px;
+  box-shadow: var(--shadow-card);
+}
+@media (min-width:768px) { .zo-author-card { grid-template-columns: 100px 1fr; } }
+.zo-author-card img {
+  width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 0 0 2px var(--brand-line);
+}
+.zo-author-card .kicker { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: var(--brand-green); }
+.zo-author-card h3 { margin: 4px 0 0; font-size: 22px; font-weight: 800; color: var(--brand-ink); }
+.zo-author-card .role { font-size: 14px; font-weight: 600; color: var(--brand-muted); }
+.zo-author-card p { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: color-mix(in srgb, var(--brand-ink) 80%, transparent); }
+
+/* ─────────── 7. Related ─────────── */
+.zo-art-related { background: var(--brand-soft); padding: 64px 0; }
+@media (min-width:768px) { .zo-art-related { padding: 80px 0; } }
+.zo-related-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -.01em; margin: 0; }
+.zo-related-sub { margin: 12px 0 0; font-size: 17px; color: var(--brand-muted); max-width: 600px; }
+.zo-related-grid { margin-top: 40px; display: grid; gap: 20px; }
+@media (min-width:768px) { .zo-related-grid { grid-template-columns: repeat(3, 1fr); } }
+.zo-related-card {
+  display: flex; flex-direction: column; padding: 20px;
+  background: #fff; border: 1px solid var(--brand-line); border-radius: 16px;
+  box-shadow: var(--shadow-card); text-decoration: none; color: inherit;
+  transition: all .2s;
+}
+.zo-related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.zo-related-cover {
+  aspect-ratio: 16/9; width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 16px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.2), transparent 40%),
+    linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+}
+.zo-related-cover img { width: 100%; height: 100%; object-fit: cover; }
+.zo-related-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.zo-related-meta .cat {
+  background: color-mix(in srgb, var(--brand-blue) 10%, transparent);
+  color: var(--brand-blue);
+  padding: 4px 10px; border-radius: 999px;
+  font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+}
+.zo-related-meta .dot { font-weight: 600; color: var(--brand-muted); }
+.zo-related-card h3 { margin: 12px 0 0; font-size: 18px; font-weight: 800; line-height: 1.3; color: var(--brand-ink); }
+.zo-related-card:hover h3 { color: var(--brand-blue); }
+.zo-related-card p { margin: 8px 0 0; flex: 1; font-size: 14px; line-height: 1.5; color: var(--brand-muted); }
+.zo-related-card .more { margin-top: 16px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--brand-green); }
+
+/* ─────────── 8. FAQ внизу ─────────── */
+.zo-art-faq { padding: 64px 0; }
+@media (min-width:768px) { .zo-art-faq { padding: 80px 0; } }
+.zo-faq-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -.01em; margin: 0; }
+.zo-faq-sub { margin: 12px 0 0; font-size: 17px; color: var(--brand-muted); }
+.zo-faq-list { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+.zo-faq-item {
+  background: #fff; border: 1px solid var(--brand-line); border-radius: 16px;
+  box-shadow: var(--shadow-card); overflow: hidden;
+}
+.zo-faq-item summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font-size: 16px; font-weight: 800; color: var(--brand-ink);
+}
+.zo-faq-item summary::-webkit-details-marker { display: none; }
+.zo-faq-item .ico {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--brand-soft); color: var(--brand-ink);
+  position: relative; transition: all .2s;
+}
+.zo-faq-item .ico::before, .zo-faq-item .ico::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  background: currentColor; transform: translate(-50%, -50%);
+}
+.zo-faq-item .ico::before { width: 12px; height: 2px; }
+.zo-faq-item .ico::after  { width: 2px;  height: 12px; transition: transform .2s; }
+.zo-faq-item[open] .ico { background: var(--brand-green); color: #fff; }
+.zo-faq-item[open] .ico::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+.zo-faq-item .a {
+  border-top: 1px solid var(--brand-line);
+  padding: 16px 20px; font-size: 14px; line-height: 1.7; color: var(--brand-muted);
+}
+
+/* ─────────── 9. Newsletter ─────────── */
+.zo-art-newsletter { padding: 0 0 64px; }
+.zo-news-card {
+  display: grid; gap: 24px; padding: 32px;
+  background: var(--brand-soft); border: 1px solid var(--brand-line);
+  border-radius: 24px; box-shadow: var(--shadow-card);
+}
+@media (min-width:768px) { .zo-news-card { padding: 40px; grid-template-columns: 1fr auto; align-items: center; } }
+.zo-news-card .kicker { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; color: var(--brand-green); }
+.zo-news-card h3 { margin: 8px 0 0; font-size: clamp(22px, 3vw, 30px); font-weight: 800; color: var(--brand-ink); }
+.zo-news-card p  { margin: 8px 0 0; font-size: 15px; color: var(--brand-muted); }
+.zo-news-form { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+@media (min-width:640px) { .zo-news-form { flex-direction: row; width: auto; } }
+.zo-news-form input {
+  height: 48px; min-width: 240px; padding: 0 20px;
+  background: #fff; border: 1px solid var(--brand-line); border-radius: 999px;
+  font-size: 14px; font-weight: 600; color: var(--brand-ink); outline: none;
+}
+.zo-news-form input:focus { border-color: var(--brand-blue); }
+.zo-news-form button {
+  height: 48px; padding: 0 24px;
+  background: var(--brand-green); color: #fff; border: 0; border-radius: 999px;
+  font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow-card);
+  transition: all .2s;
+}
+.zo-news-form button:hover { background: color-mix(in srgb, var(--brand-green) 90%, black); box-shadow: var(--shadow-hover); }
