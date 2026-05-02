@@ -52,6 +52,7 @@ require_once ZAYMI_DIR . '/inc/bootstrap.php';      // 🚀 финальный �
 
 /* ----- AI Writer (Блок 4) ----- */
 require_once ZAYMI_DIR . '/inc/ai-writer-core.php';   // ядро: провайдеры + пайплайн
+require_once ZAYMI_DIR . '/inc/authors.php';          // CPT авторов + AI-генератор экспертов
 require_once ZAYMI_DIR . '/inc/ai-writer-admin.php';  // админка: меню/очередь/расписание/лог
 require_once ZAYMI_DIR . '/inc/ai-writer-cron.php';   // WP-крон автопубликации
 
