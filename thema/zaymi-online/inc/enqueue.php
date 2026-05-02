@@ -37,6 +37,16 @@ add_action('wp_enqueue_scripts', function () {
         ZAYMI_VERSION
     );
 
+    // Стили статьи блога — только на одиночных постах
+    if (is_singular('post')) {
+        wp_enqueue_style(
+            'zaymi-article',
+            ZAYMI_URI . '/assets/css/article.css',
+            ['zaymi-extra'],
+            ZAYMI_VERSION
+        );
+    }
+
     // Скрипт мобильного меню и аккордеонов
     wp_enqueue_script(
         'zaymi-app',
