@@ -103,3 +103,52 @@ add_filter('the_content', function ($content) {
     }
     return $content;
 });
+
+/* ---------- Похожие статьи блога (по категориям/тегам) ---------- */
+add_shortcode('zaymi_related_posts', function ($atts) {
+    $a = shortcode_atts(['limit' => 3, 'title' => 'Читайте также'], $atts);
+    if (!is_singular('post')) return '';
+    $cur = get_the_ID();
+    $cats = wp_get_post_categories($cur);
+    $tags = wp_get_post_tags($cur, ['fields' => 'ids']);
+    $args = [
+        'post_type'      => 'post',
+        'posts_per_page' => (int)$a['limit'],
+        'post__not_in'   => [$cur],
+        'orderby'        => 'rand',
+    ];
+    if ($cats || $tags) {
+        $args['tax_query'] = [['relation' => 'OR']];
+        if ($cats) $args['tax_query'][] = ['taxonomy' => 'category', 'field' => 'term_id', 'terms' => $cats];
+        if ($tags) $args['tax_query'][] = ['taxonomy' => 'post_tag', 'field' => 'term_id', 'terms' => $tags];
+    }
+    $q = new WP_Query($args);
+    if (!$q->have_posts()) {
+        // fallback: просто свежие статьи
+        $q = new WP_Query(['post_type'=>'post','posts_per_page'=>(int)$a['limit'],'post__not_in'=>[$cur]]);
+    }
+    if (!$q->have_posts()) return '';
+    ob_start(); ?>
+    <section class="px-6 py-16 bg-slate-50">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-blue-600">Блог</span>
+          <h2 class="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900"><?php echo esc_html($a['title']); ?></h2>
+        </div>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <?php while ($q->have_posts()): $q->the_post(); ?>
+            <a href="<?php the_permalink(); ?>" class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all">
+              <?php if (has_post_thumbnail()): ?>
+                <div class="overflow-hidden rounded-xl mb-4"><?php the_post_thumbnail('medium', ['class' => 'w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500']); ?></div>
+              <?php endif; ?>
+              <div class="text-xs font-bold text-slate-500"><?php echo get_the_date('j F Y'); ?></div>
+              <h3 class="mt-2 text-lg font-extrabold leading-tight text-slate-900 group-hover:text-blue-600"><?php the_title(); ?></h3>
+              <p class="mt-2 text-sm text-slate-600 line-clamp-3"><?php echo esc_html(wp_trim_words(get_the_excerpt() ?: strip_tags(get_the_content()), 18)); ?></p>
+              <span class="mt-auto pt-3 text-sm font-bold text-emerald-600 inline-flex items-center gap-1">Читать →</span>
+            </a>
+          <?php endwhile; wp_reset_postdata(); ?>
+        </div>
+      </div>
+    </section>
+    <?php return ob_get_clean();
+});
