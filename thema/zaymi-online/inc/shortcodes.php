@@ -1104,8 +1104,13 @@ add_shortcode('zaymi_mfo_filter', function ($atts) {
               <?php endwhile; wp_reset_postdata(); ?>
             </div>
 
-            <div class="mt-10 hidden text-center text-base font-semibold text-slate-500" data-zf-empty>
-              По заданным фильтрам ничего не найдено. Попробуйте сбросить условия.
+            <div class="mt-10 hidden text-center" data-zf-empty>
+              <div class="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-md">
+                <div class="text-5xl mb-3">🔍</div>
+                <div class="text-lg font-extrabold text-slate-900">Ничего не найдено</div>
+                <p class="mt-2 text-sm text-slate-500">По заданным фильтрам нет подходящих МФО. Попробуйте сбросить условия или изменить параметры.</p>
+                <button type="button" class="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 text-sm font-bold text-white shadow-md hover:bg-emerald-600" data-zf-reset>Сбросить фильтры</button>
+              </div>
             </div>
           </div>
         </div>
