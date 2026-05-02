@@ -138,12 +138,11 @@ function zaymi_bootstrap_menus() {
         ],
     ];
 
-    $locations = get_theme_mod('nav_menu_locations', []);
+    $locations = (array) get_theme_mod('nav_menu_locations', []);
     foreach ($menus as $loc => $cfg) {
         $menu = wp_get_nav_menu_object($cfg['name']);
         $menu_id = $menu ? (int)$menu->term_id : wp_create_nav_menu($cfg['name']);
         if (is_wp_error($menu_id)) continue;
-        // если меню уже было — не пересоздаём пункты
         $existing = wp_get_nav_menu_items($menu_id);
         if (!$existing) {
             foreach ($cfg['items'] as $item) {
@@ -154,10 +153,29 @@ function zaymi_bootstrap_menus() {
                 ]);
             }
         }
-        $locations[$loc] = $menu_id;
+        $locations[$loc] = (int) $menu_id;
     }
+    /* Надёжно сохраняем locations: и через theme_mod, и напрямую в опции темы */
     set_theme_mod('nav_menu_locations', $locations);
+    $stylesheet = get_stylesheet();
+    $mods = get_option("theme_mods_{$stylesheet}", []);
+    if (!is_array($mods)) $mods = [];
+    $mods['nav_menu_locations'] = $locations;
+    update_option("theme_mods_{$stylesheet}", $mods);
+    wp_cache_delete('alloptions', 'options');
 }
+
+/* Авто-привязка primary при каждой загрузке (страховка, если кто-то снёс location) */
+add_action('after_setup_theme', function () {
+    $locations = (array) get_theme_mod('nav_menu_locations', []);
+    if (empty($locations['primary'])) {
+        $menu = wp_get_nav_menu_object('Главное меню');
+        if ($menu) {
+            $locations['primary'] = (int) $menu->term_id;
+            set_theme_mod('nav_menu_locations', $locations);
+        }
+    }
+}, 999);
 
 /* ---------- Виджеты ---------- */
 function zaymi_bootstrap_widgets() {
