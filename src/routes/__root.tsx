@@ -47,7 +47,7 @@ function NotFoundComponent() {
           <h1
             className="mt-6 select-none text-[120px] font-black leading-none tracking-tight sm:text-[160px] md:text-[200px]"
             style={{
-              background: "linear-gradient(135deg, #10b981 0%, #2563eb 50%, #f59e0b 100%)",
+              background: "linear-gradient(135deg, #10b981 0%, #2563eb 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
