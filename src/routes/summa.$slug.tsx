@@ -660,11 +660,12 @@ function CalcExamplesSection() {
 }
 
 function SeoTextSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="px-6 py-20">
       <article className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Что важно знать перед получением займа 5 000 ₽
+          Что важно знать перед получением займа {fmt}
         </h2>
         <p className="mt-5 text-base leading-relaxed text-brand-muted md:text-lg">
           Сумма 5 000 рублей — одна из самых востребованных в микрофинансировании. По статистике 2025 года, каждый третий онлайн-займ в России выдаётся именно в диапазоне 3 000–7 000 ₽. Это деньги «до зарплаты», которые помогают закрыть срочные расходы без сложных бюрократических процедур.
