@@ -3,3 +3,93 @@
 .prose img { border-radius: 12px; }
 .prose h2 { margin-top: 1.5em; }
 .prose h3 { margin-top: 1.25em; }
+
+/* ============================================================
+ * v3.4 — фикс наезжания звёзд на заголовки МФО
+ * ============================================================ */
+.zf-card-head { gap: 12px !important; align-items: flex-start; }
+.zf-card-head > div:first-child { min-width: 0; flex: 1 1 auto; }
+.zf-card-titles { min-width: 0; flex: 1; }
+.zf-card-titles h3 { word-break: break-word; overflow-wrap: anywhere; hyphens: auto; }
+.zf-card-head > div:last-child { flex-shrink: 0; }
+.zf-card-head > div:last-child .inline-flex { white-space: nowrap; }
+
+/* Карточки в каталоге (4 колонки на главной) */
+[class*="grid-cols-4"] article h3,
+[class*="grid-cols-4"] .group h3 { word-break: break-word; overflow-wrap: anywhere; }
+
+/* Hero МФО — звёзды не должны обрезаться */
+.flex.items-center.gap-2 svg.w-4 { flex-shrink: 0; }
+
+@media (max-width: 380px) {
+  .zf-card-head { flex-wrap: wrap; }
+  .zf-card-head > div:last-child { width: 100%; text-align: left; display: flex; align-items: center; gap: 8px; }
+  .zf-card-head > div:last-child .mt-1 { margin-top: 0; }
+}
+
+/* ============================================================
+ * v3.4 — Blog-карточки на главной с featured image
+ * ============================================================ */
+.zaymi-blog-card { display: flex; flex-direction: column; }
+.zaymi-blog-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d1fae5 0%, #dbeafe 50%, #fef3c7 100%);
+}
+.zaymi-blog-card__img,
+.zaymi-blog-card__media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.zaymi-blog-card:hover .zaymi-blog-card__img,
+.zaymi-blog-card:hover .zaymi-blog-card__media img {
+  transform: scale(1.06);
+}
+.zaymi-blog-card__placeholder {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(16,185,129,0.35), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(59,130,246,0.35), transparent 50%),
+    linear-gradient(135deg, #d1fae5, #dbeafe, #fef3c7);
+}
+
+/* ============================================================
+ * v3.4 — мелкие фиксы по сайту
+ * ============================================================ */
+/* Длинные слова в заголовках МФО на любой странице */
+h1, h2, h3 { overflow-wrap: break-word; }
+
+/* Хлебные крошки — отступ сверху на term-страницах */
+.zaymi-breadcrumbs, nav[aria-label="Breadcrumb"] { padding-top: 12px; }
+
+/* Sticky CTA — не должен перекрывать футер */
+.zaymi-sticky-cta, [class*="sticky-cta"] { z-index: 40; }
+
+/* Skeleton для карточек МФО (когда нет данных) */
+.zf-card[data-loading="true"] {
+  pointer-events: none;
+  background: linear-gradient(90deg, #f1f5f9 0%, #f8fafc 50%, #f1f5f9 100%);
+  background-size: 200% 100%;
+  animation: zaymi-skeleton 1.5s ease-in-out infinite;
+}
+@keyframes zaymi-skeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Логотипы МФО — фолбэк если картинка не загрузилась */
+img[alt][src=""], img:not([src]) { visibility: hidden; }
+
+/* Print-стили для статей блога */
+@media print {
+  header, footer, .zaymi-sticky-cta, nav, aside, .no-print { display: none !important; }
+  body { font-size: 12pt; color: #000; background: #fff; }
+  a { color: #000; text-decoration: underline; }
+  img { max-width: 100% !important; }
+}

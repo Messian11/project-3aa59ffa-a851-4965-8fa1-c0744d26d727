@@ -841,11 +841,28 @@ add_shortcode('zaymi_blog_section', function ($atts) {
           <p class="mt-3 text-base md:text-lg text-slate-500">Гайды, советы и обзоры по займам</p>
         </div>
         <div class="mt-10 grid gap-5 md:grid-cols-3">
-          <?php while ($q->have_posts()): $q->the_post(); ?>
-            <article class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all">
-              <h3 class="text-lg font-extrabold text-slate-900"><a href="<?php the_permalink(); ?>" class="hover:text-blue-600"><?php the_title(); ?></a></h3>
-              <p class="mt-2 text-sm font-medium leading-relaxed text-slate-500"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 22)); ?></p>
-              <a href="<?php the_permalink(); ?>" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 hover:text-emerald-700">Читать <?php echo zaymi_icon('arrow-right','w-4 h-4'); ?></a>
+          <?php while ($q->have_posts()): $q->the_post();
+            $cats = get_the_category();
+            $cat_name = $cats ? $cats[0]->name : 'Гид';
+            $cat_color = $cats && isset($cats[0]->slug) && in_array($cats[0]->slug, ['novosti','news']) ? 'bg-amber-400 text-amber-900' : ($cats && in_array($cats[0]->slug, ['sravnenie','compare']) ? 'bg-emerald-500 text-white' : 'bg-blue-500 text-white');
+          ?>
+            <article class="zaymi-blog-card group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:-translate-y-1 hover:shadow-xl transition-all">
+              <a href="<?php the_permalink(); ?>" class="zaymi-blog-card__media block relative">
+                <?php if (has_post_thumbnail()): ?>
+                  <?php the_post_thumbnail('medium_large', ['class' => 'zaymi-blog-card__img', 'loading' => 'lazy', 'alt' => esc_attr(get_the_title())]); ?>
+                <?php else: ?>
+                  <div class="zaymi-blog-card__placeholder"></div>
+                <?php endif; ?>
+                <span class="absolute left-4 top-4 inline-flex items-center rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider <?php echo esc_attr($cat_color); ?>"><?php echo esc_html($cat_name); ?></span>
+              </a>
+              <div class="flex flex-1 flex-col p-6">
+                <h3 class="text-lg font-extrabold leading-snug text-slate-900"><a href="<?php the_permalink(); ?>" class="hover:text-blue-600"><?php the_title(); ?></a></h3>
+                <p class="mt-2 text-sm font-medium leading-relaxed text-slate-500"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 22)); ?></p>
+                <div class="mt-auto flex items-center justify-between pt-4">
+                  <span class="text-[11px] font-semibold text-slate-400"><?php echo esc_html(get_the_date('j M Y')); ?></span>
+                  <a href="<?php the_permalink(); ?>" class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 hover:text-emerald-700">Читать <?php echo zaymi_icon('arrow-right','w-4 h-4'); ?></a>
+                </div>
+              </div>
             </article>
           <?php endwhile; wp_reset_postdata(); ?>
         </div>
