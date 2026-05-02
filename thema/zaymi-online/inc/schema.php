@@ -166,15 +166,32 @@ function zaymi_schema_output() {
     }
 }
 
-/* ---------- Сбор FAQ со страницы ---------- */
+/* ---------- Сбор FAQ со страницы (singular + term'ы city/summa/situation) ---------- */
 function zaymi_collect_faq() {
-    if (!function_exists('get_field')) return [];
     $faq = [];
-    if (is_singular()) {
+    if (function_exists('get_field') && is_singular()) {
         $rows = get_field('faq', get_the_ID());
         if ($rows) foreach ($rows as $r) {
             if (!empty($r['question']) && !empty($r['answer'])) {
                 $faq[] = ['q' => $r['question'], 'a' => wp_strip_all_tags($r['answer'])];
+            }
+        }
+    }
+    /* На страницах таксономий читаем hub_faq + подмешиваем зарегистрированные дефолты */
+    if (is_tax(['city','summa','situation'])) {
+        $term = get_queried_object();
+        $rows = function_exists('get_field') ? get_field('hub_faq', $term) : [];
+        if ($rows) foreach ($rows as $r) {
+            $q = $r['question'] ?? '';
+            $a = $r['answer']   ?? '';
+            if ($q && $a) $faq[] = ['q' => $q, 'a' => wp_strip_all_tags($a)];
+        }
+        /* fallback на FAQ, прокинутый шаблоном через глобал $faq_items */
+        if (empty($faq) && !empty($GLOBALS['zaymi_tax_faq']) && is_array($GLOBALS['zaymi_tax_faq'])) {
+            foreach ($GLOBALS['zaymi_tax_faq'] as $r) {
+                if (!empty($r['question']) && !empty($r['answer'])) {
+                    $faq[] = ['q' => $r['question'], 'a' => wp_strip_all_tags($r['answer'])];
+                }
             }
         }
     }
