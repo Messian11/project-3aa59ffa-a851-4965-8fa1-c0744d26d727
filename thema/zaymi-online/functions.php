@@ -50,6 +50,11 @@ require_once ZAYMI_DIR . '/inc/compliance.php';     // cookie-banner, согла
 require_once ZAYMI_DIR . '/inc/pages-legal.php';    // авто-страницы, robots.txt, reCAPTCHA
 require_once ZAYMI_DIR . '/inc/bootstrap.php';      // 🚀 финальный авто-настройщик после активации
 
+/* ----- AI Writer (Блок 4) ----- */
+require_once ZAYMI_DIR . '/inc/ai-writer-core.php';   // ядро: провайдеры + пайплайн
+require_once ZAYMI_DIR . '/inc/ai-writer-admin.php';  // админка: меню/очередь/расписание/лог
+require_once ZAYMI_DIR . '/inc/ai-writer-cron.php';   // WP-крон автопубликации
+
 /* SEO + Trust стили/скрипты */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('zaymi-seo',   ZAYMI_URI . '/assets/css/seo.css',   [], ZAYMI_VERSION);
