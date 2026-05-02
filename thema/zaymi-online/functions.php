@@ -10,7 +10,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ZAYMI_VERSION', '2.1.0');
+define('ZAYMI_VERSION', '3.0.0');
 define('ZAYMI_DIR',     get_template_directory());
 define('ZAYMI_URI',     get_template_directory_uri());
 define('ZAYMI_DEMO_DIR', ZAYMI_DIR . '/demo-data');
@@ -57,6 +57,7 @@ require_once ZAYMI_DIR . '/inc/ai-writer-core.php';   // ядро: провай�
 require_once ZAYMI_DIR . '/inc/authors.php';          // CPT авторов + AI-генератор экспертов
 require_once ZAYMI_DIR . '/inc/ai-writer-admin.php';  // админка: меню/очередь/расписание/лог
 require_once ZAYMI_DIR . '/inc/ai-writer-cron.php';   // WP-крон автопубликации
+require_once ZAYMI_DIR . '/inc/leads-su-importer.php'; // ⚡ Авто-импорт МФО из Leads.su CPA
 
 /* SEO + Trust стили/скрипты */
 add_action('wp_enqueue_scripts', function () {

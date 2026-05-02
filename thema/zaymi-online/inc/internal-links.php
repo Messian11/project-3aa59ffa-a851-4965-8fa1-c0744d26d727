@@ -83,26 +83,82 @@ add_shortcode('zaymi_internal_links', function () {
     return $out . '</section>';
 });
 
-/* ---------- Автозамена упоминаний МФО в тексте на ссылки ---------- */
+/* ---------- Контекстная перелинковка по словарю ключей ---------- */
+/**
+ * В тексте статьи автоматически превращаем в ссылки:
+ *  - имена МФО → /mfo/{slug}/
+ *  - "займ в {Город}" → /goroda/{slug}/
+ *  - "займ {N} рублей" → /summa/{slug}/
+ *  - ключи из таксономии situation → /situations/{slug}/
+ * Каждый ключ линкуется максимум 1 раз на статью, всего не более 8 ссылок,
+ * чтобы не выглядеть как спам и не получить переоптимизацию.
+ */
 add_filter('the_content', function ($content) {
-    if (!is_singular('post')) return $content;
-    $mfos = get_posts(['post_type'=>'mfo','posts_per_page'=>-1]);
-    $used = [];
-    foreach ($mfos as $m) {
-        $name = $m->post_title;
-        if (in_array($name, $used) || mb_strlen($name) < 3) continue;
-        $url = get_permalink($m);
-        // первое упоминание -> ссылка
-        $pattern = '/(?<![>\/a-zа-яё])'. preg_quote($name,'/') .'(?![<\/a-zа-яё])/u';
+    if (!is_singular('post') || is_admin() || is_feed()) return $content;
+    if (mb_strlen(strip_tags($content)) < 600) return $content; // короткие посты не трогаем
+
+    $dict = []; // [pattern => url]
+
+    // 1) МФО
+    foreach (get_posts(['post_type'=>'mfo','posts_per_page'=>-1,'no_found_rows'=>true]) as $m) {
+        $name = trim($m->post_title);
+        if (mb_strlen($name) < 3) continue;
+        $dict[] = ['kw' => $name, 'url' => get_permalink($m), 'rel' => 'mfo'];
+    }
+
+    // 2) Города → "займ в {Город}", "займы в {Город}"
+    foreach (get_terms(['taxonomy'=>'city','hide_empty'=>false]) as $t) {
+        if (is_wp_error($t)) continue;
+        $url = get_term_link($t);
+        if (is_wp_error($url)) continue;
+        $dict[] = ['kw' => 'займы в '.$t->name, 'url' => $url, 'rel' => 'city'];
+        $dict[] = ['kw' => 'займ в '.$t->name,  'url' => $url, 'rel' => 'city'];
+    }
+
+    // 3) Суммы → "займ 5000 рублей" и т.п.
+    foreach (get_terms(['taxonomy'=>'summa','hide_empty'=>false]) as $t) {
+        if (is_wp_error($t)) continue;
+        $url = get_term_link($t);
+        if (is_wp_error($url)) continue;
+        $amount = (int) preg_replace('/\D+/', '', $t->slug);
+        if (!$amount) continue;
+        $fmt = number_format($amount, 0, '.', ' ');
+        $dict[] = ['kw' => 'займ '.$fmt.' рублей', 'url' => $url, 'rel' => 'summa'];
+        $dict[] = ['kw' => 'займ '.$fmt.' ₽',      'url' => $url, 'rel' => 'summa'];
+        $dict[] = ['kw' => 'займ на '.$fmt.' рублей', 'url' => $url, 'rel' => 'summa'];
+    }
+
+    // 4) Ситуации → имя термина как ключ
+    foreach (get_terms(['taxonomy'=>'situation','hide_empty'=>false]) as $t) {
+        if (is_wp_error($t)) continue;
+        $url = get_term_link($t);
+        if (is_wp_error($url)) continue;
+        $dict[] = ['kw' => 'займ '.mb_strtolower($t->name), 'url' => $url, 'rel' => 'situation'];
+    }
+
+    // Сортируем по длине ключа DESC — чтобы длинные ("займ в Санкт-Петербурге") матчились раньше коротких ("займ")
+    usort($dict, fn($a,$b) => mb_strlen($b['kw']) - mb_strlen($a['kw']));
+
+    $links_added = 0;
+    $max_links   = 8;
+    foreach ($dict as $entry) {
+        if ($links_added >= $max_links) break;
+        $kw  = $entry['kw'];
+        $url = $entry['url'];
+        // (?<![>\w...]) — не внутри тега и не часть слова; (?![<\w...]) — то же справа
+        $pattern = '/(?<![>\/a-zа-яё0-9])('. preg_quote($kw,'/') .')(?![<\/a-zа-яё0-9])/iu';
         $count = 0;
-        $content = preg_replace_callback($pattern, function ($m2) use ($url, &$count) {
-            if ($count++) return $m2[0];
-            return '<a href="'.esc_url($url).'" class="zaymi-auto-link">'.$m2[0].'</a>';
+        $new = preg_replace_callback($pattern, function ($m) use ($url, &$count) {
+            if ($count++) return $m[0];
+            return '<a href="'.esc_url($url).'" class="zaymi-auto-link" data-auto="1">'.$m[0].'</a>';
         }, $content, 1);
-        $used[] = $name;
+        if ($new !== null && $new !== $content) {
+            $content = $new;
+            $links_added++;
+        }
     }
     return $content;
-});
+}, 20);
 
 /* ---------- Похожие статьи блога (по категориям/тегам) ---------- */
 add_shortcode('zaymi_related_posts', function ($atts) {
