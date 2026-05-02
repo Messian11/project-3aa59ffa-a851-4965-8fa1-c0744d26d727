@@ -27,6 +27,7 @@ require_once ZAYMI_DIR . '/inc/helpers.php';        // утилиты (форм�
 require_once ZAYMI_DIR . '/inc/shortcodes.php';     // все шорткоды
 require_once ZAYMI_DIR . '/inc/seeder.php';         // автозасев демо-контента
 require_once ZAYMI_DIR . '/inc/admin.php';          // настройка админки
+require_once ZAYMI_DIR . '/inc/mfo-editor.php';     // 🗂 удобный редактор МФО (табы, дублирование, bulk)
 
 /* ----- Конверсия (Блок 1) ----- */
 require_once ZAYMI_DIR . '/inc/leads.php';          // CPT-таблица лидов + REST + CRM webhooks
