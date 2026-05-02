@@ -37,7 +37,8 @@ add_action('init', function () {
         ],
         'public'        => false,
         'show_ui'       => true,
-        'show_in_menu'  => 'edit.php', // вложим в "Записи"
+        'show_in_menu'  => true, // отдельный top-level пункт «Авторы»
+        'menu_position' => 26,
         'menu_icon'     => 'dashicons-admin-users',
         'supports'      => ['title', 'thumbnail', 'editor'],
         'capability_type' => 'post',
