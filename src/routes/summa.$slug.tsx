@@ -716,11 +716,12 @@ function SeoTextSection() {
 
 function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
+  const fmt = FORMAT(useAmount());
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Частые вопросы про займ 5 000 ₽
+          Частые вопросы про займ {fmt}
         </h2>
         <p className="mt-3 text-base text-brand-muted md:text-lg">
           Ответы на самые популярные вопросы заёмщиков.
