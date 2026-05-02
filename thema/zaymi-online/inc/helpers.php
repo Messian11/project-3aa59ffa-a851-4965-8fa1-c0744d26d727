@@ -85,6 +85,9 @@ function zaymi_mfo_logo_url($post_id, $size = 'mfo-logo') {
 
 /**
  * Получить массив МФО по фильтрам.
+ *
+ * Особое поведение: если в args есть фильтр по таксономии city,
+ * добавляются МФО с mfo_all_russia=1 (работают по всей РФ).
  */
 function zaymi_query_mfo($args = []) {
     $defaults = [
@@ -94,8 +97,67 @@ function zaymi_query_mfo($args = []) {
         'meta_key'       => 'mfo_rating',
         'order'          => 'DESC',
     ];
-    return new WP_Query(array_merge($defaults, $args));
+    $args = array_merge($defaults, $args);
+
+    // Если фильтр по городу — подмешиваем "по всей России"
+    $has_city_filter = false;
+    if (!empty($args['tax_query']) && is_array($args['tax_query'])) {
+        foreach ($args['tax_query'] as $tq) {
+            if (isset($tq['taxonomy']) && $tq['taxonomy'] === 'city') { $has_city_filter = true; break; }
+        }
+    }
+    if ($has_city_filter) {
+        $all_russia_ids = get_posts([
+            'post_type'      => 'mfo',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'meta_query'     => [['key' => 'mfo_all_russia', 'value' => '1', 'compare' => '=']],
+        ]);
+        if (!empty($all_russia_ids)) {
+            $city_args = $args;
+            $city_args['posts_per_page'] = -1;
+            $city_args['fields'] = 'ids';
+            unset($city_args['orderby'], $city_args['meta_key'], $city_args['order']);
+            $city_ids = get_posts($city_args);
+            $merged_ids = array_values(array_unique(array_merge((array)$city_ids, (array)$all_russia_ids)));
+            unset($args['tax_query']);
+            $args['post__in'] = !empty($merged_ids) ? $merged_ids : [0];
+        }
+    }
+
+    return new WP_Query($args);
 }
+
+/**
+ * Аналогичный фильтр для архива city: подмешивает МФО "по всей РФ".
+ * Срабатывает на основном запросе taxonomy-city.
+ */
+add_action('pre_get_posts', function ($q) {
+    if (is_admin() || !$q->is_main_query()) return;
+    if (!$q->is_tax('city')) return;
+    $all_russia_ids = get_posts([
+        'post_type'      => 'mfo',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+        'meta_query'     => [['key' => 'mfo_all_russia', 'value' => '1', 'compare' => '=']],
+    ]);
+    if (empty($all_russia_ids)) return;
+    $term = $q->get_queried_object();
+    if (!$term || empty($term->term_id)) return;
+    $city_ids = get_posts([
+        'post_type'      => 'mfo',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+        'tax_query'      => [['taxonomy' => 'city', 'field' => 'term_id', 'terms' => [$term->term_id]]],
+    ]);
+    $merged = array_values(array_unique(array_merge((array)$city_ids, (array)$all_russia_ids)));
+    if (empty($merged)) $merged = [0];
+    $q->set('tax_query', []);
+    $q->set('post__in', $merged);
+    $q->set('orderby', 'meta_value_num');
+    $q->set('meta_key', 'mfo_rating');
+    $q->set('order', 'DESC');
+});
 
 /**
  * Безопасный escape для аттрибутов с подстановкой по умолчанию.

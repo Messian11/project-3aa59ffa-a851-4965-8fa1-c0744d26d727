@@ -17,5 +17,9 @@ get_header(); ?>
     <?php endwhile; ?>
   </div>
 </article>
+
+<?php echo do_shortcode('[zaymi_related_posts limit="3"]'); ?>
 <?php echo do_shortcode('[zaymi_mfo_catalog limit="4" title="Подберите подходящий займ" subtitle="Топ МФО из нашего каталога"]'); ?>
+<?php echo do_shortcode('[zaymi_lsi]'); ?>
+
 <?php get_footer();
