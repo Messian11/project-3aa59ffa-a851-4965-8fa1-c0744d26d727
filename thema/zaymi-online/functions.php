@@ -45,6 +45,7 @@ require_once ZAYMI_DIR . '/inc/internal-links.php'; // related, LSI, автоз�
 require_once ZAYMI_DIR . '/inc/turbo.php';          // /turbo.xml для Яндекса
 require_once ZAYMI_DIR . '/inc/og-image.php';       // OG/Twitter теги + динамическая картинка
 require_once ZAYMI_DIR . '/inc/dashboard.php';      // 📊 Админ-дашборд с Chart.js
+require_once ZAYMI_DIR . '/inc/analytics.php';      // 📈 Я.Метрика + GA4 + GTM + JS-цели
 
 /* ----- Trust & Compliance (Блок 3, v2.2) ----- */
 require_once ZAYMI_DIR . '/inc/reviews.php';        // отзывы + рейтинг + Schema Review
