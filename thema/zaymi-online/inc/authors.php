@@ -37,7 +37,8 @@ add_action('init', function () {
         ],
         'public'        => false,
         'show_ui'       => true,
-        'show_in_menu'  => 'edit.php', // вложим в "Записи"
+        'show_in_menu'  => true, // отдельный top-level пункт «Авторы»
+        'menu_position' => 26,
         'menu_icon'     => 'dashicons-admin-users',
         'supports'      => ['title', 'thumbnail', 'editor'],
         'capability_type' => 'post',
@@ -157,7 +158,7 @@ if (!function_exists('zaymi_get_post_author')) {
  * 5. AI-генератор авторов (страница "AI Авторы")
  * ------------------------------------------------------------------ */
 add_action('admin_menu', function () {
-    add_submenu_page('edit.php', 'AI Авторы', '✨ AI Авторы', 'manage_options', 'zaymi-ai-authors', 'zaymi_ai_authors_page');
+    add_submenu_page('edit.php?post_type=zaymi_author', 'AI Авторы', '✨ AI Генератор', 'manage_options', 'zaymi-ai-authors', 'zaymi_ai_authors_page');
 });
 
 function zaymi_ai_authors_page() {

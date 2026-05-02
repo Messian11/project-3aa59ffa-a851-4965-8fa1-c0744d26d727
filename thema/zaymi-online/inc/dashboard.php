@@ -32,8 +32,10 @@ add_action('acf/init', function () {
     ]);
 });
 
-/* ---------- Меню ---------- */
+/* ---------- Меню (отдельный top-level пункт) ---------- */
 add_action('admin_menu', function () {
+    add_menu_page('Zaymi Дашборд', '📊 Zaymi', 'manage_options', 'zaymi-dashboard', 'zaymi_dashboard_render', 'dashicons-chart-area', 3);
+    // дублируем как подпункт в «Заявки» для совместимости
     add_submenu_page('zaymi-leads', 'Дашборд', '📊 Дашборд', 'manage_options', 'zaymi-dashboard', 'zaymi_dashboard_render');
 }, 20);
 
