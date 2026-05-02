@@ -25,6 +25,7 @@ require_once ZAYMI_DIR . '/inc/acf.php';            // ACF поля и опци�
 require_once ZAYMI_DIR . '/inc/icons.php';          // SVG-иконки lucide
 require_once ZAYMI_DIR . '/inc/helpers.php';        // утилиты (форматирование, рейтинг и т.д.)
 require_once ZAYMI_DIR . '/inc/shortcodes.php';     // все шорткоды
+require_once ZAYMI_DIR . '/inc/shortcodes-extra.php'; // newsletter, mfo_fit, mfo_seo_content, mfo_breadcrumbs
 require_once ZAYMI_DIR . '/inc/seeder.php';         // автозасев демо-контента
 require_once ZAYMI_DIR . '/inc/admin.php';          // настройка админки
 require_once ZAYMI_DIR . '/inc/mfo-editor.php';     // 🗂 удобный редактор МФО (табы, дублирование, bulk)
