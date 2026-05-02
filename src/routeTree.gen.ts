@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
+import { Route as SearchRouteImport } from './routes/search'
 import { Route as HeaderRouteImport } from './routes/header'
 import { Route as ComponentsRouteImport } from './routes/components'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,6 +25,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
   path: '/styleguide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HeaderRoute = HeaderRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/components': typeof ComponentsRoute
   '/header': typeof HeaderRoute
+  '/search': typeof SearchRoute
   '/styleguide': typeof StyleguideRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/goroda/$slug': typeof GorodaSlugRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/components': typeof ComponentsRoute
   '/header': typeof HeaderRoute
+  '/search': typeof SearchRoute
   '/styleguide': typeof StyleguideRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/goroda/$slug': typeof GorodaSlugRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/components': typeof ComponentsRoute
   '/header': typeof HeaderRoute
+  '/search': typeof SearchRoute
   '/styleguide': typeof StyleguideRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/goroda/$slug': typeof GorodaSlugRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/components'
     | '/header'
+    | '/search'
     | '/styleguide'
     | '/blog/$slug'
     | '/goroda/$slug'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/components'
     | '/header'
+    | '/search'
     | '/styleguide'
     | '/blog/$slug'
     | '/goroda/$slug'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/components'
     | '/header'
+    | '/search'
     | '/styleguide'
     | '/blog/$slug'
     | '/goroda/$slug'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComponentsRoute: typeof ComponentsRoute
   HeaderRoute: typeof HeaderRoute
+  SearchRoute: typeof SearchRoute
   StyleguideRoute: typeof StyleguideRoute
   BlogSlugRoute: typeof BlogSlugRoute
   GorodaSlugRoute: typeof GorodaSlugRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/styleguide'
       fullPath: '/styleguide'
       preLoaderRoute: typeof StyleguideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/header': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComponentsRoute: ComponentsRoute,
   HeaderRoute: HeaderRoute,
+  SearchRoute: SearchRoute,
   StyleguideRoute: StyleguideRoute,
   BlogSlugRoute: BlogSlugRoute,
   GorodaSlugRoute: GorodaSlugRoute,
@@ -271,12 +292,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
