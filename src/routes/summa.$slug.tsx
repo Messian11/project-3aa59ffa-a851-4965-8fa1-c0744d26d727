@@ -518,12 +518,12 @@ function FullCatalogSection() {
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {fullCatalog.map((m) => (
-            <article key={m.slug} className="group flex flex-col rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-hover">
-              <div className="flex items-start justify-between">
-                <div className={cn("flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-extrabold text-white shadow-card", m.bg)}>
+            <article key={m.slug} className="group flex h-full flex-col rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-hover">
+              <div className="flex items-start justify-between gap-3">
+                <div className={cn("flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-extrabold text-white shadow-card", m.bg)}>
                   {m.letter}
                 </div>
-                <div className="text-right">
+                <div className="flex shrink-0 flex-col items-end whitespace-nowrap" style={{ minWidth: 76 }}>
                   <Stars rating={m.rating} />
                   <div className="mt-1 text-sm font-extrabold text-brand-ink">{m.rating}</div>
                   <div className="text-[11px] font-medium text-brand-muted">({m.reviews})</div>
@@ -534,7 +534,7 @@ function FullCatalogSection() {
                 <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
               </h3>
 
-              <div className="mt-3 flex flex-wrap gap-1.5">
+              <div className="mt-3 flex flex-wrap gap-1.5" style={{ minHeight: 28 }}>
                 {m.badges.map((b) => (
                   <span
                     key={b.l}
@@ -557,19 +557,28 @@ function FullCatalogSection() {
                 <Row k="Одобрение" v={m.approval} />
               </dl>
 
-              <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-              <Link
-                to="/mfo/$slug"
-                params={{ slug: m.slug }}
-                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
-              >
-                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
-              </Link>
+              <div className="mt-auto pt-5">
+                <button className="flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                  Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </button>
+                <Link
+                  to="/mfo/$slug"
+                  params={{ slug: m.slug }}
+                  className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+                </Link>
+              </div>
             </article>
           ))}
         </div>
+
+        <Link
+          to="/mfo"
+          className="mt-8 flex h-12 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-blue shadow-card transition-all hover:border-brand-blue hover:bg-brand-soft md:hidden"
+        >
+          Смотреть все МФО <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        </Link>
       </div>
     </section>
   );
