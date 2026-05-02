@@ -3,7 +3,6 @@
  * Шаблон таксономии "По сумме" (summa) — 1:1 с React /summa/{slug}.
  */
 if (!defined('ABSPATH')) exit;
-get_header();
 
 $term = get_queried_object();
 $slug = $term->slug ?? '';
@@ -18,13 +17,6 @@ $acf_intro = function_exists('get_field') ? get_field('hub_intro', $term) : '';
 $acf_seo   = function_exists('get_field') ? get_field('hub_seo_text', $term) : '';
 $acf_faq   = function_exists('get_field') ? get_field('hub_faq', $term) : [];
 
-$why = [
-    ['icon' => 'check-circle', 'title' => 'Высокое одобрение',  'desc' => 'Сумма ' . esc_html($amount_fmt) . ' одобряется в 90%+ случаев — это базовый лимит для большинства МФО.'],
-    ['icon' => 'zap',          'title' => 'Решение за 5 минут', 'desc' => 'Автоматический скоринг — деньги поступают на карту мгновенно после одобрения.'],
-    ['icon' => 'percent',      'title' => 'Первый займ под 0%', 'desc' => 'Большинство МФО предлагают первый займ под 0% при возврате в срок до 30 дней.'],
-    ['icon' => 'shield-check', 'title' => 'Без справок и поручителей', 'desc' => 'Только паспорт и активная карта на ваше имя. Никаких 2-НДФЛ.'],
-];
-
 $default_faq = [
     ['question' => 'Точно ли одобрят ' . esc_html($amount_fmt) . '?', 'answer' => 'Эта сумма входит в стандартный лимит большинства МФО. Реальное одобрение — 90%+ при условии корректных данных в анкете.'],
     ['question' => 'Какая будет переплата?',                          'answer' => 'При первом займе под 0% — переплата 0 ₽ при возврате в срок. Со второго займа — стандартная ставка от 0,8% до 1% в день.'],
@@ -32,6 +24,16 @@ $default_faq = [
     ['question' => 'Можно ли продлить срок?',                         'answer' => 'Да, у большинства МФО есть платная пролонгация на 7–30 дней. Стоимость и условия зависят от компании.'],
 ];
 $faq_items = !empty($acf_faq) ? $acf_faq : $default_faq;
+$GLOBALS['zaymi_tax_faq'] = $faq_items;
+
+get_header();
+
+$why = [
+    ['icon' => 'check-circle', 'title' => 'Высокое одобрение',  'desc' => 'Сумма ' . esc_html($amount_fmt) . ' одобряется в 90%+ случаев — это базовый лимит для большинства МФО.'],
+    ['icon' => 'zap',          'title' => 'Решение за 5 минут', 'desc' => 'Автоматический скоринг — деньги поступают на карту мгновенно после одобрения.'],
+    ['icon' => 'percent',      'title' => 'Первый займ под 0%', 'desc' => 'Большинство МФО предлагают первый займ под 0% при возврате в срок до 30 дней.'],
+    ['icon' => 'shield-check', 'title' => 'Без справок и поручителей', 'desc' => 'Только паспорт и активная карта на ваше имя. Никаких 2-НДФЛ.'],
+];
 
 $related_terms = get_terms(['taxonomy' => 'summa', 'hide_empty' => false, 'exclude' => [$term->term_id], 'number' => 8]);
 ?>
