@@ -360,3 +360,14 @@
   transition: all .2s;
 }
 .zo-news-form button:hover { background: color-mix(in srgb, var(--brand-green) 90%, black); box-shadow: var(--shadow-hover); }
+
+/* Author bio: experience subtitle + social icons */
+.zo-author-card .exp { margin: 6px 0 0; font-size: 13px; color: var(--brand-muted); font-style: italic; }
+.zo-author-social { display: flex; gap: 8px; margin-top: 14px; }
+.zo-author-social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--brand-ink) 15%, transparent);
+  color: var(--brand-muted); transition: .15s;
+}
+.zo-author-social a:hover { color: var(--brand-blue); border-color: var(--brand-blue); }
