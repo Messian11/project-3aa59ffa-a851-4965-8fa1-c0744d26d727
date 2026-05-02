@@ -56,6 +56,7 @@ if ($ids) {
 <?php echo do_shortcode('[zaymi_amounts_grid]'); ?>
 <?php echo do_shortcode('[zaymi_cities_grid]'); ?>
 <?php echo do_shortcode('[zaymi_faq]'); ?>
+<?php echo do_shortcode('[zaymi_internal_links]'); ?>
 <?php echo do_shortcode('[zaymi_lsi]'); ?>
 
 <style>
