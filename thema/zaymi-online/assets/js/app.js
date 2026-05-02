@@ -7,8 +7,19 @@
     btn.addEventListener('click', function () {
       var menu = document.querySelector('[data-zaymi-mobile-menu]');
       if (!menu) return;
-      menu.classList.toggle('hidden');
-      menu.classList.toggle('is-open');
+      var isOpen = menu.classList.toggle('is-open');
+      menu.classList.toggle('hidden', !isOpen);
+      document.body.classList.toggle('zaymi-menu-open', isOpen);
+    });
+  });
+  // Закрытие меню при клике на ссылку внутри
+  document.querySelectorAll('[data-zaymi-mobile-menu] a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var menu = document.querySelector('[data-zaymi-mobile-menu]');
+      if (!menu) return;
+      menu.classList.remove('is-open');
+      menu.classList.add('hidden');
+      document.body.classList.remove('zaymi-menu-open');
     });
   });
 
@@ -133,7 +144,7 @@
     var countEl = root.querySelector('[data-zf-count]');
     var emptyEl = root.querySelector('[data-zf-empty]');
     var sortSel = root.querySelector('[data-zf-sort]');
-    var resetBtn= root.querySelector('[data-zf-reset]');
+    var resetBtns = Array.from(root.querySelectorAll('[data-zf-reset]'));
     var viewBtns= Array.from(root.querySelectorAll('[data-zf-view]'));
     var feats   = Array.from(root.querySelectorAll('[data-zf-feature]'));
     var inputs  = {
@@ -209,11 +220,11 @@
     Object.values(inputs).forEach(function(el){ if (el) el.addEventListener('input', apply); });
     feats.forEach(function(f){ f.addEventListener('change', apply); });
     if (sortSel) sortSel.addEventListener('change', sort);
-    if (resetBtn) resetBtn.addEventListener('click', function(){
+    resetBtns.forEach(function(rb){ rb.addEventListener('click', function(){
       Object.values(inputs).forEach(function(el){ if (el) el.value = ''; });
       feats.forEach(function(f){ f.checked = false; });
       apply();
-    });
+    }); });
     viewBtns.forEach(function(b){ b.addEventListener('click', function(){ setView(b.dataset.zfView); }); });
 
     setView('grid');
