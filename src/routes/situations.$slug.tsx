@@ -434,12 +434,12 @@ function CatalogSection({ title, subtitle }: { title: string; subtitle: string }
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {situationMfos.map((m) => (
-            <article key={m.slug} className="group flex flex-col rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-hover">
-              <div className="flex items-start justify-between">
-                <div className={cn("flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-extrabold text-white shadow-card", m.bg)}>
+            <article key={m.slug} className="zf-card group flex h-full flex-col rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-hover">
+              <div className="flex items-start justify-between gap-3">
+                <div className={cn("flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-extrabold text-white shadow-card", m.bg)}>
                   {m.letter}
                 </div>
-                <div className="text-right">
+                <div className="zf-card-rating flex shrink-0 flex-col items-end whitespace-nowrap" style={{ minWidth: 76 }}>
                   <Stars rating={m.rating} />
                   <div className="mt-1 text-sm font-extrabold text-brand-ink">{m.rating}</div>
                   <div className="text-[11px] font-medium text-brand-muted">({m.reviews})</div>
@@ -450,7 +450,7 @@ function CatalogSection({ title, subtitle }: { title: string; subtitle: string }
                 <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
               </h3>
 
-              <div className="mt-3 flex flex-wrap gap-1.5">
+              <div className="zf-card-badges mt-3 flex flex-wrap gap-1.5">
                 {m.badges.map((b) => (
                   <span
                     key={b.l}
@@ -473,19 +473,28 @@ function CatalogSection({ title, subtitle }: { title: string; subtitle: string }
                 <Row k="Одобрение" v={m.approval} highlight />
               </dl>
 
-              <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-              <Link
-                to="/mfo/$slug"
-                params={{ slug: m.slug }}
-                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
-              >
-                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
-              </Link>
+              <div className="zf-card-cta mt-auto pt-5">
+                <button className="flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                  Получить займ <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </button>
+                <Link
+                  to="/mfo/$slug"
+                  params={{ slug: m.slug }}
+                  className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+                </Link>
+              </div>
             </article>
           ))}
         </div>
+
+        <Link
+          to="/mfo"
+          className="mt-8 flex h-12 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-blue shadow-card transition-all hover:border-brand-blue hover:bg-brand-soft md:hidden"
+        >
+          Смотреть все МФО <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        </Link>
       </div>
     </section>
   );
@@ -515,16 +524,18 @@ function RefusalAdviceSection({ title }: { title: string }) {
           {refusalAdvice.map((a, i) => (
             <div
               key={a.title}
-              className="grid gap-5 rounded-2xl border border-brand-line bg-white p-6 shadow-card transition-all hover:shadow-hover md:grid-cols-[64px_56px_1fr] md:items-center md:p-7"
+              className="flex flex-col gap-4 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:shadow-hover md:grid md:grid-cols-[64px_56px_1fr] md:items-center md:gap-5 md:p-7"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-ink text-2xl font-black text-white shadow-card">
-                {i + 1}
-              </div>
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue">
-                <a.icon className="h-6 w-6" />
+              <div className="flex items-center gap-3 md:contents">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-ink text-xl font-black text-white shadow-card md:h-14 md:w-14 md:text-2xl">
+                  {i + 1}
+                </div>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue md:h-14 md:w-14">
+                  <a.icon className="h-5 w-5 md:h-6 md:w-6" />
+                </div>
               </div>
               <div>
-                <h3 className="text-lg font-extrabold text-brand-ink">{a.title}</h3>
+                <h3 className="text-base font-extrabold text-brand-ink md:text-lg">{a.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-brand-muted">{a.desc}</p>
               </div>
             </div>
