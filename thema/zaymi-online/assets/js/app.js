@@ -7,8 +7,19 @@
     btn.addEventListener('click', function () {
       var menu = document.querySelector('[data-zaymi-mobile-menu]');
       if (!menu) return;
-      menu.classList.toggle('hidden');
-      menu.classList.toggle('is-open');
+      var isOpen = menu.classList.toggle('is-open');
+      menu.classList.toggle('hidden', !isOpen);
+      document.body.classList.toggle('zaymi-menu-open', isOpen);
+    });
+  });
+  // Закрытие меню при клике на ссылку внутри
+  document.querySelectorAll('[data-zaymi-mobile-menu] a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var menu = document.querySelector('[data-zaymi-mobile-menu]');
+      if (!menu) return;
+      menu.classList.remove('is-open');
+      menu.classList.add('hidden');
+      document.body.classList.remove('zaymi-menu-open');
     });
   });
 
