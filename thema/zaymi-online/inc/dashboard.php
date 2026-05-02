@@ -161,19 +161,19 @@ function zaymi_dashboard_render() {
       <div class="zd-grid">
         <div class="zd-chart-box zd-wide">
           <h3>Заявки и клики по дням</h3>
-          <canvas id="zdChartDaily" height="100"></canvas>
+          <div class="zd-canvas-wrap" style="height:320px"><canvas id="zdChartDaily"></canvas></div>
         </div>
         <div class="zd-chart-box">
           <h3>CR по МФО, %</h3>
-          <canvas id="zdChartCR" height="220"></canvas>
+          <div class="zd-canvas-wrap" style="height:380px"><canvas id="zdChartCR"></canvas></div>
         </div>
         <div class="zd-chart-box">
           <h3>Топ-10 источников (заявки)</h3>
-          <canvas id="zdChartSrc" height="220"></canvas>
+          <div class="zd-canvas-wrap" style="height:380px"><canvas id="zdChartSrc"></canvas></div>
         </div>
         <div class="zd-chart-box zd-wide">
           <h3>Расчётный доход по МФО, ₽</h3>
-          <canvas id="zdChartRev" height="100"></canvas>
+          <div class="zd-canvas-wrap" style="height:320px"><canvas id="zdChartRev"></canvas></div>
         </div>
       </div>
 
