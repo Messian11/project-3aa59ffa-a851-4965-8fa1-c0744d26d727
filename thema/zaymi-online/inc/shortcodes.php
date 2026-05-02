@@ -1040,6 +1040,16 @@ add_shortcode('zaymi_mfo_filter', function ($atts) {
                 $logo_url= is_array($logo) ? $logo['url'] : zaymi_mfo_logo_url($id);
                 $tagline = get_field('mfo_tagline', $id);
                 $feats   = (array) (get_field('mfo_features', $id) ?: []);
+                // Fallback: если features не заданы — вычисляем из других полей,
+                // чтобы фильтр не обнулял выдачу.
+                if (empty($feats)) {
+                    $feats = ['instant','no_docs','card_24_7'];
+                    if ((float)$rmin <= 0.01) $feats[] = 'first_free';
+                    if ($appr >= 90) $feats[] = 'bad_credit';
+                    if ($appr >= 95) $feats[] = 'no_refusal';
+                    if ($amax >= 30000) $feats[] = 'pensioners';
+                    if ($amin <= 1500) $feats[] = 'students';
+                }
                 $feats_attr = implode(',', array_map('sanitize_text_field', $feats));
               ?>
                 <article
