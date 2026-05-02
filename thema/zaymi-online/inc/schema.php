@@ -154,13 +154,15 @@ function zaymi_get_breadcrumbs() {
         $crumbs[] = ['title' => 'Каталог МФО', 'url' => get_post_type_archive_link('mfo')];
     } elseif (is_tax('city')) {
         $t = get_queried_object();
-        $crumbs[] = ['title' => 'Города', 'url' => home_url('/cities/')];
+        $crumbs[] = ['title' => 'Города', 'url' => home_url('/goroda/')];
         $crumbs[] = ['title' => $t->name, 'url' => get_term_link($t)];
     } elseif (is_tax('summa')) {
         $t = get_queried_object();
+        $crumbs[] = ['title' => 'По сумме', 'url' => home_url('/summa/')];
         $crumbs[] = ['title' => $t->name, 'url' => get_term_link($t)];
     } elseif (is_tax('situation')) {
         $t = get_queried_object();
+        $crumbs[] = ['title' => 'Подборки', 'url' => home_url('/situations/')];
         $crumbs[] = ['title' => $t->name, 'url' => get_term_link($t)];
     } elseif (is_singular('post')) {
         $crumbs[] = ['title' => 'Блог', 'url' => home_url('/blog/')];
