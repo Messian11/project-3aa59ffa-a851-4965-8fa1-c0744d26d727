@@ -140,9 +140,9 @@ function SearchPage() {
     amount > 0 && { key: "amount", label: AMOUNT_OPTIONS.find((a) => a.value === amount)?.label ?? "" },
   ].filter(Boolean) as { key: "q" | "city" | "amount"; label: string }[];
 
-  const updateSearch = (next: Partial<typeof searchSchema._type>) => {
+  const updateSearch = (next: Partial<z.infer<typeof searchSchema>>) => {
     navigate({
-      search: (prev) => ({ ...prev, ...next, page: next.page ?? 1 }),
+      search: (prev: z.infer<typeof searchSchema>) => ({ ...prev, ...next, page: next.page ?? 1 }),
     });
   };
 
