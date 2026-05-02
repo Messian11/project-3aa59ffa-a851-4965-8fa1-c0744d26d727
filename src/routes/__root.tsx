@@ -70,7 +70,7 @@ function NotFoundComponent() {
               const data = new FormData(e.currentTarget);
               const q = String(data.get("q") || "").trim();
               if (q) {
-                window.location.href = `/mfo?q=${encodeURIComponent(q)}`;
+                window.location.href = `/search?q=${encodeURIComponent(q)}`;
               }
             }}
             className="mx-auto mt-8 flex w-full max-w-xl items-center gap-2 rounded-pill border border-brand-line bg-white p-1.5 shadow-card focus-within:border-brand-blue focus-within:shadow-hover"
