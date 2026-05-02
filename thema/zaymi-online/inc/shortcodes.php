@@ -882,3 +882,222 @@ add_shortcode('zaymi_how_it_works', function () {
     </section>
     <?php return ob_get_clean();
 });
+
+/* =================================================================
+ *  MFO FILTER — каталог с фильтрами, сортировкой, grid/list
+ *  [zaymi_mfo_filter limit="60" situation="" summa="" city=""]
+ * ================================================================= */
+add_shortcode('zaymi_mfo_filter', function ($atts) {
+    $a = shortcode_atts([
+        'limit'     => 60,
+        'situation' => '',
+        'summa'     => '',
+        'city'      => '',
+        'title'     => 'Каталог МФО',
+        'subtitle'  => 'Сравните условия — отсортируйте по любому параметру',
+    ], $atts);
+
+    $args = ['posts_per_page' => (int)$a['limit']];
+    $tax = [];
+    foreach (['situation','summa','city'] as $tx) {
+        if (!empty($a[$tx])) $tax[] = ['taxonomy'=>$tx,'field'=>'slug','terms'=>array_map('trim', explode(',', $a[$tx]))];
+    }
+    if ($tax) $args['tax_query'] = $tax;
+    $q = zaymi_query_mfo($args);
+    if (!$q->have_posts()) return '<div class="px-6 py-20 text-center text-slate-500">МФО не найдены.</div>';
+
+    // Подсчитаем глобальные min/max сумм/сроков по выборке
+    $all_amax = []; $all_tmax = [];
+    while ($q->have_posts()) { $q->the_post();
+        $all_amax[] = (int) get_field('mfo_amount_max', get_the_ID());
+        $all_tmax[] = (int) get_field('mfo_term_max', get_the_ID());
+    }
+    wp_reset_postdata();
+    $sum_max_global  = $all_amax ? max($all_amax) : 100000;
+    $term_max_global = $all_tmax ? max($all_tmax) : 365;
+    $sum_max_step    = max(1000, (int) round($sum_max_global / 50 / 1000) * 1000);
+    $term_max_step   = max(1, (int) round($term_max_global / 60));
+
+    // Особенности — все возможные
+    $features = [
+        'no_refusal' => 'Без отказа',
+        'bad_credit' => 'С плохой КИ',
+        'first_free' => 'Первый займ 0%',
+        'instant'    => 'Мгновенное решение',
+        'no_docs'    => 'Без справок',
+        'pensioners' => 'Пенсионерам',
+        'students'   => 'Студентам',
+        'cash'       => 'Наличными',
+        'card_24_7'  => 'На карту 24/7',
+    ];
+
+    $q = zaymi_query_mfo($args);
+    ob_start(); ?>
+    <section id="mfo-catalog" class="px-4 md:px-6 py-16 bg-gradient-to-b from-slate-50 to-white" data-zaymi-filter>
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-emerald-600">Подбор займа</span>
+          <h2 class="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900"><?php echo esc_html($a['title']); ?></h2>
+          <p class="mt-3 text-base md:text-lg text-slate-500"><?php echo esc_html($a['subtitle']); ?></p>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[320px_1fr]">
+
+          <!-- Левая колонка: фильтр -->
+          <aside class="rounded-2xl border border-slate-200 bg-white p-5 shadow-md lg:sticky lg:top-24 lg:self-start">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-extrabold text-slate-900">Фильтры</h3>
+              <button type="button" class="text-xs font-bold text-blue-600 hover:underline" data-zf-reset>Сбросить</button>
+            </div>
+
+            <!-- Сумма -->
+            <div class="mt-5">
+              <div class="flex items-baseline justify-between">
+                <span class="text-sm font-bold text-slate-900">Сумма займа</span>
+                <span class="text-xs font-bold text-emerald-600"><span data-zf-out="sum-min">0</span> — <span data-zf-out="sum-max"><?php echo number_format($sum_max_global,0,'',' '); ?></span> ₽</span>
+              </div>
+              <div class="mt-3 grid grid-cols-2 gap-2">
+                <input type="number" min="0" max="<?php echo $sum_max_global; ?>" step="500" placeholder="от" class="h-10 rounded-lg border border-slate-200 px-3 text-sm font-semibold focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100" data-zf-input="sum-min" />
+                <input type="number" min="0" max="<?php echo $sum_max_global; ?>" step="500" placeholder="до" class="h-10 rounded-lg border border-slate-200 px-3 text-sm font-semibold focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100" data-zf-input="sum-max" />
+              </div>
+            </div>
+
+            <!-- Срок -->
+            <div class="mt-5">
+              <div class="flex items-baseline justify-between">
+                <span class="text-sm font-bold text-slate-900">Срок займа</span>
+                <span class="text-xs font-bold text-blue-600"><span data-zf-out="term-min">0</span> — <span data-zf-out="term-max"><?php echo $term_max_global; ?></span> дн.</span>
+              </div>
+              <div class="mt-3 grid grid-cols-2 gap-2">
+                <input type="number" min="0" max="<?php echo $term_max_global; ?>" step="1" placeholder="от" class="h-10 rounded-lg border border-slate-200 px-3 text-sm font-semibold focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100" data-zf-input="term-min" />
+                <input type="number" min="0" max="<?php echo $term_max_global; ?>" step="1" placeholder="до" class="h-10 rounded-lg border border-slate-200 px-3 text-sm font-semibold focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100" data-zf-input="term-max" />
+              </div>
+            </div>
+
+            <!-- Особенности -->
+            <div class="mt-5">
+              <div class="text-sm font-bold text-slate-900 mb-2">Особенности</div>
+              <div class="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+                <?php foreach ($features as $key => $label): ?>
+                  <label class="flex items-center gap-2 cursor-pointer rounded-md px-2 py-1.5 hover:bg-slate-50">
+                    <input type="checkbox" value="<?php echo esc_attr($key); ?>" class="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500" data-zf-feature />
+                    <span class="text-sm font-semibold text-slate-700"><?php echo esc_html($label); ?></span>
+                  </label>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Правая колонка: тулбар + карточки -->
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+              <div class="text-sm font-bold text-slate-900">
+                Найдено: <span class="text-emerald-600" data-zf-count>0</span> МФО
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <label class="text-xs font-bold text-slate-500">Сортировка:</label>
+                <select class="h-9 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100" data-zf-sort>
+                  <option value="rating">По рейтингу</option>
+                  <option value="rate">По ставке (мин.)</option>
+                  <option value="amount">По сумме (макс.)</option>
+                  <option value="approval">По одобрению</option>
+                </select>
+                <div class="ml-2 inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5" role="group">
+                  <button type="button" class="zf-view-btn h-8 w-8 rounded-md bg-white text-blue-600 shadow-sm flex items-center justify-center" data-zf-view="grid" aria-label="Сетка"><?php echo zaymi_icon('grid','w-4 h-4'); ?></button>
+                  <button type="button" class="zf-view-btn h-8 w-8 rounded-md text-slate-400 hover:text-slate-700 flex items-center justify-center" data-zf-view="list" aria-label="Список"><?php echo zaymi_icon('list','w-4 h-4'); ?></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3" data-zf-grid>
+              <?php while ($q->have_posts()): $q->the_post(); $id = get_the_ID(); $slug = get_post_field('post_name', $id);
+                $rating  = (float) (get_field('mfo_rating', $id) ?: 4.5);
+                $reviews = (int) (get_field('mfo_reviews_count', $id) ?: 0);
+                $amin    = (int) get_field('mfo_amount_min', $id);
+                $amax    = (int) get_field('mfo_amount_max', $id);
+                $tmin    = (int) get_field('mfo_term_min', $id);
+                $tmax    = (int) get_field('mfo_term_max', $id);
+                $rmin    = (float) get_field('mfo_rate_min', $id);
+                $appr    = (int) get_field('mfo_approval_rate', $id);
+                $logo    = get_field('mfo_logo', $id);
+                $logo_url= is_array($logo) ? $logo['url'] : zaymi_mfo_logo_url($id);
+                $tagline = get_field('mfo_tagline', $id);
+                $feats   = (array) (get_field('mfo_features', $id) ?: []);
+                $feats_attr = implode(',', array_map('sanitize_text_field', $feats));
+              ?>
+                <article
+                  class="zf-card group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                  data-zf-item
+                  data-rating="<?php echo esc_attr($rating); ?>"
+                  data-rate="<?php echo esc_attr($rmin); ?>"
+                  data-amount-min="<?php echo esc_attr($amin); ?>"
+                  data-amount-max="<?php echo esc_attr($amax); ?>"
+                  data-term-min="<?php echo esc_attr($tmin); ?>"
+                  data-term-max="<?php echo esc_attr($tmax); ?>"
+                  data-approval="<?php echo esc_attr($appr); ?>"
+                  data-features="<?php echo esc_attr($feats_attr); ?>"
+                >
+                  <div class="zf-card-head flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-3">
+                      <?php if ($logo_url): ?>
+                        <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-14 w-14 rounded-2xl object-cover shadow-md" />
+                      <?php else: ?>
+                        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br <?php echo zaymi_gradient_for($slug); ?> text-2xl font-extrabold text-white shadow-md"><?php echo zaymi_letter(get_the_title()); ?></div>
+                      <?php endif; ?>
+                      <div class="zf-card-titles">
+                        <h3 class="text-lg font-extrabold leading-tight text-slate-900"><a href="<?php the_permalink(); ?>" class="hover:text-blue-600"><?php the_title(); ?></a></h3>
+                        <?php if ($tagline): ?>
+                          <span class="mt-1 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-bold text-amber-800 ring-1 ring-amber-300"><?php echo esc_html($tagline); ?></span>
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <?php echo zaymi_stars($rating); ?>
+                      <div class="mt-1 text-sm font-extrabold text-slate-900"><?php echo number_format($rating,1,'.',''); ?></div>
+                      <div class="text-[11px] font-medium text-slate-500">(<?php echo number_format($reviews,0,'',' '); ?>)</div>
+                    </div>
+                  </div>
+
+                  <dl class="zf-card-stats mt-4 grid grid-cols-2 gap-2 rounded-xl bg-slate-50 p-3 text-sm">
+                    <div><dt class="text-[11px] font-semibold text-slate-500">Сумма</dt><dd class="text-sm font-extrabold text-slate-900">до <?php echo number_format($amax,0,'',' '); ?> ₽</dd></div>
+                    <div><dt class="text-[11px] font-semibold text-slate-500">Срок</dt><dd class="text-sm font-extrabold text-slate-900">до <?php echo zaymi_days($tmax); ?></dd></div>
+                    <div><dt class="text-[11px] font-semibold text-slate-500">Ставка</dt><dd class="text-sm font-extrabold text-emerald-600">от <?php echo esc_html($rmin); ?>%</dd></div>
+                    <div><dt class="text-[11px] font-semibold text-slate-500">Одобрение</dt><dd class="text-sm font-extrabold text-slate-900"><?php echo $appr; ?>%</dd></div>
+                  </dl>
+
+                  <div class="zf-card-actions mt-4 flex flex-col gap-2">
+                    <a href="<?php echo esc_url(get_field('mfo_partner_url', $id) ?: '#'); ?>" target="_blank" rel="nofollow noopener" class="flex h-11 w-full items-center justify-center gap-2 rounded-full bg-emerald-500 text-sm font-bold text-white shadow-md hover:bg-emerald-600">
+                      Получить займ <?php echo zaymi_icon('arrow-right','w-4 h-4'); ?>
+                    </a>
+                    <a href="<?php the_permalink(); ?>" class="flex h-10 w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-900 hover:border-blue-500 hover:text-blue-600">
+                      <?php echo zaymi_icon('file-text','w-4 h-4'); ?> Подробнее
+                    </a>
+                  </div>
+                </article>
+              <?php endwhile; wp_reset_postdata(); ?>
+            </div>
+
+            <div class="mt-10 hidden text-center text-base font-semibold text-slate-500" data-zf-empty>
+              По заданным фильтрам ничего не найдено. Попробуйте сбросить условия.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* List view overrides */
+      [data-zaymi-filter][data-view="list"] [data-zf-grid] { grid-template-columns: 1fr !important; }
+      [data-zaymi-filter][data-view="list"] .zf-card { flex-direction: row; align-items: center; gap: 1.25rem; }
+      [data-zaymi-filter][data-view="list"] .zf-card .zf-card-head { flex: 1 1 280px; min-width: 0; }
+      [data-zaymi-filter][data-view="list"] .zf-card .zf-card-stats { flex: 1 1 360px; margin-top: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      [data-zaymi-filter][data-view="list"] .zf-card .zf-card-actions { flex: 0 0 220px; margin-top: 0; }
+      @media (max-width: 768px) {
+        [data-zaymi-filter][data-view="list"] .zf-card { flex-direction: column; }
+        [data-zaymi-filter][data-view="list"] .zf-card .zf-card-actions { flex-basis: auto; width: 100%; }
+        [data-zaymi-filter][data-view="list"] .zf-card .zf-card-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem; }
+      }
+      [data-zaymi-filter] .zf-view-btn[data-active="true"] { background: #fff; color: #2563eb; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+    </style>
+    <?php return ob_get_clean();
+});
