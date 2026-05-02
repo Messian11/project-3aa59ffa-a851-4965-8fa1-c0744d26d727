@@ -178,20 +178,28 @@ function AmountPage() {
         </section>
 
         {/* 3. Related amounts */}
-        <section className="px-6 py-10">
+        <section className="border-b border-brand-line/60 bg-white px-6 py-6">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center">
-            <span className="text-sm font-bold text-brand-muted">Другие популярные суммы:</span>
-            <div className="flex flex-wrap gap-2">
-              {otherAmounts.filter((a) => a !== amount).map((a) => (
-                <Link
-                  key={a}
-                  to="/summa/$slug"
-                  params={{ slug: `zaim-${a}` }}
-                  className="rounded-pill border border-brand-line bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-card transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
-                >
-                  {FORMAT(a)}
-                </Link>
-              ))}
+            <span className="shrink-0 text-xs font-extrabold uppercase tracking-[0.14em] text-brand-muted">Другие суммы:</span>
+            <div className="-mx-1 flex flex-nowrap gap-2 overflow-x-auto px-1 pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
+              {otherAmounts.map((a) => {
+                const active = a === amount;
+                return (
+                  <Link
+                    key={a}
+                    to="/summa/$slug"
+                    params={{ slug: `zaim-${a}` }}
+                    className={cn(
+                      "shrink-0 rounded-pill px-4 py-2 text-sm font-bold shadow-card transition-all hover:-translate-y-0.5",
+                      active
+                        ? "border border-brand-green bg-brand-green text-white shadow-hover"
+                        : "border border-brand-line bg-white text-brand-ink hover:border-brand-blue hover:text-brand-blue",
+                    )}
+                  >
+                    {FORMAT(a)}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
