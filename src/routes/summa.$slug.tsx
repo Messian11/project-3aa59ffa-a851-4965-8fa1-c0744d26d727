@@ -432,11 +432,12 @@ function Stat({ label, value, highlight }: { label: string; value: string; highl
 }
 
 function UseCasesSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Когда нужен займ 5 000 рублей?
+          Когда нужен займ {fmt}?
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Самые частые причины обращения за небольшим займом.
