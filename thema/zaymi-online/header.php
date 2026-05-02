@@ -23,9 +23,11 @@ $catalog_url= get_post_type_archive_link('mfo');
       <?php echo zaymi_icon('menu','w-6 h-6'); ?>
     </button>
 
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center select-none flex-1 md:flex-none" aria-label="Zaymi Online — главная">
-      <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/logo.png'); ?>" alt="Zaymi Online" width="180" height="44" class="h-9 md:h-10 w-auto" decoding="async" />
-    </a>
+    <?php if (function_exists('zaymi_logo')) { zaymi_logo(); } else { ?>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center select-none flex-1 md:flex-none" aria-label="Zaymi Online — главная">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/logo.png'); ?>" alt="Zaymi Online" width="180" height="44" class="h-9 md:h-10 w-auto" decoding="async" />
+      </a>
+    <?php } ?>
 
     <nav class="hidden md:flex flex-1 items-center justify-center gap-1">
       <a href="<?php echo esc_url(home_url('/')); ?>" class="rounded-md px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-blue-50 hover:text-blue-600">Главная</a>
