@@ -462,6 +462,13 @@ class Zaymi_AI_Writer {
 
         if (is_wp_error($post_id)) throw new Exception('wp_insert_post: ' . $post_id->get_error_message());
 
+        // Назначаем случайного эксперта-автора, если такие созданы
+        $experts = get_posts(['post_type' => 'zaymi_author', 'posts_per_page' => -1, 'fields' => 'ids', 'orderby' => 'rand']);
+        if ($experts) {
+            update_post_meta($post_id, '_zaymi_author_id', (int) $experts[0]);
+            self::log('info', '✓ Назначен эксперт-автор #' . $experts[0]);
+        }
+
         // 5. FAQ — сохраняем в ACF (если поле есть) и в meta
         if (!empty($data['faq']) && is_array($data['faq'])) {
             update_post_meta($post_id, '_zaymi_ai_faq', wp_json_encode($data['faq']));

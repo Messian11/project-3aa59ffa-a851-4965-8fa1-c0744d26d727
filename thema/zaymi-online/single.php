@@ -27,11 +27,15 @@ while (have_posts()): the_post();
     $post_id      = get_the_ID();
     $cats         = get_the_category();
     $primary_cat  = $cats ? $cats[0]->name : 'Блог';
-    $author_id    = (int) get_post_field('post_author', $post_id);
-    $author_name  = get_the_author_meta('display_name', $author_id);
-    $author_bio   = get_the_author_meta('description', $author_id);
-    $author_role  = function_exists('get_field') ? (get_field('user_role', 'user_' . $author_id) ?: 'Автор Zaymi Online') : 'Автор Zaymi Online';
-    $author_photo = get_avatar_url($author_id, ['size' => 96]);
+
+    /* Автор: эксперт из CPT zaymi_author с фолбэком на WP-юзера */
+    $author = function_exists('zaymi_get_post_author')
+        ? zaymi_get_post_author($post_id)
+        : ['name' => get_the_author(), 'role' => 'Автор', 'bio' => '', 'photo' => '', 'twitter' => '', 'linkedin' => '', 'email' => '', 'experience' => ''];
+    $author_name  = $author['name'];
+    $author_role  = $author['role'];
+    $author_bio   = $author['bio'];
+    $author_photo = $author['photo'];
 
     /* Время чтения: ~180 слов в мин для русского */
     $word_count   = str_word_count(wp_strip_all_tags(get_the_content()));
@@ -173,16 +177,24 @@ while (have_posts()): the_post();
   </section>
 
   <!-- 6. Author bio -->
-  <?php if ($author_bio): ?>
+  <?php if ($author_bio || $author['experience']): ?>
   <section class="zo-art-author">
     <div class="zo-container-medium">
       <div class="zo-author-card">
-        <img src="<?php echo esc_url(get_avatar_url($author_id, ['size' => 160])); ?>" alt="<?php echo esc_attr($author_name); ?>" width="80" height="80" loading="lazy">
+        <img src="<?php echo esc_url($author_photo); ?>" alt="<?php echo esc_attr($author_name); ?>" width="80" height="80" loading="lazy">
         <div>
           <div class="kicker">Автор</div>
           <h3><?php echo esc_html($author_name); ?></h3>
           <div class="role"><?php echo esc_html($author_role); ?></div>
-          <p><?php echo esc_html(wp_strip_all_tags($author_bio)); ?></p>
+          <?php if ($author['experience']): ?><p class="exp"><?php echo esc_html($author['experience']); ?></p><?php endif; ?>
+          <?php if ($author_bio): ?><p><?php echo esc_html(wp_strip_all_tags($author_bio)); ?></p><?php endif; ?>
+          <?php if ($author['twitter'] || $author['linkedin'] || $author['email']): ?>
+            <div class="zo-author-social">
+              <?php if ($author['twitter']): ?><a href="<?php echo esc_url($author['twitter']); ?>" aria-label="Twitter" target="_blank" rel="nofollow noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.6-2.4.7.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-1.5-1.6-4-1.7-5.6-.2-1 1-1.5 2.5-1.2 3.9C8.7 8.7 5.7 7.1 3.7 4.5c-1.1 1.9-.5 4.3 1.3 5.5-.7 0-1.3-.2-1.9-.5 0 2 1.4 3.7 3.3 4.1-.6.2-1.3.2-1.9.1.5 1.7 2.1 2.8 3.9 2.9-1.7 1.3-3.8 1.9-5.9 1.7C4.4 19.6 6.7 20.3 9 20.3c7.5 0 11.6-6.3 11.4-11.9.8-.6 1.5-1.3 2.1-2.1l-.5-.5z"/></svg></a><?php endif; ?>
+              <?php if ($author['linkedin']): ?><a href="<?php echo esc_url($author['linkedin']); ?>" aria-label="LinkedIn" target="_blank" rel="nofollow noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.3 18.3H5.7V9.7h2.7v8.6zM7 8.5c-.9 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5S7.8 8.5 7 8.5zm11.3 9.8h-2.7v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.7V9.7h2.6v1.2c.4-.7 1.3-1.4 2.6-1.4 2.7 0 3.2 1.8 3.2 4.1v4.7z"/></svg></a><?php endif; ?>
+              <?php if ($author['email']): ?><a href="mailto:<?php echo esc_attr($author['email']); ?>" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a><?php endif; ?>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
