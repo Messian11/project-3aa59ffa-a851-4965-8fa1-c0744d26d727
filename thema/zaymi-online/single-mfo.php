@@ -27,5 +27,9 @@ while (have_posts()): the_post(); $slug = get_post_field('post_name', get_the_ID
 
   <?php echo do_shortcode('[zaymi_mfo_seo_content slug="'.esc_attr($slug).'"]'); ?>
 
+  <!-- Внутренняя перелинковка: города / суммы / подборки -->
+  <?php echo do_shortcode('[zaymi_internal_links]'); ?>
+  <?php echo do_shortcode('[zaymi_lsi]'); ?>
+
 <?php endwhile;
 get_footer();

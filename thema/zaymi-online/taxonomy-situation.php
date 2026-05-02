@@ -4,7 +4,6 @@
  * Богатый контент с уникальными hero, чипсами, секциями "Почему" и "Что делать если отказали".
  */
 if (!defined('ABSPATH')) exit;
-get_header();
 
 $term = get_queried_object();
 $slug = $term->slug ?? 'bez-otkaza';
@@ -170,9 +169,12 @@ $default_faq = [
     ['question' => 'Можно ли оформить займ без работы?',                      'answer' => 'Да, у большинства МФО из подборки официальная занятость не обязательна. Главное — указать стабильный источник дохода: пенсию, стипендию, фриланс или подработку.'],
 ];
 $faq_items = !empty($acf_faq) ? $acf_faq : $default_faq;
+$GLOBALS['zaymi_tax_faq'] = $faq_items;
 
 /* Связанные подборки */
 $related_terms = get_terms(['taxonomy' => 'situation', 'hide_empty' => false, 'exclude' => [$term->term_id], 'number' => 6]);
+
+get_header();
 ?>
 
 <!-- Хлебные крошки -->

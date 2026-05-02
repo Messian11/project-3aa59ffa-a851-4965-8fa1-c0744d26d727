@@ -106,25 +106,41 @@ HTML;
 add_filter('robots_txt', function ($output, $public) {
     if (!$public) return $output;
     $host = preg_replace('#^https?://#', '', home_url());
-    $sitemap = home_url('/sitemap.xml');
     $rules = [];
     $rules[] = "User-agent: *";
     $rules[] = "Disallow: /wp-admin/";
     $rules[] = "Disallow: /wp-includes/";
+    $rules[] = "Disallow: /wp-json/";
     $rules[] = "Disallow: /xmlrpc.php";
-    $rules[] = "Disallow: /go/";              // партнёрские редиректы
+    $rules[] = "Disallow: /go/";              // партнёрские редиректы (cloaking)
     $rules[] = "Disallow: /*?s=";             // поиск
     $rules[] = "Disallow: /*?compare=";       // временные сравнения
+    $rules[] = "Disallow: /*?replytocom=";    // комменты
     $rules[] = "Allow: /wp-admin/admin-ajax.php";
     $rules[] = "Allow: /wp-content/uploads/";
+    $rules[] = "Allow: /mfo/";                // явно разрешаем все МФО
+    $rules[] = "Allow: /goroda/";             // таксономия city
+    $rules[] = "Allow: /summa/";              // таксономия summa
+    $rules[] = "Allow: /situations/";         // таксономия situation
     $rules[] = "";
     $rules[] = "User-agent: Yandex";
     $rules[] = "Disallow: /wp-admin/";
+    $rules[] = "Disallow: /wp-json/";
     $rules[] = "Disallow: /go/";
+    $rules[] = "Allow: /mfo/";
+    $rules[] = "Allow: /goroda/";
+    $rules[] = "Allow: /summa/";
+    $rules[] = "Allow: /situations/";
     $rules[] = "Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&clickid&fbclid&_openstat";
     $rules[] = "Host: {$host}";
     $rules[] = "";
-    $rules[] = "Sitemap: {$sitemap}";
+    /* Карты сайта по типам */
+    $rules[] = "Sitemap: " . home_url('/sitemap.xml');
+    $rules[] = "Sitemap: " . home_url('/sitemap-mfo.xml');
+    $rules[] = "Sitemap: " . home_url('/sitemap-cities.xml');
+    $rules[] = "Sitemap: " . home_url('/sitemap-amounts.xml');
+    $rules[] = "Sitemap: " . home_url('/sitemap-articles.xml');
+    $rules[] = "Sitemap: " . home_url('/sitemap-pages.xml');
     return implode("\n", $rules) . "\n";
 }, 10, 2);
 

@@ -10,7 +10,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ZAYMI_VERSION', '3.0.0');
+define('ZAYMI_VERSION', '3.1.0');
 define('ZAYMI_DIR',     get_template_directory());
 define('ZAYMI_URI',     get_template_directory_uri());
 define('ZAYMI_DEMO_DIR', ZAYMI_DIR . '/demo-data');
@@ -40,6 +40,7 @@ require_once ZAYMI_DIR . '/inc/acf-extra.php';      // доп. ACF поля (CRM
 require_once ZAYMI_DIR . '/inc/seo-pages.php';      // /zaymy/...-rubley-na-...-dney/, /sravnenie/...
 require_once ZAYMI_DIR . '/inc/schema.php';         // JSON-LD: Organization, FinancialProduct, FAQ, Breadcrumbs
 require_once ZAYMI_DIR . '/inc/sitemaps.php';       // /sitemap.xml + IndexNow + Yandex API
+require_once ZAYMI_DIR . '/inc/term-seo.php';       // SEO title/description/OG для city/summa/situation
 require_once ZAYMI_DIR . '/inc/internal-links.php'; // related, LSI, автозамена МФО на ссылки
 require_once ZAYMI_DIR . '/inc/turbo.php';          // /turbo.xml для Яндекса
 require_once ZAYMI_DIR . '/inc/og-image.php';       // OG/Twitter теги + динамическая картинка
