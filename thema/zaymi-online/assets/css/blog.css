@@ -1,0 +1,116 @@
+/**
+ * Стили шаблона блога: home.php / category.php / archive.php / search.php
+ * Подгружается отдельно через enqueue.php только на нужных страницах.
+ */
+
+/* Container helpers (если ещё не определены глобально) */
+.zo-container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* Breadcrumbs */
+.zo-blog-crumbs { background: #fff; border-bottom: 1px solid #eef2f7; padding: 14px 0; }
+.zo-blog-crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; align-items: center; font-size: 13px; color: #64748b; }
+.zo-blog-crumbs a { color: #64748b; text-decoration: none; }
+.zo-blog-crumbs a:hover { color: #2563eb; }
+.zo-blog-crumbs .sep { color: #cbd5e1; }
+.zo-blog-crumbs .current { color: #0f172a; font-weight: 600; }
+
+/* Hero */
+.zo-blog-hero { position: relative; padding: 64px 0 56px;
+  background: radial-gradient(circle at 95% 5%, rgba(37,99,235,.10), transparent 40%),
+              radial-gradient(circle at 0% 95%, rgba(16,185,129,.10), transparent 45%),
+              linear-gradient(180deg, #fafbff 0%, #fff 100%); border-bottom: 1px solid #eef2f7; }
+.zo-blog-hero .kicker { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px;
+  background: rgba(245,158,11,.15); color: #d97706; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.zo-blog-hero h1 { margin: 18px 0 0; font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.05; color: #0f172a; letter-spacing: -.02em; }
+.zo-blog-hero h1 .grad { background: linear-gradient(90deg, #2563eb, #10b981, #f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.zo-blog-hero p { margin: 18px 0 0; max-width: 640px; font-size: 18px; color: #64748b; }
+.zo-blog-search { position: relative; max-width: 560px; margin-top: 30px; }
+.zo-blog-search .ico { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); font-size: 18px; }
+.zo-blog-search input { width: 100%; height: 60px; padding: 0 20px 0 50px; font-size: 16px; border-radius: 18px;
+  border: 1px solid #e2e8f0; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.04); transition: .15s; }
+.zo-blog-search input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,.15); }
+
+/* Category tabs (sticky) */
+.zo-blog-tabs { position: sticky; top: 64px; z-index: 30; background: rgba(255,255,255,.85); backdrop-filter: blur(10px); border-bottom: 1px solid #eef2f7; }
+.zo-blog-tabs .tabs-scroll { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: none; }
+.zo-blog-tabs .tabs-scroll::-webkit-scrollbar { display: none; }
+.zo-blog-tabs .tab { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; color: #64748b;
+  background: #fff; border: 1px solid #e2e8f0; text-decoration: none; transition: .15s; }
+.zo-blog-tabs .tab:hover { color: #0f172a; }
+.zo-blog-tabs .tab.active { background: #0f172a; color: #fff; border-color: #0f172a; box-shadow: 0 4px 12px rgba(15,23,42,.15); }
+
+/* Featured */
+.zo-featured-wrap { padding: 48px 0; }
+.zo-featured { display: grid; grid-template-columns: 1fr; gap: 0; overflow: hidden; border-radius: 28px;
+  border: 1px solid #e2e8f0; background: #fff; box-shadow: 0 10px 30px -8px rgba(0,0,0,.08); transition: .25s; text-decoration: none; }
+.zo-featured:hover { box-shadow: 0 20px 50px -10px rgba(0,0,0,.18); transform: translateY(-2px); }
+@media(min-width: 900px) { .zo-featured { grid-template-columns: 1fr 1fr; } }
+.zo-featured .cover { position: relative; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
+.zo-featured .cover img { width: 100%; height: 100%; object-fit: cover; }
+.zo-featured .cover .emoji { font-size: 120px; filter: drop-shadow(0 8px 20px rgba(0,0,0,.2)); }
+.zo-featured .featured-badge { position: absolute; top: 24px; left: 24px; background: rgba(255,255,255,.95); padding: 8px 14px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; color: #0f172a; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.zo-featured .body { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.zo-featured .body .cat { display: inline-flex; padding: 4px 12px; border-radius: 999px; background: rgba(37,99,235,.10); color: #2563eb;
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; width: fit-content; }
+.zo-featured .body h2 { margin: 18px 0 0; font-size: clamp(24px, 3vw, 36px); font-weight: 800; color: #0f172a; line-height: 1.15; transition: .15s; }
+.zo-featured:hover .body h2 { color: #2563eb; }
+.zo-featured .body p { margin: 16px 0 0; font-size: 16px; color: #64748b; line-height: 1.6; }
+.zo-featured .body .meta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 14px; color: #64748b; }
+.zo-featured .body .meta .ava { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.zo-featured .body .meta .au { font-weight: 700; color: #0f172a; }
+.zo-featured .body .cta { margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+  background: #0f172a; color: #fff; border-radius: 14px; font-size: 14px; font-weight: 700; width: fit-content; transition: .15s; }
+.zo-featured:hover .body .cta { gap: 12px; background: #000; }
+
+/* Grid */
+.zo-blog-grid-wrap { padding: 32px 0 64px; }
+.zo-blog-grid-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 32px; }
+.zo-blog-grid-head h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: #0f172a; margin: 0; }
+.zo-blog-grid-head p { margin: 4px 0 0; font-size: 14px; color: #64748b; }
+.zo-blog-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+@media(min-width: 700px) { .zo-blog-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(min-width: 1100px) { .zo-blog-grid { grid-template-columns: repeat(3, 1fr); } }
+.zo-blog-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 24px;
+  border: 1px solid #e2e8f0; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.04); transition: .25s; text-decoration: none; }
+.zo-blog-card:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,.18); transform: translateY(-4px); }
+.zo-blog-card .cover { position: relative; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.zo-blog-card .cover img { width: 100%; height: 100%; object-fit: cover; }
+.zo-blog-card .cover .emoji { font-size: 64px; filter: drop-shadow(0 6px 14px rgba(0,0,0,.18)); }
+.zo-blog-card .cover .cat { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,.95); padding: 5px 12px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; color: #0f172a; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.zo-blog-card .body { flex: 1; display: flex; flex-direction: column; padding: 22px; }
+.zo-blog-card .body h3 { margin: 0; font-size: 18px; font-weight: 700; color: #0f172a; line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: .15s; }
+.zo-blog-card:hover .body h3 { color: #2563eb; }
+.zo-blog-card .body p { margin: 10px 0 0; font-size: 14px; color: #64748b; line-height: 1.55; flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.zo-blog-card .body .meta { margin-top: 18px; padding-top: 14px; border-top: 1px solid #eef2f7;
+  display: flex; justify-content: space-between; font-size: 12px; color: #64748b; }
+.zo-blog-card .body .meta .au { font-weight: 600; color: #0f172a; }
+
+/* Gradient covers */
+.zo-blog-card .cover.gradient,
+.zo-featured .cover.gradient { background: linear-gradient(135deg, var(--zg-from, #2563eb), var(--zg-to, #10b981)); }
+.cover.from-blue-500.to-emerald-500   { --zg-from:#3b82f6; --zg-to:#10b981; }
+.cover.from-amber-500.to-emerald-500  { --zg-from:#f59e0b; --zg-to:#10b981; }
+.cover.from-blue-500.to-blue-400      { --zg-from:#3b82f6; --zg-to:#60a5fa; }
+.cover.from-emerald-500.to-emerald-400{ --zg-from:#10b981; --zg-to:#34d399; }
+.cover.from-amber-500.to-blue-500     { --zg-from:#f59e0b; --zg-to:#3b82f6; }
+.cover.from-blue-500.to-amber-500     { --zg-from:#3b82f6; --zg-to:#f59e0b; }
+.cover.from-emerald-500.to-blue-500   { --zg-from:#10b981; --zg-to:#3b82f6; }
+.cover.from-amber-500.to-amber-400    { --zg-from:#f59e0b; --zg-to:#fbbf24; }
+.cover.from-blue-500.to-green-500     { --zg-from:#3b82f6; --zg-to:#22c55e; }
+
+/* Empty */
+.zo-blog-empty { padding: 64px 24px; text-align: center; border-radius: 24px; border: 1px dashed #e2e8f0; background: #fff; }
+.zo-blog-empty p { margin: 0; color: #64748b; font-size: 16px; }
+
+/* Pagination */
+.zo-blog-pag { margin-top: 48px; display: flex; justify-content: center; gap: 8px; }
+.zo-blog-pag a, .zo-blog-pag span span { display: inline-flex; align-items: center; justify-content: center;
+  min-width: 40px; height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid #e2e8f0; background: #fff;
+  color: #0f172a; font-weight: 600; text-decoration: none; transition: .15s; }
+.zo-blog-pag a:hover { border-color: #2563eb; color: #2563eb; }
+.zo-blog-pag .current { background: #0f172a; color: #fff; border-color: #0f172a; }
