@@ -178,20 +178,28 @@ function AmountPage() {
         </section>
 
         {/* 3. Related amounts */}
-        <section className="px-6 py-10">
+        <section className="border-b border-brand-line/60 bg-white px-6 py-6">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center">
-            <span className="text-sm font-bold text-brand-muted">Другие популярные суммы:</span>
-            <div className="flex flex-wrap gap-2">
-              {otherAmounts.filter((a) => a !== amount).map((a) => (
-                <Link
-                  key={a}
-                  to="/summa/$slug"
-                  params={{ slug: `zaim-${a}` }}
-                  className="rounded-pill border border-brand-line bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-card transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
-                >
-                  {FORMAT(a)}
-                </Link>
-              ))}
+            <span className="shrink-0 text-xs font-extrabold uppercase tracking-[0.14em] text-brand-muted">Другие суммы:</span>
+            <div className="-mx-1 flex flex-nowrap gap-2 overflow-x-auto px-1 pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
+              {otherAmounts.map((a) => {
+                const active = a === amount;
+                return (
+                  <Link
+                    key={a}
+                    to="/summa/$slug"
+                    params={{ slug: `zaim-${a}` }}
+                    className={cn(
+                      "shrink-0 rounded-pill px-4 py-2 text-sm font-bold shadow-card transition-all hover:-translate-y-0.5",
+                      active
+                        ? "border border-brand-green bg-brand-green text-white shadow-hover"
+                        : "border border-brand-line bg-white text-brand-ink hover:border-brand-blue hover:text-brand-blue",
+                    )}
+                  >
+                    {FORMAT(a)}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -286,28 +294,37 @@ function TopMfoSection() {
         </p>
 
         <div className="mt-10 space-y-4">
-          {enriched.map((m, i) => (
+          {enriched.map((m, i) => {
+            const rankGradients = [
+              "from-[#f59e0b] to-[#dc2626]",
+              "from-brand-blue to-brand-green",
+              "from-brand-green to-brand-green/60",
+              "from-brand-blue/80 to-brand-blue/50",
+              "from-brand-ink to-[#334155]",
+            ];
+            return (
             <article
               key={m.slug}
-              className="grid gap-5 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:shadow-hover md:grid-cols-[64px_72px_1fr_auto] md:items-center md:p-6"
+              className="flex flex-col gap-4 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-hover md:grid md:grid-cols-[64px_72px_1fr_auto] md:items-center md:gap-5 md:p-6"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-ink to-[#1f3349] text-3xl font-black text-white shadow-card">
-                {i + 1}
+              <div className="flex items-center gap-3 md:contents">
+                <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-black text-white shadow-card md:h-16 md:w-16 md:text-3xl", rankGradients[i] ?? rankGradients[4])}>
+                  {i + 1}
+                </div>
+                <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-xl font-extrabold text-white shadow-card md:h-[72px] md:w-[72px] md:text-3xl", m.bg)}>
+                  {m.letter}
+                </div>
               </div>
 
-              <div className={cn("flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-gradient-to-br text-3xl font-extrabold text-white shadow-card", m.bg)}>
-                {m.letter}
-              </div>
-
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl font-extrabold text-brand-ink">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                  <h3 className="text-lg font-extrabold text-brand-ink md:text-xl">
                     <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
                   </h3>
                   <span className="inline-flex items-center rounded-pill bg-brand-amber/15 px-2.5 py-1 text-[11px] font-bold text-[#9a6300] ring-1 ring-inset ring-brand-amber/30">
                     {m.badge}
                   </span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
                     <Stars rating={m.rating} />
                     <span className="text-sm font-extrabold text-brand-ink">{m.rating}</span>
                     <span className="text-xs text-brand-muted">({m.reviews})</span>
@@ -323,19 +340,20 @@ function TopMfoSection() {
               </div>
 
               <div className="flex flex-col gap-2 md:items-end">
-                <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                <button className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98] md:w-auto">
                   Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </button>
                 <Link
                   to="/mfo/$slug"
                   params={{ slug: m.slug }}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                  className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue md:w-auto"
                 >
                   <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор
                 </Link>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -381,9 +399,9 @@ function CalculatorSection() {
                 <span className="text-sm font-bold text-brand-muted">Срок</span>
                 <span className="text-2xl font-extrabold text-brand-ink">{term} дн.</span>
               </div>
-              <Slider min={7} max={30} step={1} value={[term]} onValueChange={(v) => setTerm(v[0])} className="mt-4" />
+              <Slider min={tr.min} max={tr.max} step={1} value={[term]} onValueChange={(v) => setTerm(v[0])} className="mt-4" />
               <div className="mt-2 flex justify-between text-[11px] font-bold text-brand-muted">
-                <span>7 дн.</span><span>30 дн.</span>
+                <span>{tr.min} дн.</span><span>{tr.max} дн.</span>
               </div>
             </div>
           </div>
@@ -414,11 +432,12 @@ function Stat({ label, value, highlight }: { label: string; value: string; highl
 }
 
 function UseCasesSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Когда нужен займ 5 000 рублей?
+          Когда нужен займ {fmt}?
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Самые частые причины обращения за небольшим займом.
@@ -444,11 +463,12 @@ function UseCasesSection() {
 }
 
 function HowToSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Как получить займ 5 000 ₽ онлайн
+          Как получить займ {fmt} онлайн
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Три простых шага — от заявки до денег на карте.
@@ -498,12 +518,12 @@ function FullCatalogSection() {
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {fullCatalog.map((m) => (
-            <article key={m.slug} className="group flex flex-col rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-hover">
-              <div className="flex items-start justify-between">
-                <div className={cn("flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-extrabold text-white shadow-card", m.bg)}>
+            <article key={m.slug} className="group flex h-full flex-col rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-hover">
+              <div className="flex items-start justify-between gap-3">
+                <div className={cn("flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-extrabold text-white shadow-card", m.bg)}>
                   {m.letter}
                 </div>
-                <div className="text-right">
+                <div className="flex shrink-0 flex-col items-end whitespace-nowrap" style={{ minWidth: 76 }}>
                   <Stars rating={m.rating} />
                   <div className="mt-1 text-sm font-extrabold text-brand-ink">{m.rating}</div>
                   <div className="text-[11px] font-medium text-brand-muted">({m.reviews})</div>
@@ -514,7 +534,7 @@ function FullCatalogSection() {
                 <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
               </h3>
 
-              <div className="mt-3 flex flex-wrap gap-1.5">
+              <div className="mt-3 flex flex-wrap gap-1.5" style={{ minHeight: 28 }}>
                 {m.badges.map((b) => (
                   <span
                     key={b.l}
@@ -537,19 +557,28 @@ function FullCatalogSection() {
                 <Row k="Одобрение" v={m.approval} />
               </dl>
 
-              <button className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
-                Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
-              <Link
-                to="/mfo/$slug"
-                params={{ slug: m.slug }}
-                className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
-              >
-                <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
-              </Link>
+              <div className="mt-auto pt-5">
+                <button className="flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                  Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </button>
+                <Link
+                  to="/mfo/$slug"
+                  params={{ slug: m.slug }}
+                  className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                >
+                  <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор {m.name}
+                </Link>
+              </div>
             </article>
           ))}
         </div>
+
+        <Link
+          to="/mfo"
+          className="mt-8 flex h-12 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white text-sm font-bold text-brand-blue shadow-card transition-all hover:border-brand-blue hover:bg-brand-soft md:hidden"
+        >
+          Смотреть все МФО <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        </Link>
       </div>
     </section>
   );
@@ -565,6 +594,7 @@ function Row({ k, v, highlight }: { k: string; v: string; highlight?: boolean })
 }
 
 function CalcExamplesSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-5xl">
@@ -572,7 +602,7 @@ function CalcExamplesSection() {
           Сколько придётся вернуть?
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
-          Примеры расчёта для займа 5 000 ₽ при разных сроках и ставках.
+          Примеры расчёта для займа {fmt} при разных сроках и ставках.
         </p>
 
         {/* Desktop table */}
@@ -630,11 +660,12 @@ function CalcExamplesSection() {
 }
 
 function SeoTextSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="px-6 py-20">
       <article className="mx-auto max-w-4xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Что важно знать перед получением займа 5 000 ₽
+          Что важно знать перед получением займа {fmt}
         </h2>
         <p className="mt-5 text-base leading-relaxed text-brand-muted md:text-lg">
           Сумма 5 000 рублей — одна из самых востребованных в микрофинансировании. По статистике 2025 года, каждый третий онлайн-займ в России выдаётся именно в диапазоне 3 000–7 000 ₽. Это деньги «до зарплаты», которые помогают закрыть срочные расходы без сложных бюрократических процедур.
@@ -685,11 +716,12 @@ function SeoTextSection() {
 
 function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
+  const fmt = FORMAT(useAmount());
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Частые вопросы про займ 5 000 ₽
+          Частые вопросы про займ {fmt}
         </h2>
         <p className="mt-3 text-base text-brand-muted md:text-lg">
           Ответы на самые популярные вопросы заёмщиков.
