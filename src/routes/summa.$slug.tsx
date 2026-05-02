@@ -463,11 +463,12 @@ function UseCasesSection() {
 }
 
 function HowToSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
-          Как получить займ 5 000 ₽ онлайн
+          Как получить займ {fmt} онлайн
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
           Три простых шага — от заявки до денег на карте.
