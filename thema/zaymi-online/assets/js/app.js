@@ -209,11 +209,11 @@
     Object.values(inputs).forEach(function(el){ if (el) el.addEventListener('input', apply); });
     feats.forEach(function(f){ f.addEventListener('change', apply); });
     if (sortSel) sortSel.addEventListener('change', sort);
-    if (resetBtn) resetBtn.addEventListener('click', function(){
+    resetBtns.forEach(function(rb){ rb.addEventListener('click', function(){
       Object.values(inputs).forEach(function(el){ if (el) el.value = ''; });
       feats.forEach(function(f){ f.checked = false; });
       apply();
-    });
+    }); });
     viewBtns.forEach(function(b){ b.addEventListener('click', function(){ setView(b.dataset.zfView); }); });
 
     setView('grid');
