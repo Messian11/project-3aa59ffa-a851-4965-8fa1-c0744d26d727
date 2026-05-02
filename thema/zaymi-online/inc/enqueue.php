@@ -45,6 +45,10 @@ add_action('wp_enqueue_scripts', function () {
         ZAYMI_VERSION,
         true
     );
+    wp_localize_script('zaymi-app', 'zaymiData', [
+        'restUrl' => esc_url_raw( rest_url() ),
+        'homeUrl' => esc_url_raw( home_url('/') ),
+    ]);
 });
 
 /* Удаляем emoji и oEmbed-мусор для чистого <head> */
