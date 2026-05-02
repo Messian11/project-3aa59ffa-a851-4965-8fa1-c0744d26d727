@@ -5,10 +5,18 @@
   <div class="mx-auto max-w-7xl">
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
       <div class="lg:col-span-1">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-1 select-none">
-          <span class="text-2xl font-extrabold text-blue-500">Zaymi</span>
-          <span class="text-2xl font-extrabold text-emerald-500">Online</span>
-        </a>
+        <?php
+          $footer_logo = function_exists('zaymi_logo_footer_url') ? zaymi_logo_footer_url() : '';
+          if ($footer_logo): ?>
+          <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center select-none" aria-label="<?php bloginfo('name'); ?>">
+            <img src="<?php echo esc_url($footer_logo); ?>" alt="<?php bloginfo('name'); ?>" style="height:40px;width:auto;filter:brightness(0) invert(1)" decoding="async" />
+          </a>
+        <?php else: ?>
+          <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-1 select-none">
+            <span class="text-2xl font-extrabold text-blue-500">Zaymi</span>
+            <span class="text-2xl font-extrabold text-emerald-500">Online</span>
+          </a>
+        <?php endif; ?>
         <p class="mt-4 text-sm font-medium leading-relaxed text-white/65">
           <?php echo esc_html(zaymi_opt('footer_about', get_bloginfo('description') ?: 'Zaymi Online — независимый агрегатор МФО России. Сравниваем 50+ компаний и помогаем выбрать лучшие условия.')); ?>
         </p>

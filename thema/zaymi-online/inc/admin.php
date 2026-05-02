@@ -13,6 +13,36 @@ add_action('admin_menu', function () {
         'zaymi-tools',
         'zaymi_tools_page'
     );
+
+    /* Быстрая кнопка «🖼 Логотип» в боковом меню МФО — ведёт прямо в Customizer */
+    add_submenu_page(
+        'edit.php?post_type=mfo',
+        'Сменить логотип',
+        '🖼 Логотип сайта',
+        'manage_options',
+        'customize.php?autofocus[section]=zaymi_branding'
+    );
+});
+
+/* Виджет на главном дашборде: «Сменить логотип за 30 секунд» */
+add_action('wp_dashboard_setup', function () {
+    if (!current_user_can('manage_options')) return;
+    wp_add_dashboard_widget('zaymi_logo_widget', '🖼 Логотип Zaymi', function () {
+        $logo_id = get_theme_mod('custom_logo');
+        $url = $logo_id ? wp_get_attachment_image_url($logo_id, 'medium') : (get_template_directory_uri() . '/assets/img/logo.png');
+        ?>
+        <div style="text-align:center;padding:10px 0;">
+            <img src="<?php echo esc_url($url); ?>" alt="Текущий логотип" style="max-height:60px;max-width:200px;background:#f1f5f9;padding:8px;border-radius:8px;" />
+            <p style="margin:14px 0 6px;color:#64748b;font-size:13px;">
+                <?php echo $logo_id ? 'Текущий логотип установлен через Customizer.' : 'Используется логотип по умолчанию (assets/img/logo.png).'; ?>
+            </p>
+            <a href="<?php echo esc_url(admin_url('customize.php?autofocus[section]=zaymi_branding')); ?>"
+               class="button button-primary" style="margin-top:6px;">
+                Сменить логотип
+            </a>
+        </div>
+        <?php
+    });
 });
 
 function zaymi_tools_page() {
