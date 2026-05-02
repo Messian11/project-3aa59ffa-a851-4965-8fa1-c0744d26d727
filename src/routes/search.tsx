@@ -225,7 +225,7 @@ function SearchPage() {
                   key={f.key}
                   onClick={() => {
                     if (f.key === "q") setDraftQ("");
-                    updateSearch({ [f.key]: f.key === "amount" ? 0 : "" } as Partial<typeof searchSchema._type>);
+                    updateSearch({ [f.key]: f.key === "amount" ? 0 : "" } as Partial<z.infer<typeof searchSchema>>);
                   }}
                   className="inline-flex items-center gap-1.5 rounded-pill bg-white px-3 py-1.5 text-xs font-bold text-brand-ink ring-1 ring-inset ring-brand-line transition-all hover:ring-brand-blue"
                 >
