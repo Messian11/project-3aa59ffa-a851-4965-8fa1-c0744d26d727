@@ -133,7 +133,7 @@
     var countEl = root.querySelector('[data-zf-count]');
     var emptyEl = root.querySelector('[data-zf-empty]');
     var sortSel = root.querySelector('[data-zf-sort]');
-    var resetBtn= root.querySelector('[data-zf-reset]');
+    var resetBtns = Array.from(root.querySelectorAll('[data-zf-reset]'));
     var viewBtns= Array.from(root.querySelectorAll('[data-zf-view]'));
     var feats   = Array.from(root.querySelectorAll('[data-zf-feature]'));
     var inputs  = {
