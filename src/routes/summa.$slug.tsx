@@ -294,28 +294,37 @@ function TopMfoSection() {
         </p>
 
         <div className="mt-10 space-y-4">
-          {enriched.map((m, i) => (
+          {enriched.map((m, i) => {
+            const rankGradients = [
+              "from-[#f59e0b] to-[#dc2626]",
+              "from-brand-blue to-brand-green",
+              "from-brand-green to-brand-green/60",
+              "from-brand-blue/80 to-brand-blue/50",
+              "from-brand-ink to-[#334155]",
+            ];
+            return (
             <article
               key={m.slug}
-              className="grid gap-5 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:shadow-hover md:grid-cols-[64px_72px_1fr_auto] md:items-center md:p-6"
+              className="flex flex-col gap-4 rounded-2xl border border-brand-line bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-hover md:grid md:grid-cols-[64px_72px_1fr_auto] md:items-center md:gap-5 md:p-6"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-ink to-[#1f3349] text-3xl font-black text-white shadow-card">
-                {i + 1}
+              <div className="flex items-center gap-3 md:contents">
+                <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl font-black text-white shadow-card md:h-16 md:w-16 md:text-3xl", rankGradients[i] ?? rankGradients[4])}>
+                  {i + 1}
+                </div>
+                <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-xl font-extrabold text-white shadow-card md:h-[72px] md:w-[72px] md:text-3xl", m.bg)}>
+                  {m.letter}
+                </div>
               </div>
 
-              <div className={cn("flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-gradient-to-br text-3xl font-extrabold text-white shadow-card", m.bg)}>
-                {m.letter}
-              </div>
-
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl font-extrabold text-brand-ink">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                  <h3 className="text-lg font-extrabold text-brand-ink md:text-xl">
                     <Link to="/mfo/$slug" params={{ slug: m.slug }} className="hover:text-brand-blue">{m.name}</Link>
                   </h3>
                   <span className="inline-flex items-center rounded-pill bg-brand-amber/15 px-2.5 py-1 text-[11px] font-bold text-[#9a6300] ring-1 ring-inset ring-brand-amber/30">
                     {m.badge}
                   </span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
                     <Stars rating={m.rating} />
                     <span className="text-sm font-extrabold text-brand-ink">{m.rating}</span>
                     <span className="text-xs text-brand-muted">({m.reviews})</span>
@@ -331,19 +340,20 @@ function TopMfoSection() {
               </div>
 
               <div className="flex flex-col gap-2 md:items-end">
-                <button className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98]">
+                <button className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-pill bg-brand-green px-6 text-sm font-bold text-white shadow-card transition-all hover:bg-brand-green/90 hover:shadow-hover active:scale-[0.98] md:w-auto">
                   Получить {fmt} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </button>
                 <Link
                   to="/mfo/$slug"
                   params={{ slug: m.slug }}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue"
+                  className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-pill border border-brand-line bg-white px-5 text-sm font-bold text-brand-ink transition-all hover:border-brand-blue hover:bg-brand-soft hover:text-brand-blue md:w-auto"
                 >
                   <FileText className="h-4 w-4" strokeWidth={2.5} /> Обзор
                 </Link>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
