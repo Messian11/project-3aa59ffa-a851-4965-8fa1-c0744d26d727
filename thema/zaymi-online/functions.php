@@ -10,7 +10,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ZAYMI_VERSION', '3.2.1');
+define('ZAYMI_VERSION', '3.3.0');
 define('ZAYMI_DIR',     get_template_directory());
 define('ZAYMI_URI',     get_template_directory_uri());
 define('ZAYMI_DEMO_DIR', ZAYMI_DIR . '/demo-data');
@@ -45,6 +45,8 @@ require_once ZAYMI_DIR . '/inc/internal-links.php'; // related, LSI, автоз�
 require_once ZAYMI_DIR . '/inc/turbo.php';          // /turbo.xml для Яндекса
 require_once ZAYMI_DIR . '/inc/og-image.php';       // OG/Twitter теги + динамическая картинка
 require_once ZAYMI_DIR . '/inc/dashboard.php';      // 📊 Админ-дашборд с Chart.js
+require_once ZAYMI_DIR . '/inc/analytics.php';      // 📈 Я.Метрика + GA4 + GTM + JS-цели
+require_once ZAYMI_DIR . '/inc/recommended-plugins.php'; // 🧩 страница "Рекомендуемые плагины"
 
 /* ----- Trust & Compliance (Блок 3, v2.2) ----- */
 require_once ZAYMI_DIR . '/inc/reviews.php';        // отзывы + рейтинг + Schema Review
