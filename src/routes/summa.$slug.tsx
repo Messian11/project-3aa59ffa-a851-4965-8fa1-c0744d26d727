@@ -594,6 +594,7 @@ function Row({ k, v, highlight }: { k: string; v: string; highlight?: boolean })
 }
 
 function CalcExamplesSection() {
+  const fmt = FORMAT(useAmount());
   return (
     <section className="bg-brand-soft px-6 py-16 md:py-20">
       <div className="mx-auto max-w-5xl">
@@ -601,7 +602,7 @@ function CalcExamplesSection() {
           Сколько придётся вернуть?
         </h2>
         <p className="mt-3 max-w-2xl text-base text-brand-muted md:text-lg">
-          Примеры расчёта для займа 5 000 ₽ при разных сроках и ставках.
+          Примеры расчёта для займа {fmt} при разных сроках и ставках.
         </p>
 
         {/* Desktop table */}
