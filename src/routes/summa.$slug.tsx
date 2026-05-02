@@ -399,9 +399,9 @@ function CalculatorSection() {
                 <span className="text-sm font-bold text-brand-muted">Срок</span>
                 <span className="text-2xl font-extrabold text-brand-ink">{term} дн.</span>
               </div>
-              <Slider min={7} max={30} step={1} value={[term]} onValueChange={(v) => setTerm(v[0])} className="mt-4" />
+              <Slider min={tr.min} max={tr.max} step={1} value={[term]} onValueChange={(v) => setTerm(v[0])} className="mt-4" />
               <div className="mt-2 flex justify-between text-[11px] font-bold text-brand-muted">
-                <span>7 дн.</span><span>30 дн.</span>
+                <span>{tr.min} дн.</span><span>{tr.max} дн.</span>
               </div>
             </div>
           </div>
