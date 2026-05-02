@@ -47,6 +47,16 @@ add_action('wp_enqueue_scripts', function () {
         );
     }
 
+    // Стили списка блога (home/category/archive/search)
+    if (is_home() || is_category() || is_tag() || is_archive() || is_search()) {
+        wp_enqueue_style(
+            'zaymi-blog',
+            ZAYMI_URI . '/assets/css/blog.css',
+            ['zaymi-extra'],
+            ZAYMI_VERSION
+        );
+    }
+
     // Скрипт мобильного меню и аккордеонов
     wp_enqueue_script(
         'zaymi-app',
